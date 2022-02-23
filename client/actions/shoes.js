@@ -1,10 +1,10 @@
 import {getAllShoes} from '../apis'
 
-export const ADD_SHOES = "ADD_SHOES"
+export const GET_ALL_SHOES = "GET_ALL_SHOES"
 
-export function addAllShoes(shoeArr) {
+export function getAllShoesAction(shoeArr) {
     return {
-        type: ADD_SHOES,
+        type: GET_ALL_SHOES,
         shoeArr: shoeArr
     }
 }
@@ -15,7 +15,7 @@ export function getAllShoesThunk() {
     return (dispatch) => {
         getAllShoes()
         .then (shoeArr => {
-            dispatch(addAllShoes(shoeArr))
+            dispatch(getAllShoesAction(shoeArr))
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message

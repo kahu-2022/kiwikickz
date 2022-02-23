@@ -1,8 +1,8 @@
-import { ADD_SHOES } from '../actions/shoes'
+import { GET_ALL_SHOES } from '../actions/shoes'
 
 function allShoes (state = {}, action) {
     switch (action.type) {
-        case ADD_SHOES:
+        case GET_ALL_SHOES:
           return action.shoeArr
         default:
             return state

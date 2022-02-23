@@ -81,30 +81,31 @@ To run in production:
 ```sh
 npm start
 ```
+## Actions
 
-<br>
-<br>
-<br>
-#🚧🚧🚧 the following sections are boilerplate and need to be filled with real information once available🚧🚧🚧
+### shoes
+
+| type             | data     | purpose                                                 |
+| ---------------- | -------- | ------------------------------------------------------- |
+| GET_ALL_SHOES    | product  | retreive all shoes from the db and store in redux       |
 <br>
 
 ## Reducers (Client Side)
 
 | name           | purpose                                                              |
 | -------------- | -------------------------------------------------------------------- |
-| auth           | Store information regarding user logins, auth status and auth errors |
-| currentMeeting | Track meeting progress such as current cost and current duration     |
-| meetings       | store the list of meetings the user has attended in the past         |
-| users          | store the list of users who can attend meetings                      |
+| AllShoes       | Store all product information of all shoes in the store              |
+| shoe           | Store and track all product information for a selected shoe          |
+<br>
 
-## Actions
-
-### meetings
-
-| type             | data     | purpose                                                 |
-| ---------------- | -------- | ------------------------------------------------------- |
-| RECEIVE_MEETINGS | meetings | retreive meetings from the db and store in redux        |
-| ADD_MEETING      | meeting  | Add a single meeting to the history after it is created |
+## DB (Server Side)
+[DB diagramm:](https://dbdiagram.io/d/6215b80e485e433543fee930)
+<br>
+<br>
+<br>
+<br>
+#🚧🚧🚧 the following sections are boilerplate and need to be filled with real information once available🚧🚧🚧
+<br>
 
 ### users
 
@@ -131,13 +132,4 @@ npm start
 | Post   | /api/meetings           | Yes       | Save a completed meeting       | The Meeting that has been saved in db read format |
 | Get    | /api/meetings/:id/users | Yes       | Get the attendees of a Meeting | An Array of User objects                          |
 | Get    | /api/users              | Yes       | Get the users of the app       | An Array of User Objects                          |
-
-## DB (Server Side)
-
-DB diagramm:
-@Lewis: [Please add link from dbdiagramm.io](https://dbdiagram.io/home)
-
-
-
-
 
