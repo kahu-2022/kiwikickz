@@ -2,6 +2,8 @@ import React from 'react'
 
 import {Grid , Container} from 'semantic-ui-react'
 
+import ShoeCard from './ShoeCard'
+
 function ShoesContainer(props) {
   const shoes = props.data
   return (
