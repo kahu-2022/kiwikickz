@@ -8,7 +8,7 @@ function ShoesContainer(props) {
     <>
     <Container>
     <Grid container columns={6} divided stackable>
-    { shoe.map ((element, i)=> <ShoeCard data={element} key={element.name + i}/>)}
+    { shoes.map ((element, i)=> <ShoeCard data={element} key={element.name + i}/>)}
     </Grid>
     </Container>
     </>
