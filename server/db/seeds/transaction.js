@@ -1,16 +1,12 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
- */
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('transaction').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('transaction').insert([
+        {id: 1, product_id: 1, buyer_id: 1},
+        {id: 2, product_id: 2, buyer_id: 2},
+        {id: 3, product_id: 3, buyer_id: 3}
       ]);
     });
 };
