@@ -1,6 +1,6 @@
 import { ADD_SHOES } from '../actions/shoes'
 
-function shoes (state = {}, action) {
+function allShoes (state = {}, action) {
     switch (action.type) {
         case ADD_SHOES:
           return action.shoeArr
@@ -9,4 +9,4 @@ function shoes (state = {}, action) {
     }
 }
 
-export default shoes
+export default allShoes
