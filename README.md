@@ -20,7 +20,7 @@
 - [Semantic UI)](https://react.semantic-ui.com/)
 - [Auth0)](https://auth0.com/)
 
-### MVP
+## MVP
 On the homepage, as an unregistered user I can...<br>
 ... see a curated list of products, well shoes.<br>
 ... filter and search the products<br>
