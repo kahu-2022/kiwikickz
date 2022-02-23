@@ -11,7 +11,7 @@ export function addAllShoes(shoeArr) {
 
 // THUNKS
 
-export function addAllShoesThunk() {
+export function getAllShoesThunk() {
     return (dispatch) => {
         getAllShoes()
         .then (shoeArr => {
