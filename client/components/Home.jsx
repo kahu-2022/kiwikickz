@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllShoesThunk } from '../actions/shoes'
 
@@ -8,17 +8,17 @@ function Home () {
 
   useEffect(() => {
     dispatch(getAllShoesThunk())
+    console.log('testing')
   }, [])
-
-  // const [filterAllShoesArr, setFilterAllShoesArr ] = useState([])
-  const [hotPicks, setHotPicks ] = useState(true)
 
   // All shoes form state
   const allShoes = useSelector(state => state.allShoes)
 
-//  setFilterAllShoesArr(allShoes)
 
-  console.log(allShoes)
+  const [hotPicks, setHotPicks ] = useState(true)
+
+  console.log('allshoes', allShoes)
+  
 
   // Filter Functionality
   // I think we should filter and set such state here and then on apply filters we set a global filtered state
