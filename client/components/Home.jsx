@@ -29,7 +29,7 @@ function Home () {
     {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}
 
     
-      {allProducts.length > 0 ? <ProductContainer data={allProducts}/> : null}
+      {allProducts ? <ProductContainer data={allProducts}/> : null}
 
     </Container>
 

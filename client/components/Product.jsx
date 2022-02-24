@@ -2,17 +2,17 @@ import React, {useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { getAllShoesThunk } from '../actions/shoes'
+import { getAllProductsThunk } from '../actions/products'
 import { Card, Grid , Icon, Image , Reveal} from 'semantic-ui-react'
 
 function Product () {
 
  const { id } = useParams()
  const dispatch = useDispatch()
- const shoe = useSelector(globalState => globalState.allShoes[id - 1])
+ const shoe = useSelector(globalState => globalState.allProducts[id - 1])
 
   useEffect(() => {
-    dispatch(getAllShoesThunk())
+    dispatch(getAllProductsThunk())
   }, [])
 
   return (

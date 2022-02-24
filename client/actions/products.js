@@ -13,9 +13,11 @@ export function getAllProductsAction(productArr) {
 
 export function getAllProductsThunk() {
     return (dispatch) => {
+        console.log('1')
         getAllProduct()
         .then (productArr => {
-            dispatch(getAllProductsThunk(productArr))
+            console.log(productArr)
+            dispatch(getAllProductsAction(productArr))
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
