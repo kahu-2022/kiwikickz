@@ -6,9 +6,11 @@ function ShoeCard(props) {
   const obj = props.data
 
   return (
+    <>
+    <Link to={`/product/${obj.id}`}>
     <Grid.Column>
       <Card>
-        <Reveal animated='move'>
+        <Reveal animated='move right'>
         <Reveal.Content visible>
           <Image size= 'medium' src={obj.image1}/>
         </Reveal.Content>
@@ -33,6 +35,8 @@ function ShoeCard(props) {
       </Card>
 
   </Grid.Column>
+  </Link>
+  </>
   )
 }
 

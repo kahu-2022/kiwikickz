@@ -17,9 +17,7 @@ function Home () {
   }, [])
 
   const [hotPicks, setHotPicks ] = useState(true)
-  
-  
-  
+  const [filters, setFilters ] = useState()
 
   return (
     <>
