@@ -21,10 +21,10 @@ exports.seed = function (knex) {
           price: 8002,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/dior/dior1.jpg',
-          image2: '/shoeimages/dior/dior2.jpg',
-          image3: '/shoeimages/dior/dior3.jpg',
-          image4: '/shoeimages/dior/dior4.jpg'
+          image1: '/productimages/dior/dior1.jpg',
+          image2: '/productimages/dior/dior2.jpg',
+          image3: '/productimages/dior/dior3.jpg',
+          image4: '/productimages/dior/dior4.jpg'
 
         },
         {
@@ -44,10 +44,10 @@ exports.seed = function (knex) {
           price: 275,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/armoryNavy/armory1.jpeg',
-          image2: '/shoeimages/armoryNavy/armory2.jpeg',
-          image3: '/shoeimages/armoryNavy/armory3.jpeg',
-          image4: '/shoeimages/armoryNavy/armory4.jpeg'
+          image1: '/productimages/armoryNavy/armory1.jpeg',
+          image2: '/productimages/armoryNavy/armory2.jpeg',
+          image3: '/productimages/armoryNavy/armory3.jpeg',
+          image4: '/productimages/armoryNavy/armory4.jpeg'
         },
         {
           id: 3,
@@ -66,10 +66,10 @@ exports.seed = function (knex) {
           price: 422,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/Crimson/crimson1.jpeg',
-          image2: '/shoeimages/Crimson/crimson2.jpeg',
-          image3: '/shoeimages/Crimson/crimson3.jpeg',
-          image4: '/shoeimages/Crimson/crimson4.jpeg'
+          image1: '/productimages/Crimson/crimson1.jpeg',
+          image2: '/productimages/Crimson/crimson2.jpeg',
+          image3: '/productimages/Crimson/crimson3.jpeg',
+          image4: '/productimages/Crimson/crimson4.jpeg'
         },
         {
           id: 4,
@@ -88,10 +88,10 @@ exports.seed = function (knex) {
           price: 326,
           condition: 'used',
           receipt: '',
-          image1: '/shoeimages/Diamond/diamond1.jpeg',
-          image2: '/shoeimages/Diamond/diamond2.jpeg',
-          image3: '/shoeimages/Diamond/diamond3.jpeg',
-          image4: '/shoeimages/Diamond/diamond4.jpeg'
+          image1: '/productimages/Diamond/diamond1.jpeg',
+          image2: '/productimages/Diamond/diamond2.jpeg',
+          image3: '/productimages/Diamond/diamond3.jpeg',
+          image4: '/productimages/Diamond/diamond4.jpeg'
         },
         {
           id: 5,
@@ -110,10 +110,10 @@ exports.seed = function (knex) {
           price: 230,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/Flyease/fly1.jpeg',
-          image2: '/shoeimages/Flyease/fly2.jpeg',
-          image3: '/shoeimages/Flyease/fly3.jpeg',
-          image4: '/shoeimages/Flyease/fly4.jpeg'
+          image1: '/productimages/Flyease/fly1.jpeg',
+          image2: '/productimages/Flyease/fly2.jpeg',
+          image3: '/productimages/Flyease/fly3.jpeg',
+          image4: '/productimages/Flyease/fly4.jpeg'
         },
 
         {
@@ -133,10 +133,10 @@ exports.seed = function (knex) {
           price: 470,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/yeezy350/ye1.jpeg',
-          image2: '/shoeimages/yeezy350/ye2.jpeg',
-          image3: '/shoeimages/yeezy350/ye3.jpeg',
-          image4: '/shoeimages/yeezy350/ye4.jpeg'
+          image1: '/productimages/yeezy350/ye1.jpeg',
+          image2: '/productimages/yeezy350/ye2.jpeg',
+          image3: '/productimages/yeezy350/ye3.jpeg',
+          image4: '/productimages/yeezy350/ye4.jpeg'
         },
         {
           id: 7,
@@ -155,10 +155,10 @@ exports.seed = function (knex) {
           price: 184,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/yeezyboost/yeb1.jpeg',
-          image2: '/shoeimages/yeezyboost/yeb2.jpeg',
-          image3: '/shoeimages/yeezyboost/yeb1.jpeg',
-          image4: '/shoeimages/yeezyboost/yeb1.jpeg'
+          image1: '/productimages/yeezyboost/yeb1.jpeg',
+          image2: '/productimages/yeezyboost/yeb2.jpeg',
+          image3: '/productimages/yeezyboost/yeb1.jpeg',
+          image4: '/productimages/yeezyboost/yeb1.jpeg'
         },
         {
           id: 8,
@@ -177,10 +177,10 @@ exports.seed = function (knex) {
           price: 270,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/jordanchicago/chicago1.jpeg',
-          image2: '/shoeimages/jordanchicago/chicago2.jpeg',
-          image3: '/shoeimages/jordanchicago/chicago1.jpeg',
-          image4: '/shoeimages/jordanchicago/chicago1.jpeg'
+          image1: '/productimages/jordanchicago/chicago1.jpeg',
+          image2: '/productimages/jordanchicago/chicago2.jpeg',
+          image3: '/productimages/jordanchicago/chicago1.jpeg',
+          image4: '/productimages/jordanchicago/chicago1.jpeg'
         },
         {
           id: 9,
@@ -199,10 +199,10 @@ exports.seed = function (knex) {
           price: 260,
           condition: 'New',
           receipt: '',
-          image1: '/shoeimages/jordanretro/retro1.jpeg',
-          image2: '/shoeimages/jordanretro/retro2.jpeg',
-          image3: '/shoeimages/jordanretro/retro1.jpeg',
-          image4: '/shoeimages/jordanretro/retro1.jpeg'
+          image1: '/productimages/jordanretro/retro1.jpeg',
+          image2: '/productimages/jordanretro/retro2.jpeg',
+          image3: '/productimages/jordanretro/retro1.jpeg',
+          image4: '/productimages/jordanretro/retro1.jpeg'
         },
       ]);
     });
