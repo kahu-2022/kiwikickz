@@ -14,7 +14,7 @@
 
 ## Tech Explorations / Spikes
 - [Tech explorations](https://docs.google.com/document/d/1ucV3Lx6aF0YxyyNZHwbWLwv6ZnwMj8RLgUb4K3503GU/edit?usp=sharing)
-- 
+
 ## The Tech
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Redux](https://redux.js.org/)
