@@ -6,7 +6,7 @@ function Product () {
   return (
     <>
     <header />
-    <h2>Product</h2>
+    <h2>Products dddd</h2>
     </>
   )
 }
