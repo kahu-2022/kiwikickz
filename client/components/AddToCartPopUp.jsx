@@ -20,6 +20,7 @@ function AddToCartPopUp (props) {
     on='click'
     popper={{ id: 'popper-container', style: { zIndex: 2000 } }}
     trigger={<Card.Header as='h2'><a onClick={() => {dispatch(addToCart(product))}}><Icon name='plus circle'/></a>{`$ ${product.price}`}</Card.Header>}
+    hideOnScroll
   />
 )}
 
