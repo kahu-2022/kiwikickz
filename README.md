@@ -87,49 +87,29 @@ npm start
 
 | type             | data     | purpose                                                 |
 | ---------------- | -------- | ------------------------------------------------------- |
-| GET_ALL_SHOES    | product  | retreive all shoes from the db and store in redux       |
+| GET_ALL_PRODUCTS | product  | retreive all products from the db and store in redux    |
 <br>
 
 ## Reducers (Client Side)
 
 | name           | purpose                                                              |
 | -------------- | -------------------------------------------------------------------- |
-| AllShoes       | Store all product information of all shoes in the store              |
-| shoe           | Store and track all product information for a selected shoe          |
+| AllProduct     | Store all product information of all products in the store           |
+| product        | Store and track all product information for a selected product       |
 <br>
-
-## DB (Server Side)
-[DB diagramm:](https://dbdiagram.io/d/6215b80e485e433543fee930)
-<br>
-<br>
-<br>
-<br>
-#🚧🚧🚧 the following sections are boilerplate and need to be filled with real information once available🚧🚧🚧
-<br>
-
-### users
-
-| type          | data  | purpose                            |
-| ------------- | ----- | ---------------------------------- |
-| RECEIVE_USERS | users | retreive the users from the server |
-
-### currentMeeting
-
-| type            | data                         | purpose                                          |
-| --------------- | ---------------------------- | ------------------------------------------------ |
-| START_MEETING   | attendees ([]), meeting_name | a meeting has started, set initial meeting state |
-| END_MEETING     | null                         | Set meeting in progress flag to false            |
-| TICK_ONE_SECOND | null                         | Increase running total by 1s worth of $          |
-| RESET_MEETING   | null                         | Revert to initial state                          |
 
 ## API (Client - Server)
 
 | Method | Endpoint                | Protected | Usage                          | Response                                          |
 | ------ | ----------------------- | --------- | ------------------------------ | ------------------------------------------------- |
-| Post   | /api/auth/login         | Yes       | Log In a User                  | The Users JWT Token                               |
-| Post   | /api/auth/register      | Yes       | Register a User                | The Users JWT Token                               |
-| Get    | /api/meetings           | Yes       | Get a Users Meeting Histroy    | An Array of Meetings                              |
-| Post   | /api/meetings           | Yes       | Save a completed meeting       | The Meeting that has been saved in db read format |
-| Get    | /api/meetings/:id/users | Yes       | Get the attendees of a Meeting | An Array of User objects                          |
-| Get    | /api/users              | Yes       | Get the users of the app       | An Array of User Objects                          |
+| Get    | /api/v1/product         | No        | Get All Products               | An Array Products                                 |
+<br>
+
+## DB (Server Side)
+[DB diagramm](https://dbdiagram.io/d/6215b80e485e433543fee930)
+<br>
+
+
+
+
 
