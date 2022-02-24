@@ -9,6 +9,13 @@ export function getAllProductsAction(productArr) {
     }
 }
 
+export function addToCart(product) {
+    return {
+        type: 'ADD_ITEM',
+        product: product
+    }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
