@@ -12,6 +12,9 @@
 - [Mural with Wireframes of MVP](https://app.mural.co/t/mahimanager3059/m/mahimanager3059/1645566429135/9f3cb87d7f24a01b6e26a00814d2d034cc4686ae?sender=u1a5b680ac0db02b3c2df7835)
 - [Trelloboard to organise our work (prioritising, planning, assign, manage (standup))](https://trello.com/b/YlvgGwxG/kiwikickz)
 
+## Tech Explorations / Spikes
+- [Tech explorations](https://docs.google.com/document/d/1ucV3Lx6aF0YxyyNZHwbWLwv6ZnwMj8RLgUb4K3503GU/edit?usp=sharing)
+
 ## The Tech
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Redux](https://redux.js.org/)
