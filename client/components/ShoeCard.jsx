@@ -8,7 +8,14 @@ function ShoeCard(props) {
   return (
     <Grid.Column>
       <Card>
-        <Image src={obj.image1} wrapped ui={false} />
+        <Reveal animated='move'>
+        <Reveal.Content visible>
+          <Image size= 'medium' src={obj.image1}/>
+        </Reveal.Content>
+        <Reveal.Content hidden>
+          <Image size= 'medium' src={obj.image2} />
+        </Reveal.Content>
+      </Reveal>
         <Card.Content>
           <Card.Header>{obj.name}</Card.Header>
           <Card.Meta>
