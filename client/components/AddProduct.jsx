@@ -3,10 +3,12 @@ import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
 import {addProductThunk} from '../actions/shoes'
 import { Button, Container,Form } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom'
 
 function AddProduct () {
-  const dispatch = useDispatch()
-  const [formData, setFormData] = useState({
+  const navigate = useNavigate()
+
+  const emptyForm = {
     sellerId: '',
     hotPick:'',
     status:'',
@@ -26,8 +28,10 @@ function AddProduct () {
     image2:'',
     image3:'',
     image4:''
-  })
-   
+  }
+
+  const dispatch = useDispatch()
+  const [formData, setFormData] = useState(emptyForm)
   
 
   const handleSubmit = (e) => {
@@ -36,8 +40,13 @@ function AddProduct () {
       const image1 = Base64.encode(bytes);
       console.log({ ...formData, image1 })
     });
-    dispatch(addProductThunk(formData))
+    addProduct().then
+    // navigate(`product/${newProductId}`)
   }
+
+ const addProduct = async () => {
+   const newProductId = dispatch(addProductThunk(formData))
+ }
 
   const handleChange = (e) => {
     // console.log(e.target.name, e.target.value)

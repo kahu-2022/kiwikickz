@@ -30,8 +30,12 @@ export function addProductThunk(product) {
     return (dispatch) => {
         addProduct(product)
         .then ((id) => {
-            console.log(id)
             dispatch(getAllShoesThunk())
+            return id
+        })
+        .then ((id) => {
+            console.log("TESTING to see if the second .then WORKS ", id + 1000)
+            return id + 1000
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
