@@ -2,42 +2,40 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllShoesThunk } from '../actions/shoes'
 import AddProduct from './AddProduct'
+import {Grid , Container} from 'semantic-ui-react'
+
+import ShoesContainer from './ShoesContainer'
+import ShoeCard from './ShoeCard'
 
 function Home () {
+
+  const allShoes = useSelector(state => state.allShoes)
   
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllShoesThunk())
-    console.log('testing')
   }, [])
 
-  // All shoes form state
-  const allShoes = useSelector(state => state.allShoes)
-
-
   const [hotPicks, setHotPicks ] = useState(true)
-
-  console.log('allshoes', allShoes)
-  
-
-  // Filter Functionality
-  // I think we should filter and set such state here and then on apply filters we set a global filtered state
-
-  // const hotPicks = allShoesArr.map(shoe => shoe.hot_pick === true)
+  const [filters, setFilters ] = useState()
 
   return (
     <>
-    <h2>Home</h2>
-    <AddProduct></AddProduct>
-
+    <Container style={{ marginTop: '3em'}}>
+    {/* <ShoesContainer data={allShoes}/> */}
     {/* Search functionality immplemented here */}
     {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}
 
+    
+      {allShoes.length > 0 ? <ShoesContainer data={allShoes}/> : null}
+
+    </Container>
 
     {/* Ternary here sets initial display as hot picks */}
     {/* {hotPicks ? renders hotpics : renders search functionality} */}
     {/* Cards Section where we map over the filtered array*/}
+
     </>
   )
 }

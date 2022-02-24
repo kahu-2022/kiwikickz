@@ -11,7 +11,7 @@
     "start": "node server",
     "test": "jest",
     "test:watch": "jest --noStackTrace --watchAll",
-    "dev": "run-p dev:client dev:server",
+    "dev": "sed -i 's/;;/;/g' node_modules/semantic-ui-css/semantic.min.css && run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
     "dev:server": "nodemon --watch server server/index.js",
     "webpack": "webpack --config ./client/webpack.config.js",
@@ -87,7 +87,6 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.1",
     "snakecase-keys": "^5.1.2",
-    "sqlite3": "^5.0.2",
     "superagent": "^6.1.0"
   }
 }
