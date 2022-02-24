@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
-import allShoes from './allShoes'
-import shoe from './shoe'
+import allProducts from './allProducts'
+import product from './product'
 
 
 // import stuff from './stuff'
 
 export default combineReducers({
-  allShoes,
-  shoe
+  allProducts,
+  product
 })
