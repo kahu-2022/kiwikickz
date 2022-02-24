@@ -72,6 +72,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@vscode/sqlite3": "^5.0.7",
+    "camelcase-keys": "^7.0.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -84,6 +85,7 @@
     "pg": "^8.5.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.1",
+    "snakecase-keys": "^5.1.2",
     "sqlite3": "^5.0.2",
     "superagent": "^6.1.0"
   }
