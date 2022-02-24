@@ -1,7 +1,7 @@
 const connection = require('./connection')
 
 function getShoes(db = connection) {
-    return db('user')
+    return db('product')
 }
 
 module.exports = {
