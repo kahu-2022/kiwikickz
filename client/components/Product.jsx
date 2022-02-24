@@ -3,14 +3,17 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getAllShoesThunk } from '../actions/shoes'
-import { Card, Grid , Icon, Image , Reveal} from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
+import ImageCarousel from "./ImageCarousel";
 
 function Product () {
 
  const { id } = useParams()
  const dispatch = useDispatch()
- const shoe = useSelector(globalState => globalState.allShoes[id - 1])
+ const shoes = useSelector(globalState => globalState.allShoes)
+ const shoe = shoes.find(shoe => shoe.id == Number(id))
 
+//add loader / skeleton
   useEffect(() => {
     dispatch(getAllShoesThunk())
   }, [])
@@ -18,12 +21,16 @@ function Product () {
   return (
     <>
     <header />
+    <ImageCarousel product = {shoe} />
     <p>shoe id from URL is: {id}</p>
     <p>{shoe ? shoe.name : "nothing"}</p>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image1} /> : "nothing"}</div>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image2} /> : "nothing"}</div>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image3} /> : "nothing"}</div>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image4} /> : "nothing"}</div>
+    <p>{shoe?.name}</p>
+    <div>{<Image  size= 'medium' src={shoe ? shoe.image1 : "loading" } />}</div>
+
+    <div>{shoe ? <Image size= 'medium' src={shoe.image1} /> : "loading"}</div>
+    <div>{shoe ? <Image size= 'medium' src={shoe.image2} /> : "loading"}</div>
+    <div>{shoe ? <Image size= 'medium' src={shoe.image3} /> : "loading"}</div>
+    <div>{shoe ? <Image size= 'medium' src={shoe.image4} /> : "loading"}</div>
     </>
   )
 }

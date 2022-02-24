@@ -83,6 +83,7 @@
     "knex": "^1.0.2",
     "multer": "^1.4.4",
     "pg": "^8.5.1",
+    "pure-react-carousel": "^1.28.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.1",
     "snakecase-keys": "^5.1.2",
