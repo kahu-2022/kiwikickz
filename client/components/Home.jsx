@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllShoesThunk } from '../actions/shoes'
+import AddProduct from './AddProduct'
 
 function Home () {
   
@@ -28,6 +29,7 @@ function Home () {
   return (
     <>
     <h2>Home</h2>
+    <AddProduct></AddProduct>
 
     {/* Search functionality immplemented here */}
     {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}

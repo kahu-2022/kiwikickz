@@ -1,4 +1,4 @@
-import {getAllShoes} from '../apis'
+import {getAllShoes, addProduct} from '../apis'
 
 export const GET_ALL_SHOES = "GET_ALL_SHOES"
 
@@ -25,7 +25,22 @@ export function getAllShoesThunk() {
 
     }
 }
+//add new product thunk
+export function addProductThunk(product) {
+    return (dispatch) => {
+        addProduct(product)
+        .then ((id) => {
+            console.log(id)
+            dispatch(getAllShoesThunk())
+        })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+          })
 
+    }
+}
 
 // export function fetchOrders() {
 //     return ((dispatch) => {
