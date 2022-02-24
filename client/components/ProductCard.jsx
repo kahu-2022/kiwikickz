@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Grid , Icon, Image , Reveal} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-function ShoeCard(props) {
+function ProductCard(props) {
   const obj = props.data
 
   return (
@@ -39,4 +39,4 @@ function ShoeCard(props) {
   )
 }
 
-export default ShoeCard
+export default ProductCard

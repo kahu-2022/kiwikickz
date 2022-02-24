@@ -5,7 +5,7 @@ import CartItem from './CartItem'
 
 function Cart() {
   const dispatch = useDispatch()
-  const cartItem = useSelector(globalState => globalState.shoe)
+  const cartItem = useSelector(globalState => globalState.product)
 
   console.log(cartItem)
 
