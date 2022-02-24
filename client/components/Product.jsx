@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react';
+import { useSelector } from 'react-redux'
+
 
 function Product () {
   return (
     <>
-    <h2>Product</h2>
+    <header />
+    <h2>Products dddd</h2>
     </>
   )
 }
