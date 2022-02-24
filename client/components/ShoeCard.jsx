@@ -28,9 +28,8 @@ function ShoeCard(props) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
-          <Card.Header as='h2'>{`$ ${obj.price}`}</Card.Header>
-          </a>
+          <Card.Header as='h2'><Icon name='plus circle'/>{`$ ${obj.price}`}</Card.Header>
+          
         </Card.Content>
       </Card>
 

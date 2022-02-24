@@ -9,6 +9,13 @@ export function getAllShoesAction(shoeArr) {
     }
 }
 
+export function addToCart(product) {
+    return {
+        type: 'ADD_ITEM',
+        product: product
+    }
+}
+
 // THUNKS
 
 export function getAllShoesThunk() {
@@ -27,17 +34,3 @@ export function getAllShoesThunk() {
 }
 
 
-// export function fetchOrders() {
-//     return ((dispatch) => {
-//       dispatch(orderPending())
-//       getOrders()
-//       .then(thing => {
-//         console.log(thing)
-//         dispatch(saveOrders(thing))
-//         dispatch(orderSuccess())
-//       })
-//       .catch((err) => {
-//         const errMessage = err.response?.text || err.message
-//           dispatch(showError(errMessage))
-//       })
-//     })

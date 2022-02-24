@@ -4,6 +4,7 @@ import React from 'react'
 function CartItem(props) {
   const cartItem = props.data
   return (
+    <>
     <Item>
           <Item.Image size='small' src={cartItem.image1} />
           <Item.Image size='small' src={cartItem.image2} />
@@ -24,6 +25,8 @@ function CartItem(props) {
             </Item.Extra>
           </Item.Content>
     </Item>
+    <Divider/>
+    </>
   )
 }
 
