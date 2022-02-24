@@ -71,6 +71,11 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.4.2",
+    "@mui/material": "^5.4.3",
+    "@mui/styled-engine-sc": "^5.4.2",
     "@vscode/sqlite3": "^5.0.7",
     "camelcase-keys": "^7.0.2",
     "cors": "^2.8.5",
@@ -87,6 +92,7 @@
     "semantic-ui-react": "^2.1.1",
     "snakecase-keys": "^5.1.2",
     "sqlite3": "^5.0.2",
+    "styled-components": "^5.3.3",
     "superagent": "^6.1.0"
   }
 }

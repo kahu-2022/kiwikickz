@@ -1,6 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Container, Header } from 'semantic-ui-react'
+import { useSelector } from 'react-redux'
 import CartCheckout from './CartCheckout'
 
 // Example Object
@@ -28,43 +27,40 @@ import CartCheckout from './CartCheckout'
 
 
 function Cart() {
-  const dispatch = useDispatch()
   const cartItem = useSelector(globalState => globalState.shoe)
 
   console.log(cartItem)
 
   return (
     <div>
-      <Container textAlign='center'>
-        <Header as='h2'>Items in Cart</Header>
-        <p>
-          Details: {cartItem.name}
-        </p>
-        <p>
-          Details: {cartItem.details}
-        </p>
-        <p>
-          Make: {cartItem.make}
-        </p>
-        <p>
-          Model: {cartItem.model}
-        </p>
-        <p>
-          Name: {cartItem.name}
-        </p>
-        <p>
-          Condition: {cartItem.condition}
-        </p>
-        <p>
-          Year made: {cartItem.year}
-        </p>
-        <p>
-          Shoe Size {cartItem.size}
-        </p>
-        <p>
-          Price:  {cartItem.price}
-        </p>
-      </Container>
+      <h2>Items in Cart</h2>
+      <p>
+        Details: {cartItem.name}
+      </p>
+      <p>
+        Details: {cartItem.details}
+      </p>
+      <p>
+        Make: {cartItem.make}
+      </p>
+      <p>
+        Model: {cartItem.model}
+      </p>
+      <p>
+        Name: {cartItem.name}
+      </p>
+      <p>
+        Condition: {cartItem.condition}
+      </p>
+      <p>
+        Year made: {cartItem.year}
+      </p>
+      <p>
+        Shoe Size {cartItem.size}
+      </p>
+      <p>
+        Price:  {cartItem.price}
+      </p>
       {/* <CartCheckout /> */}
     </div>
   )
