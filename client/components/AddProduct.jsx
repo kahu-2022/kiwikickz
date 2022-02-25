@@ -36,33 +36,34 @@ function AddProduct () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    formData.image1.arrayBuffer().then(bytes => {
-      const image1 = Base64.encode(bytes);
-      console.log({ ...formData, image1 })
-    });
-    addProduct().then
-    // navigate(`product/${newProductId}`)
+    // formData.image1.arrayBuffer().then(bytes => {
+    // const image11 = Base64.encode(bytes);
+    // console.log(typeof image11, image11)
+    // return image11
+    // });
+    dispatch(addProductThunk(formData))
+    //navigate(`product/${1}`)
   }
 
- const addProduct = async () => {
-   const newProductId = dispatch(addProductThunk(formData))
- }
+//  const addProduct = async () => {
+//    const newProductId = dispatch(addProductThunk(formData))
+//  }
 
   const handleChange = (e) => {
-    // console.log(e.target.name, e.target.value)
     console.log('change1', formData.name)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
-    // console.log('change2', formData.name)
   }
+  
   const handleFileChange = (e) => {
     // console.log(e.target.name, e.target.value)
     console.log('change1', formData.name)
+    console.log({[e.target.name]: "TEST"})//e.target.files[0]})
     setFormData({
       ...formData,
-      [e.target.name]: e.target.files[0]
+      [e.target.name]: "TEST" //e.target.files[0]
     })
     // console.log('change2', formData.name)
   }
