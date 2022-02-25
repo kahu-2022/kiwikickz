@@ -72,13 +72,18 @@ function AddProduct () {
     })
     // console.log('change2', formData.name)
   }
-  console.log(colorArr)
+  
   const addColor = (e)=> {
     e.preventDefault()
     setColorArr([...colorArr, color])
-    
+
     setColor('')
     
+  }
+
+  const removeCol = (color) => {
+    const newArr = colorArr.filter( element => { element !== color})
+    setColorArr(newArr)
   }
 
   return (
@@ -121,7 +126,7 @@ function AddProduct () {
         <label htmlFor='color'>Color: </label>
         <ColorSelector data = {setColor}  />
         <Button onClick = {addColor}>Add</Button>
-        {colorArr.map((color, i) => { return <ColorLabel color={color} key={`${color}${i}`}/>})}
+        {colorArr.map((color, i) => { return <ColorLabel color={color} del={removeCol} key={`${color}${i}`}/>})}
         
         {/* <input id='color' name='color' type='text' onChange={handleChange} /> */}
         </Form.Field>
