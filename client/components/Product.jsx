@@ -2,22 +2,21 @@ import React, {useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { getAllShoesThunk } from '../actions/shoes'
 import { Image, Container, Segment } from 'semantic-ui-react'
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-
+import { getAllProductsThunk } from '../actions/products'
 
 function Product () {
 
  const { id } = useParams()
  const dispatch = useDispatch()
- const shoes = useSelector(globalState => globalState.allShoes)
+ const shoes = useSelector(globalState => globalState.allProducts)
  const shoe = shoes.find(shoe => shoe.id == Number(id))
 
 //add loader / skeleton
   useEffect(() => {
-    dispatch(getAllShoesThunk())
+    dispatch(getAllProductsThunk())
   }, [])
 
   return (

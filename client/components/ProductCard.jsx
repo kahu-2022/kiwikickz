@@ -1,15 +1,18 @@
 import React from 'react'
 import { Card, Grid , Icon, Image , Reveal} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import AddToCartPopUp from './AddToCartPopUp'
 
-function ShoeCard(props) {
+function ProductCard(props) {
   const obj = props.data
+  
 
   return (
     <>
-    <Link to={`/product/${obj.id}`}>
+    
     <Grid.Column>
       <Card>
+      <Link to={`/product/${obj.id}`}>
         <Reveal animated='move right'>
         <Reveal.Content visible>
           <Image size= 'medium' src={obj.image1}/>
@@ -18,6 +21,7 @@ function ShoeCard(props) {
           <Image size= 'medium' src={obj.image2} />
         </Reveal.Content>
       </Reveal>
+      </Link>
         <Card.Content>
           <Card.Header>{obj.name}</Card.Header>
           <Card.Meta>
@@ -28,16 +32,15 @@ function ShoeCard(props) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
-          <Card.Header as='h2'>{`$ ${obj.price}`}</Card.Header>
-          </a>
+          <AddToCartPopUp data={obj}/>
+          
         </Card.Content>
       </Card>
 
   </Grid.Column>
-  </Link>
+  
   </>
   )
 }
 
-export default ShoeCard
+export default ProductCard
