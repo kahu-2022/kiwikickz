@@ -6,6 +6,8 @@ import {Grid , Container} from 'semantic-ui-react'
 import ProductContainer from './ProductContainer'
 import ProductCard from './ProductCard'
 
+import { productFitsFilter } from '../lib'
+
 function Home () {
 
   const allProducts = useSelector(state => state.allProducts)
@@ -15,6 +17,11 @@ function Home () {
   useEffect(() => {
     dispatch(getAllProductsThunk())
   }, [])
+
+  const hotPicksFilter = [{ key: 'hotPicks', value: 1 }]
+
+  const result = productFitsFilter(allProducts[0], hotPicksFilter)
+  console.log(result)
 
   const [hotPicks, setHotPicks ] = useState(true)
   const [filters, setFilters ] = useState()
