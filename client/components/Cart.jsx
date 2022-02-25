@@ -1,37 +1,36 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Container, Header } from 'semantic-ui-react'
-import CartCheckout from './CartCheckout'
+import StripeCheckout from 'react-stripe-checkout'
 
-// Example Object
-// auth_status: true
-// brand: "Nike"
-// color: "White"
-// condition: "New"
-// details: "Jordan Brand connected with Parisian fashion house."
-// hot_pick: true
-// id: 1
-// image1: "/shoeimges/dior/dior1"
-// image2: "/shoeimges/dior/dior1"
-// image3: "/shoeimges/dior/dior1"
-// image4: "/shoeimges/dior/dior1"
-// make: "Jordan 1"
-// model: "Dior High"
-// name: "Jordan 1 Retro High"
-// price: 8000
-// receipt: ""
-// seller_id: 1
-// size: 9
-// status: "available"
-// year: 2020
+const KEY = `process.env.REACT_APP_STRIPE`
 
 
 
 function Cart() {
-  const dispatch = useDispatch()
   const cartItem = useSelector(globalState => globalState.shoe)
+  const [stripeToken, setStripeToken] = useState(null)
 
-  console.log(cartItem)
+
+  const onToken = (token) => {
+    setStripeToken(token)
+
+  }
+
+  // useEffect(() => {
+  //   const makeRequest = async () => {
+  //     try {
+  //       const res = await userRequest.post("/checkout/payment", {
+  //         tokenId: stripeToken.id,
+  //         amount: 500,
+  //       });
+  //       history.push("/success", {
+  //         stripeData: res.data,
+  //         products: cartItem, });
+  //     } catch {}
+  //   };
+  //   stripeToken && makeRequest();
+  // }, [stripeToken, cartItem.total, history]);
 
   return (
     <div>
@@ -66,8 +65,21 @@ function Cart() {
         </p>
       </Container>
       {/* <CartCheckout /> */}
+      <StripeCheckout
+        name="Kiwi Kickz"
+        image="https://avatars.githubusercontent.com/u/1486366?v=4"
+        billingAddress
+        shippingAddress
+        description={`Your total is $${cartItem.price}`}
+        amount={cartItem.price * 100}
+        token={onToken}
+        stripeKey={KEY}
+      >
+        <button>CHECKOUT NOW</button>
+      </StripeCheckout>
     </div>
   )
 }
+
 
 export default Cart
