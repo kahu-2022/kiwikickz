@@ -2,28 +2,43 @@ import React, {useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { Image, Container, Segment } from 'semantic-ui-react'
+import ImageCarousel from "./ImageCarousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
 import { getAllProductsThunk } from '../actions/products'
-import { Card, Grid , Icon, Image , Reveal} from 'semantic-ui-react'
 
 function Product () {
 
  const { id } = useParams()
  const dispatch = useDispatch()
- const shoe = useSelector(globalState => globalState.allProducts[id - 1])
+ const shoes = useSelector(globalState => globalState.allProducts)
+ const shoe = shoes.find(shoe => shoe.id == Number(id))
 
+//add loader / skeleton
   useEffect(() => {
     dispatch(getAllProductsThunk())
   }, [])
 
   return (
     <>
-    <header />
-    <p>shoe id from URL is: {id}</p>
-    <p>{shoe ? shoe.name : "nothing"}</p>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image1} /> : "nothing"}</div>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image2} /> : "nothing"}</div>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image3} /> : "nothing"}</div>
-    <div>{shoe ? <Image size= 'medium' src={shoe.image4} /> : "nothing"}</div>
+      <header />
+      <h1>{shoe?.name}</h1>
+
+      <Container id="Carousel">
+        <Segment attached="bottom">
+          <ImageCarousel product = {shoe} />
+        </Segment>
+      </Container>
+
+      <br/>
+      <Container id="description">
+        <p><strong>Description: <br/></strong>{shoe?.details}</p>
+        <p><strong>Brand: </strong>{shoe?.brand}</p>
+        <p><strong>Color: </strong>{shoe?.color}</p>
+        <p><strong>Condition: </strong>{shoe?.condition}</p>
+        <p><strong>Model: </strong>{shoe?.model}</p>
+        <p><strong>Year: </strong>{shoe?.year}</p>
+      </Container>
     </>
   )
 }

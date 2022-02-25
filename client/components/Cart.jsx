@@ -14,7 +14,7 @@ function Cart() {
         <Divider/>
         <Header as='h2'>Items in Cart</Header>
         <Divider/>
-        {cart.map( item => <CartItem data={item}/>)}
+        {cart ? cart.map( item => <CartItem data={item}/>) : null}
         
         
       </Container>
