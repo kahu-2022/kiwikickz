@@ -1,7 +1,7 @@
 const connection = require('./connection')
 const snakecase = require('snakecase-keys')
 
-function getShoes(db = connection) {
+function getProducts(db = connection) {
     return db('product')
 }
 
@@ -11,6 +11,6 @@ function addProduct (newProduct, db = connection) {
 }
 
 module.exports = {
-    getShoes,
+    getProducts, 
     addProduct
 }

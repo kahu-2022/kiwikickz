@@ -1,5 +1,4 @@
-
-function shoe (state = {
+function product (state = {
     id: 1,
     seller_id: 1,
     hot_pick: true,
@@ -16,10 +15,10 @@ function shoe (state = {
     price: 8000,
     condition: 'New',
     receipt: '',
-    image1: '/shoeimges/dior/dior1',
-    image2: '/shoeimges/dior/dior1',
-    image3: '/shoeimges/dior/dior1',
-    image4: '/shoeimges/dior/dior1'
+    image1: '/productimages/dior/dior1.jpg',
+    image2: '/productimages/dior/dior2.jpg',
+    image3: '/productimages/dior/dior3.jpg',
+    image4: '/productimages/dior/dior4.jpg'
 
 }, action) {
     switch (action.type) {
@@ -29,4 +28,4 @@ function shoe (state = {
     }
 }
 
-export default shoe
+export default product

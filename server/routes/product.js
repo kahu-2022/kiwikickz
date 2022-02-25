@@ -1,13 +1,13 @@
 const express = require('express')
 const camelCase = require('camelcase-keys')
 
-const db = require('../db/shoes')
+const db = require('../db/product')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    db.getShoes()
-      .then(shoeArr => {
-        res.json(camelCase(shoeArr))
+    db.getProducts()
+      .then(productArr => {
+        res.json(camelCase(productArr))
       })
       .catch((err) => {
         console.error("Database: " + err.message)

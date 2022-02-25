@@ -11,7 +11,7 @@ function App () {
     <>
       <header className="header">
       <header className="header">
-        <Header as = 'h1' textAlign='center'>KiwiKickz</Header>
+        <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
       </header>
       </header>
       <section className="main">

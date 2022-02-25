@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import {addProductThunk} from '../actions/shoes'
+import {addProductThunk} from '../actions/products'
 import { Button, Container,Form } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
 
