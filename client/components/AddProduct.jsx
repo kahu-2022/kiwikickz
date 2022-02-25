@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
 import {addProductThunk} from '../actions/products'
-import { Button, Container,Form, Dropdown } from 'semantic-ui-react'
+import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
 import ColorSelector from './ColorSelector'
 import ColorLabel from './ColorLabel'
@@ -126,8 +126,13 @@ function AddProduct () {
         <label htmlFor='color'>Color: </label>
         <ColorSelector data = {setColor}  />
         <Button onClick = {addColor}>Add</Button>
-        {colorArr.map((color, i) => { return <ColorLabel color={color} del={removeCol} key={`${color}${i}`}/>})}
         
+        <Container>
+        <Grid container columns={12} divided stackable>
+        {colorArr.map((color, i) => { return <ColorLabel color={color} del={removeCol} key={`${color}${i}`}/>})}
+        </Grid>
+        
+        </Container>
         {/* <input id='color' name='color' type='text' onChange={handleChange} /> */}
         </Form.Field>
         <Form.Field>
