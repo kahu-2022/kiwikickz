@@ -5,7 +5,7 @@ import {addProductThunk} from '../actions/products'
 import { Button, Container,Form, Dropdown } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
 import ColorSelector from './ColorSelector'
-
+import ColorLabel from './ColorLabel'
 function AddProduct () {
   const navigate = useNavigate()
 
@@ -37,6 +37,7 @@ function AddProduct () {
   const[color, setColor]= useState('')
   const [colorArr, setColorArr]=useState([])
   
+  formData.color = JSON.stringify(colorArr)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -71,11 +72,13 @@ function AddProduct () {
     })
     // console.log('change2', formData.name)
   }
-
+  console.log(colorArr)
   const addColor = (e)=> {
     e.preventDefault()
     setColorArr([...colorArr, color])
+    
     setColor('')
+    
   }
 
   return (
@@ -118,7 +121,7 @@ function AddProduct () {
         <label htmlFor='color'>Color: </label>
         <ColorSelector data = {setColor}  />
         <Button onClick = {addColor}>Add</Button>
-
+        {colorArr.map((color, i) => { return <ColorLabel color={color} key={`${color}${i}`}/>})}
         
         {/* <input id='color' name='color' type='text' onChange={handleChange} /> */}
         </Form.Field>
