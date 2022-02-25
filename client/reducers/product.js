@@ -18,7 +18,7 @@ function product (state = {
     image1: '/productimages/dior/dior1.jpg',
     image2: '/productimages/dior/dior2.jpg',
     image3: '/productimages/dior/dior3.jpg',
-    image4: '/productimages/dior/dior4.jpeg'
+    image4: '/productimages/dior/dior4.jpg'
 
 }, action) {
     switch (action.type) {
