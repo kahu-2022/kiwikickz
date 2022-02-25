@@ -82,7 +82,7 @@ function AddProduct () {
   }
 
   const removeCol = (color) => {
-    const newArr = colorArr.filter( element => { element !== color})
+    const newArr = colorArr.filter( element => element !== color)
     setColorArr(newArr)
   }
 
