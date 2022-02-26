@@ -7,12 +7,9 @@ function ImageCarousel (props) {
 
 const shoe = props.product
 
-console.log(shoe)
-
 return (
   <>
      <CarouselProvider
-      size="medium"
       naturalSlideWidth={500}
       naturalSlideHeight={500}
       totalSlides={4}
