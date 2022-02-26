@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import {addProductThunk, getAllProductsThunk} from '../actions/products'
-import { Button, Container,Form } from 'semantic-ui-react'
+import {addProductThunk} from '../actions/products'
+import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
-
+import ColorSelector from './ColorSelector'
+import ColorLabel from './ColorLabel'
 function AddProduct () {
   const navigate = useNavigate()
 
@@ -32,28 +33,17 @@ function AddProduct () {
 
   const dispatch = useDispatch()
   const [formData, setFormData] = useState(emptyForm)
-
+  
+  const[color, setColor]= useState('')
+  const [colorArr, setColorArr]=useState([])
+  
+  formData.color = JSON.stringify(colorArr)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    formData.image1.arrayBuffer().then(bytes => {
-      const finalFormData = {...formData, ["image1"]: Base64.encode(bytes)}
-      return finalFormData
-    })
-      .then((formToSend) => {
-        console.log(formToSend)
-        dispatch(addProductThunk(formToSend))
-      })
-      .then((id) => {
-        console.log(id)
-      })
-
-  }
-
-//  const addProduct = async () => {
-//    const newProductId = dispatch(addProductThunk(formData))
-//  }
+    
+    dispatch(addProductThunk(formData))
+}
 
   const handleChange = (e) => {
     console.log('change1', formData.name)
@@ -74,13 +64,20 @@ function AddProduct () {
     .then(() => {
       console.log("Image Added: ", formData)
     })
+  }
+  
+  const addColor = (e)=> {
+    e.preventDefault()
+    setColorArr([...colorArr, color])
 
-    // setFormData({
-    //   ...formData,
-    //   [e.target.name]: e.target.files[0]
-    // })
+    setColor('')
+    
   }
 
+  const removeCol = (color) => {
+    const newArr = colorArr.filter( element => element !== color)
+    setColorArr(newArr)
+  }
 
   return (
     <>
@@ -120,7 +117,16 @@ function AddProduct () {
         </Form.Field>
         <Form.Field>
         <label htmlFor='color'>Color: </label>
-        <input id='color' name='color' type='text' onChange={handleChange} />
+        <ColorSelector data = {setColor}  />
+        <Button onClick = {addColor}>Add</Button>
+        
+        <Container>
+        <Grid container columns={12} divided stackable>
+        {colorArr.map((color, i) => { return <ColorLabel color={color} del={removeCol} key={`${color}${i}`}/>})}
+        </Grid>
+        
+        </Container>
+        {/* <input id='color' name='color' type='text' onChange={handleChange} /> */}
         </Form.Field>
         <Form.Field>
         <label htmlFor='make'>Make: </label>
@@ -152,15 +158,15 @@ function AddProduct () {
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg2'>Image 2: </label>
-        <input type='file' id='addImg2' onChange={handleFileChange} />
+        <input type='file' id='addImg2' name='image2' onChange={handleFileChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg3'>Image 3: </label>
-        <input type='file' id='addImg3' onChange={handleFileChange} />
+        <input type='file' id='addImg3' name='image3' onChange={handleFileChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg4'>Image 4: </label>
-        <input type='file' id='addImg4' onChange={handleFileChange} />
+        <input type='file' id='addImg4' name='image4' onChange={handleFileChange} />
         </Form.Field>
         <Button>Done!</Button>
       </Form>

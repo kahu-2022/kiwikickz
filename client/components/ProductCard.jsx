@@ -15,10 +15,10 @@ function ProductCard(props) {
       <Link to={`/product/${obj.id}`}>
         <Reveal animated='move right'>
         <Reveal.Content visible>
-          <Image size= 'medium' src={obj.image1}/>
+          <Image size= 'medium' src={`data:image/jpg;base64,${obj.image1}`}/>
         </Reveal.Content>
         <Reveal.Content hidden>
-          <Image size= 'medium' src={obj.image2} />
+          <Image size= 'medium' src={`data:image/jpg;base64,${obj.image2}`} />
         </Reveal.Content>
       </Reveal>
       </Link>
