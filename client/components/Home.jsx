@@ -8,6 +8,7 @@ import ProductCard from './ProductCard'
 
 import { productFitsFilter } from '../lib'
 
+ 
 function Home () {
 
   const allProducts = useSelector(state => state.allProducts)
