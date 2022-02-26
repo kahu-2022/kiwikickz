@@ -1,4 +1,5 @@
-import {getAllProduct , addProduct} from '../apis'
+import { getAllProduct, addProduct } from '../apis'
+import { isFull } from './productStateState'
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
@@ -23,6 +24,7 @@ export function getAllProductsThunk() {
         getAllProduct()
         .then (productArr => {
             dispatch(getAllProductsAction(productArr))
+            dispatch(isFull())
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
