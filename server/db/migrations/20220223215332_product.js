@@ -17,7 +17,7 @@ exports.up = function (knex) {
         table.integer('price')
         table.string('condition')
         table.string('receipt')
-        table.string('image1', 1000)
+        table.binary('image1')
         table.string('image2')
         table.string('image3')
         table.string('image4')

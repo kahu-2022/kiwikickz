@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import {addProductThunk} from '../actions/products'
+import {addProductThunk, getAllProductsThunk} from '../actions/products'
 import { Button, Container,Form } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
 
@@ -32,16 +32,22 @@ function AddProduct () {
 
   const dispatch = useDispatch()
   const [formData, setFormData] = useState(emptyForm)
-  
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // formData.image1.arrayBuffer().then(bytes => {
-    // const image11 = Base64.encode(bytes);
-    // console.log(typeof image11, image11)
-    // return image11
-    // });
-    dispatch(addProductThunk(formData))
+
+    formData.image1.arrayBuffer().then(bytes => {
+      const finalFormData = {...formData, ["image1"]: Base64.encode(bytes)}
+      return finalFormData
+    })
+      .then((formToSend) => {
+        console.log(formToSend)
+        dispatch(addProductThunk(formToSend))
+      })
+      .then(() => {
+        dispatch(getAllProductsThunk())
+      })
     //navigate(`product/${1}`)
   }
 
@@ -58,14 +64,14 @@ function AddProduct () {
   }
   
   const handleFileChange = (e) => {
-    // console.log(e.target.name, e.target.value)
+
     console.log('change1', formData.name)
-    console.log({[e.target.name]: "TEST"})//e.target.files[0]})
+
+    console.log({[e.target.name]: e.target.files[0]})
     setFormData({
       ...formData,
-      [e.target.name]: "TEST" //e.target.files[0]
+      [e.target.name]: e.target.files[0]
     })
-    // console.log('change2', formData.name)
   }
 
 
