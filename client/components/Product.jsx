@@ -2,10 +2,11 @@ import React, {useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { Image, Container, Segment } from 'semantic-ui-react'
+import { Image, Container, Segment , Header, Divider} from 'semantic-ui-react'
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { getAllProductsThunk } from '../actions/products'
+import MakeOffer from './MakeOffer';
 
 function Product () {
 
@@ -21,16 +22,16 @@ function Product () {
 
   return (
     <>
-      <header />
-      <h1>{shoe?.name}</h1>
-
+     
       <Container id="Carousel">
+      <Divider/>
+      <Header as='h2'>{shoe?.name}</Header>
         <Segment attached="bottom">
           <ImageCarousel product = {shoe} />
         </Segment>
       </Container>
 
-      <br/>
+      <MakeOffer data = {shoe} />
       <Container id="description">
         <p><strong>Description: <br/></strong>{shoe?.details}</p>
         <p><strong>Brand: </strong>{shoe?.brand}</p>

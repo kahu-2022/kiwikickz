@@ -13,8 +13,8 @@ return (
   <>
      <CarouselProvider
       size="medium"
-      naturalSlideWidth={1}
-      naturalSlideHeight={1}
+      naturalSlideWidth={500}
+      naturalSlideHeight={500}
       totalSlides={4}
     >
       <Slider>
