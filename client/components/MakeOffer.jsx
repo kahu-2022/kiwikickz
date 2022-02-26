@@ -62,6 +62,14 @@ return (
       </Grid.Row>
     </Grid>
   </Segment>
+  <Container id="description">
+        <p><strong>Brand: </strong>{product?.brand}</p>
+        <p><strong>Color: </strong>{product?.color}</p>
+        <p><strong>Condition: </strong>{product?.condition}</p>
+        <p><strong>Model: </strong>{product?.model}</p>
+        <p><strong>Year: </strong>{product?.year}</p>
+        <p><strong>Description: <br/></strong>{product?.details}</p>
+      </Container>
   </Grid.Column>
 )
 
