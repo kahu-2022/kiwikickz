@@ -14,12 +14,12 @@ function Cart() {
         <Divider/>
         <Header as='h2'>Items in Cart</Header>
         <Divider/>
-        {cart.map( item => <CartItem data={item}/>)}
+        {cart ? cart.map( (item , i) => <CartItem data={item} key={item.name + i}/>) : null}
         
         
       </Container>
+      
       <Container>
-        <Button>Remove</Button>
         <Button>Checkout</Button>
       </Container>
       

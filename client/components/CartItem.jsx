@@ -1,5 +1,6 @@
-import { Container, Header, Item , Image , Divider} from 'semantic-ui-react'
+import { Container, Item ,  Divider , Button} from 'semantic-ui-react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function CartItem(props) {
   const cartItem = props.data
@@ -25,6 +26,13 @@ function CartItem(props) {
             </Item.Extra>
           </Item.Content>
     </Item>
+    <Divider/>
+    <Container>
+    <Link to={`/product/${cartItem.id}`}>
+      <Button>View</Button>
+    </Link>
+    <Button>Remove</Button>
+    </Container>
     <Divider/>
     </>
   )

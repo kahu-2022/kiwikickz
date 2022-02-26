@@ -37,7 +37,7 @@ export function addProductThunk(product) {
     return (dispatch) => {
         addProduct(product)
         .then ((id) => {
-            dispatch(getAllShoesThunk())
+            dispatch(getAllProductsThunk())
             return id
         })
         .then ((id) => {

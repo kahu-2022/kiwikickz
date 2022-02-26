@@ -2,9 +2,10 @@ import React, {useState} from 'react'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
 import {addProductThunk} from '../actions/products'
-import { Button, Container,Form } from 'semantic-ui-react'
+import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom'
-
+import ColorSelector from './ColorSelector'
+import ColorLabel from './ColorLabel'
 function AddProduct () {
   const navigate = useNavigate()
 
@@ -33,6 +34,10 @@ function AddProduct () {
   const dispatch = useDispatch()
   const [formData, setFormData] = useState(emptyForm)
   
+  const[color, setColor]= useState('')
+  const [colorArr, setColorArr]=useState([])
+  
+  formData.color = JSON.stringify(colorArr)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -67,7 +72,19 @@ function AddProduct () {
     })
     // console.log('change2', formData.name)
   }
+  
+  const addColor = (e)=> {
+    e.preventDefault()
+    setColorArr([...colorArr, color])
 
+    setColor('')
+    
+  }
+
+  const removeCol = (color) => {
+    const newArr = colorArr.filter( element => element !== color)
+    setColorArr(newArr)
+  }
 
   return (
     <>
@@ -107,7 +124,16 @@ function AddProduct () {
         </Form.Field>
         <Form.Field>
         <label htmlFor='color'>Color: </label>
-        <input id='color' name='color' type='text' onChange={handleChange} />
+        <ColorSelector data = {setColor}  />
+        <Button onClick = {addColor}>Add</Button>
+        
+        <Container>
+        <Grid container columns={12} divided stackable>
+        {colorArr.map((color, i) => { return <ColorLabel color={color} del={removeCol} key={`${color}${i}`}/>})}
+        </Grid>
+        
+        </Container>
+        {/* <input id='color' name='color' type='text' onChange={handleChange} /> */}
         </Form.Field>
         <Form.Field>
         <label htmlFor='make'>Make: </label>
