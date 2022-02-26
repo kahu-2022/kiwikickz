@@ -18,36 +18,17 @@ function Cart() {
     const headers = {
       "Content-type": "application/json"
     }
-    console.log("Hello?")
     return fetch(`http://localhost:3000/api/v1/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body)
     }).then(response => {
-      console.log("response", response)
       const { status } = response;
       console.log("status", status)
     })
     .catch(err => console.log(err))
   }
 
-
-  console.log({ makePayment })
-
-  // useEffect(() => {
-  //   const makeRequest = async () => {
-  //     try {
-  //       const res = await userRequest.post("/checkout/payment", {
-  //         tokenId: stripeToken.id,
-  //         amount: 500,
-  //       });
-  //       history.push("/success", {
-  //         stripeData: res.data,
-  //         products: cartItem, });
-  //     } catch {}
-  //   };
-  //   stripeToken && makeRequest();
-  // }, [stripeToken, cartItem.total, history]);
 
   return (
     <div>
@@ -84,7 +65,7 @@ function Cart() {
       {/* <CartCheckout /> */}
       <StripeCheckout
         name="Kiwi Kickz"
-        image="https://avatars.githubusercontent.com/u/1486366?v=4"
+        image="/kicksimg.png"
         billingAddress
         shippingAddress
         description={`Your total is $${cartItem.price}`}

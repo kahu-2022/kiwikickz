@@ -6,15 +6,11 @@ const shoeRoutes = require('./routes/shoes')
 const stripe = require('./routes/stripe')
 
 const server = express()
-server.use(express.json());
-server.use(cors());
-server.use(express.json())
 
-
-
-
+server.use(cors())  
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
+
 
 server.use('/api/v1/shoes', shoeRoutes)
 server.use('/api/v1/payment', stripe)
