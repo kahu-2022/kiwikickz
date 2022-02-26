@@ -73,6 +73,7 @@
     "@auth0/auth0-react": "^1.8.0",
     "@vscode/sqlite3": "^5.0.7",
     "base64-arraybuffer": "^1.0.2",
+    "body-parser": "^1.19.2",
     "camelcase-keys": "^7.0.2",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

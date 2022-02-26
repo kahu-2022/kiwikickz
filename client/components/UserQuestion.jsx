@@ -5,14 +5,19 @@ import { useDispatch } from 'react-redux'
 import { Image, Container, Segment } from 'semantic-ui-react'
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { getAllProductsThunk } from '../actions/products'
+import { getAllQuestionsThunk } from '../actions/questions'
 
 
 function UserQuestion () {
+
+  const dispatch = useDispatch()
+
   return (
     <>
-      <header />
-      <h1>Questions and Answers</h1>
+      <h2>Questions and Answers</h2>
+      <button onClick={dispatch(getAllQuestionsThunk())}>get all questions</button>
+      <br/>
+      <br/>
     </>
   )
 }
