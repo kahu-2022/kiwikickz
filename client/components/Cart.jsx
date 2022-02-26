@@ -18,8 +18,8 @@ function Cart() {
         
         
       </Container>
+      
       <Container>
-        <Button>Remove</Button>
         <Button>Checkout</Button>
       </Container>
       
