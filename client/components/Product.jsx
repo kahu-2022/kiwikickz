@@ -43,6 +43,10 @@ function Product () {
       </Container>
       <Divider/>
       </Container>
+
+      <Container>
+        <UserQuestion />
+      </Container>
     </>
   )
 }

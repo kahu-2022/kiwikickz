@@ -14,9 +14,10 @@ function UserQuestion () {
 
   return (
     <>
-      <header />
-      <h1>Questions and Answers</h1>
+      <h2>Questions and Answers</h2>
       <button onClick={dispatch(getAllQuestionsThunk())}>get all questions</button>
+      <br/>
+      <br/>
     </>
   )
 }
