@@ -10,7 +10,12 @@ function addProduct (newProduct, db = connection) {
     .insert(snakecase(newProduct))
 }
 
+function getQuestions(db = connection) {
+    return db('question')
+}
+
 module.exports = {
     getProducts, 
-    addProduct
+    addProduct,
+    getQuestions
 }
