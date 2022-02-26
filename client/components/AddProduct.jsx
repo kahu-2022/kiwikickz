@@ -41,8 +41,10 @@ function AddProduct () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
-    dispatch(addProductThunk(formData))
+    dispatch(addProductThunk(formData)).then((res) => {
+      console.log("THIS WORKS!!!!!!!!!!!!!!!!")
+    }) 
+    // navigate(`/product/${}`)
 }
 
   const handleChange = (e) => {
