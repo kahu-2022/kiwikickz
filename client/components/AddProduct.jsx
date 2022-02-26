@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
 import {addProductThunk} from '../actions/products'
@@ -41,18 +41,9 @@ function AddProduct () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // formData.image1.arrayBuffer().then(bytes => {
-    // const image11 = Base64.encode(bytes);
-    // console.log(typeof image11, image11)
-    // return image11
-    // });
+    
     dispatch(addProductThunk(formData))
-    //navigate(`product/${1}`)
-  }
-
-//  const addProduct = async () => {
-//    const newProductId = dispatch(addProductThunk(formData))
-//  }
+}
 
   const handleChange = (e) => {
     console.log('change1', formData.name)
@@ -63,14 +54,16 @@ function AddProduct () {
   }
   
   const handleFileChange = (e) => {
-    // console.log(e.target.name, e.target.value)
-    console.log('change1', formData.name)
-    console.log({[e.target.name]: "TEST"})//e.target.files[0]})
-    setFormData({
-      ...formData,
-      [e.target.name]: "TEST" //e.target.files[0]
+
+    console.log({[e.target.name]: e.target.files[0]})
+
+    e.target.files[0].arrayBuffer().then(bytes => {
+      const finalFormData = {...formData, [e.target.name]: Base64.encode(bytes)}
+      setFormData(finalFormData)
     })
-    // console.log('change2', formData.name)
+    .then(() => {
+      console.log("Image Added: ", formData)
+    })
   }
   
   const addColor = (e)=> {
@@ -165,15 +158,15 @@ function AddProduct () {
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg2'>Image 2: </label>
-        <input type='file' id='addImg2' onChange={handleChange} />
+        <input type='file' id='addImg2' name='image2' onChange={handleFileChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg3'>Image 3: </label>
-        <input type='file' id='addImg3' onChange={handleChange} />
+        <input type='file' id='addImg3' name='image3' onChange={handleFileChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg4'>Image 4: </label>
-        <input type='file' id='addImg4' onChange={handleChange} />
+        <input type='file' id='addImg4' name='image4' onChange={handleFileChange} />
         </Form.Field>
         <Button>Done!</Button>
       </Form>

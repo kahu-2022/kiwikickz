@@ -12,10 +12,10 @@ function CartItem(props) {
   return (
     <>
     <Item>
-          <Item.Image size='small' src={cartItem.image1} />
-          <Item.Image size='small' src={cartItem.image2} />
-          <Item.Image size='small' src={cartItem.image3} />
-          <Item.Image size='small' src={cartItem.image4} />
+          <Item.Image size='small' src={`data:image/jpg;base64,${cartItem.image1}`} />
+          <Item.Image size='small' src={`data:image/jpg;base64,${cartItem.image2}`} />
+          <Item.Image size='small' src={`data:image/jpg;base64,${cartItem.image3}`} />
+          <Item.Image size='small' src={`data:image/jpg;base64,${cartItem.image4}`} />
 
           <Item.Content>
             <Item.Header as='h3'>{cartItem.name}</Item.Header>

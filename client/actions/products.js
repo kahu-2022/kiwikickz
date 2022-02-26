@@ -48,8 +48,8 @@ export function addProductThunk(product) {
             return id
         })
         .then ((id) => {
-            console.log("TESTING to see if the second .then WORKS ", id + 1000)
-            return id + 1000
+            console.log("TESTING to see if the second .then WORKS ", id)
+            return id
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
