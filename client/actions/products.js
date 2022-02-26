@@ -16,6 +16,13 @@ export function addToCart(product) {
     }
 }
 
+export function removeFromCart(product) {
+    return {
+        type: 'REMOVE_ITEM',
+        product: product
+    }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {

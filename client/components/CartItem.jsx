@@ -1,9 +1,14 @@
 import { Container, Item ,  Divider , Button} from 'semantic-ui-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { removeFromCart } from '../actions/products'
+import Product from './Product'
 
 function CartItem(props) {
   const cartItem = props.data
+  const dispatch = useDispatch()
+
   return (
     <>
     <Item>
@@ -31,7 +36,7 @@ function CartItem(props) {
     <Link to={`/product/${cartItem.id}`}>
       <Button>View</Button>
     </Link>
-    <Button>Remove</Button>
+    <Button onClick={() => {dispatch(removeFromCart(cartItem))}}>Remove</Button>
     </Container>
     <Divider/>
     </>
