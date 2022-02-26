@@ -6,6 +6,7 @@ import { Image, Container, Segment } from 'semantic-ui-react'
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { getAllProductsThunk } from '../actions/products'
+import UserQuestion from "./UserQuestion";
 
 function Product () {
 
@@ -38,6 +39,10 @@ function Product () {
         <p><strong>Condition: </strong>{shoe?.condition}</p>
         <p><strong>Model: </strong>{shoe?.model}</p>
         <p><strong>Year: </strong>{shoe?.year}</p>
+      </Container>
+
+      <Container id="QuestionsAndAnswers">
+        <UserQuestion />
       </Container>
     </>
   )
