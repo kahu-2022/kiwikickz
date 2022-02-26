@@ -4,7 +4,9 @@ import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
 
+
 function App () {
+
   return (
     <>
       <header className="header">

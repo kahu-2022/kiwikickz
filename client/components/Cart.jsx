@@ -3,19 +3,36 @@ import { useSelector } from 'react-redux'
 import { Container, Header } from 'semantic-ui-react'
 import StripeCheckout from 'react-stripe-checkout'
 
-const KEY = `process.env.REACT_APP_STRIPE`
-
-
+const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
 
 function Cart() {
   const cartItem = useSelector(globalState => globalState.shoe)
-  const [stripeToken, setStripeToken] = useState(null)
 
 
-  const onToken = (token) => {
-    setStripeToken(token)
+  const makePayment = (token) => {
+    const body = {
+      token, 
+      cartItem
+    }
 
+    const headers = {
+      "Content-type": "application/json"
+    }
+    console.log("Hello?")
+    return fetch(`http://localhost:3000/api/v1/payment`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(body)
+    }).then(response => {
+      console.log("response", response)
+      const { status } = response;
+      console.log("status", status)
+    })
+    .catch(err => console.log(err))
   }
+
+
+  console.log({ makePayment })
 
   // useEffect(() => {
   //   const makeRequest = async () => {
@@ -72,7 +89,7 @@ function Cart() {
         shippingAddress
         description={`Your total is $${cartItem.price}`}
         amount={cartItem.price * 100}
-        token={onToken}
+        token={makePayment}
         stripeKey={KEY}
       >
         <button>CHECKOUT NOW</button>
