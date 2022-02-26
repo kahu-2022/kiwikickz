@@ -6,44 +6,41 @@ import {Grid , Container} from 'semantic-ui-react'
 import ProductContainer from './ProductContainer'
 import ProductCard from './ProductCard'
 
-import { productFitsFilter } from '../lib'
+import { manyProductsFitsFilter } from '../lib'
 
- 
 function Home () {
 
   const allProducts = useSelector(state => state.allProducts)
   
-  const dispatch = useDispatch()
+  console.log(allProducts)
 
-  useEffect(() => {
-    dispatch(getAllProductsThunk())
-  }, [])
+  // const [hotPicks, setHotPicks ] = useState(true)
+  // const [filters, setFilters] = useState()
 
-  const hotPicksFilter = [{ key: 'hotPicks', value: 1 }]
+  const fuckMyArseFilter = {key: 'hotPick', value: 1}
 
-  const result = productFitsFilter(allProducts[0], hotPicksFilter)
-  console.log(result)
+  
+  const results = manyProductsFitsFilter(allProducts, fuckMyArseFilter)
 
-  const [hotPicks, setHotPicks ] = useState(true)
-  const [filters, setFilters ] = useState()
+  console.log(results)
 
   return (
-    <>
-    <Container style={{ marginTop: '3em'}}>
-    {/* <ProductContainer data={allProducts}/> */}
-    {/* Search functionality immplemented here */}
-    {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}
+        <>
+          <Container style={{ marginTop: '3em' }}>
+            {/* <ProductContainer data={allProducts}/> */}
+            {/* Search functionality immplemented here */}
+            {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}
 
     
-      {allProducts ? <ProductContainer data={allProducts}/> : null}
+            {allProducts ? <ProductContainer data={results} /> : null}
 
-    </Container>
+          </Container>
 
-    {/* Ternary here sets initial display as hot picks */}
-    {/* {hotPicks ? renders hotpics : renders search functionality} */}
-    {/* Cards Section where we map over the filtered array*/}
+          {/* Ternary here sets initial display as hot picks */}
+          {/* {hotPicks ? renders hotpics : renders search functionality} */}
+          {/* Cards Section where we map over the filtered array*/}
 
-    </>
+        </>
   )
 }
 
