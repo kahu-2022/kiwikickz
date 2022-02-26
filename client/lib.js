@@ -11,9 +11,17 @@ const productMatchesAllFilters = (product, filters) =>
 const productMatchesFilter = (product, filter) =>
   product[filter.key] === filter.value;
 
- export const productFitsFilter = (product, filter) => {
+
+
+
+export const manyProductsFitsFilter = (products, filter) => {
+  const please = products.filter(product => productFitsFilter(product, filter))
+  return please
+}
+  
+  
+const productFitsFilter = (product, filter) => {
   if (product[filter.key] === filter.value) {
-    console.log(product)
     return product
   }
 }
