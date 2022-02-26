@@ -7,6 +7,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
     db.getProducts()
       .then(productArr => {
+        console.log(productArr)
         res.json(camelCase(productArr))
       })
       .catch((err) => {
@@ -27,5 +28,7 @@ router.post('/', (req,res) => {
             console.error("Database: " + err.message)
           }) 
 })
+
+
 
 module.exports = router
