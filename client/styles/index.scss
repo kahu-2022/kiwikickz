@@ -1,10 +1,20 @@
-body {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 20px;
-  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1 {
+  letter-spacing: 15px
 }
 
+h2 {
+  text-align: center;
+}
+
+.carouselpic {
+  width: 200px;
+  height: 200px;
+  border-style: solid;
+  
+}
+
+.whatever {
+  letter-spacing: 20px;
+  font-weight: bold;
+}
 

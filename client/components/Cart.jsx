@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Container, Header } from 'semantic-ui-react'
 import StripeCheckout from 'react-stripe-checkout'
+import React from 'react'
+import { Container, Header, Divider, Button} from 'semantic-ui-react'
+import cart from '../reducers/cart'
+import CartItem from './CartItem'
 
 const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
 
@@ -29,38 +32,19 @@ function Cart() {
     .catch(err => console.log(err))
   }
 
-
   return (
     <div>
-      <Container textAlign='center'>
+      <Container>
+        <Divider/>
         <Header as='h2'>Items in Cart</Header>
-        <p>
-          Details: {cartItem.name}
-        </p>
-        <p>
-          Details: {cartItem.details}
-        </p>
-        <p>
-          Make: {cartItem.make}
-        </p>
-        <p>
-          Model: {cartItem.model}
-        </p>
-        <p>
-          Name: {cartItem.name}
-        </p>
-        <p>
-          Condition: {cartItem.condition}
-        </p>
-        <p>
-          Year made: {cartItem.year}
-        </p>
-        <p>
-          Shoe Size {cartItem.size}
-        </p>
-        <p>
-          Price:  {cartItem.price}
-        </p>
+        <Divider/>
+        {cart ? cart.map( (item , i) => <CartItem data={item} key={item.name + i}/>) : null}
+        
+        
+      </Container>
+      
+      <Container>
+        <Button>Checkout</Button>
       </Container>
       {/* <CartCheckout /> */}
       <StripeCheckout
