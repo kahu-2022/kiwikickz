@@ -45,10 +45,10 @@ function AddProduct () {
         console.log(formToSend)
         dispatch(addProductThunk(formToSend))
       })
-      .then(() => {
-        dispatch(getAllProductsThunk())
+      .then((id) => {
+        console.log(id)
       })
-    //navigate(`product/${1}`)
+
   }
 
 //  const addProduct = async () => {
@@ -65,13 +65,20 @@ function AddProduct () {
   
   const handleFileChange = (e) => {
 
-    console.log('change1', formData.name)
-
     console.log({[e.target.name]: e.target.files[0]})
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.files[0]
+
+    e.target.files[0].arrayBuffer().then(bytes => {
+      const finalFormData = {...formData, [e.target.name]: Base64.encode(bytes)}
+      setFormData(finalFormData)
     })
+    .then(() => {
+      console.log("Image Added: ", formData)
+    })
+
+    // setFormData({
+    //   ...formData,
+    //   [e.target.name]: e.target.files[0]
+    // })
   }
 
 
@@ -145,15 +152,15 @@ function AddProduct () {
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg2'>Image 2: </label>
-        <input type='file' id='addImg2' onChange={handleChange} />
+        <input type='file' id='addImg2' onChange={handleFileChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg3'>Image 3: </label>
-        <input type='file' id='addImg3' onChange={handleChange} />
+        <input type='file' id='addImg3' onChange={handleFileChange} />
         </Form.Field>
         <Form.Field>
         <label htmlFor='addImg4'>Image 4: </label>
-        <input type='file' id='addImg4' onChange={handleChange} />
+        <input type='file' id='addImg4' onChange={handleFileChange} />
         </Form.Field>
         <Button>Done!</Button>
       </Form>
