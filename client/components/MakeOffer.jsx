@@ -25,7 +25,6 @@ function MakeOffer(props) {
     <Input labelPosition='right' type='text' placeholder='Amount'>
     <Label basic>$</Label>
     <input />
-    <Label>.00</Label>
     </Input>
     <TextPopUp text={'Offer Sent.'} button = {<Button>Submit</Button>}/>
     </>
@@ -33,6 +32,7 @@ function MakeOffer(props) {
   }
 
 return (
+  <Grid.Column>
   <Segment placeholder>
     <Grid columns={2} stackable textAlign='center'>
       <Divider vertical/>
@@ -62,6 +62,7 @@ return (
       </Grid.Row>
     </Grid>
   </Segment>
+  </Grid.Column>
 )
 
 }

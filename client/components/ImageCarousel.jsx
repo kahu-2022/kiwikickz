@@ -1,6 +1,6 @@
 import { CarouselProvider, Image, Slide, Slider } from "pure-react-carousel";
 import React from "react";
-import { Divider } from "semantic-ui-react";
+import { Divider, Grid } from "semantic-ui-react";
 import CustomDotGroup from "./CustomDotGroup";
 
 function ImageCarousel (props) {
@@ -9,6 +9,7 @@ const shoe = props.product
 
 return (
   <>
+  <Grid.Column>
      <CarouselProvider
       naturalSlideWidth={500}
       naturalSlideHeight={500}
@@ -32,6 +33,7 @@ return (
       <Divider />
       <CustomDotGroup slides={4} />
     </CarouselProvider>
+    </Grid.Column>
     </>
   )
 }
