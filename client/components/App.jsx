@@ -12,8 +12,9 @@ function App () {
   return (
     <>
       <header className="header">
+        <br/>
         <Link to='/'>
-        <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
+        <Header as = 'h1' textAlign='center'>KIWI KICKZ</Header>
         </Link>
         <Nav/>
       </header>
