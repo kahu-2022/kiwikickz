@@ -7,6 +7,7 @@ import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
 import Nav from './Nav'
 import Footer from './Footer'
+import SidebarExampleSidebar from './SideBar'
 
 function App () {
   return (
@@ -14,8 +15,9 @@ function App () {
       <header className="header">
         <br/>
         <Link to='/'>
-        <Header as = 'h1' textAlign='center'>KIWI KICKZ</Header>
+        <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
         </Link>
+        <br/>
         <Nav/>
       </header>
       <section className="main">

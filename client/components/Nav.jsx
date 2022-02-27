@@ -15,10 +15,14 @@ function Nav(props) {
           Home
         </Link>
       </Menu.Item>
-      
-       <Menu.Item position='right'>
-          <Input icon='search' placeholder='Search...' />
-        </Menu.Item>
+      <Menu.Item>
+        <Link to='/about'>
+          About
+        </Link>
+      </Menu.Item>
+      <Menu.Item position='right'>
+        <Input icon='search' placeholder='Search...' />
+      </Menu.Item>
           
       <Menu.Item>
         <Link to='/cart'>
