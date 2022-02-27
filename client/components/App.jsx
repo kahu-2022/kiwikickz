@@ -1,12 +1,14 @@
 import React from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
+import { Header } from 'semantic-ui-react'
+
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
-import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
 import Nav from './Nav'
 import Footer from './Footer'
+import About from './About'
 
 
 function App () {
@@ -22,6 +24,7 @@ function App () {
           <Route path='/product/:id' element = {<Product/>}/>
           <Route path='/cart' element = {<Cart/>}/>
           <Route path='/addproduct' element = {<AddProduct/>}/>
+          <Route path='/about' element = {<About/>}/>
         </Routes>
       <Footer/>
       </section>
