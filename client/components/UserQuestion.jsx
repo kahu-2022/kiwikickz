@@ -9,14 +9,21 @@ import { getAllQuestionsThunk } from '../actions/questions'
 
 
 function UserQuestion () {
-
+  const {id} = useParams()
   const dispatch = useDispatch()
+  const allQuestions = useSelector(globalState => globalState.allQuestions)
+  const questions = allQuestions.filter((question) => question.productId == Number(id) && question.status == 'answered' )
+  useEffect(() => {
+    dispatch(getAllQuestionsThunk())
+  }, [])
+  
 
   return (
     <>
       <h2>Questions and Answers</h2>
-      
-      <button onClick={dispatch(getAllQuestionsThunk())}>get all questions</button>
+      <ul>
+       {questions.map(ele =><li key = {ele.id}>{ele.question}</li>   )}
+      </ul>
       <br/>
       <br/>
     </>
