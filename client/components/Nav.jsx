@@ -15,11 +15,6 @@ function Nav(props) {
         <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
         </Link>
       </Menu.Item>
-      {/* <Menu.Item>
-        <Link to='/'>
-          Home
-        </Link>
-      </Menu.Item> */}
       <Menu.Item position='right'>
         <Input icon='search' placeholder='Search...' />
       </Menu.Item>
