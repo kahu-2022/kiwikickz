@@ -68,7 +68,7 @@ function AddProduct () {
         <input id='sellerId' name='sellerId' type='number' onChange={handleChange} />
        </Form.Field>
        <Form.Field>
-        <label htmlFor='name'>Name: </label>
+        <label htmlFor='name'>Product Name: </label>
         <input id='name' name='name' type='text' onChange={handleChange} />
         </Form.Field>
         <Form.Field>
