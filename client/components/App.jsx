@@ -12,9 +12,6 @@ function App () {
   return (
     <>
       <header className="header">
-        {/* <br/>
-        
-        <br/> */}
         <Nav/>
       </header>
       <section className="main">
