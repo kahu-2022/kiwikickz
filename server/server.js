@@ -5,8 +5,6 @@ const bodyParser = require('body-parser')
 
 const productRoutes = require('./routes/product')
 const questionRoutes = require('./routes/question')
-
-const shoeRoutes = require('./routes/shoes')
 const stripe = require('./routes/stripe')
 
 const server = express()

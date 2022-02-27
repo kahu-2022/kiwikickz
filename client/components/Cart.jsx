@@ -1,21 +1,23 @@
-import { useSelector } from 'react-redux'
-import { Container, Header } from 'semantic-ui-react'
+import { useDispatch, useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
 import React from 'react'
-import { Container, Header, Divider, Button} from 'semantic-ui-react'
+import { Container, Header, Divider, Button } from 'semantic-ui-react'
 import cart from '../reducers/cart'
 import CartItem from './CartItem'
 
 const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
 
 function Cart() {
-  const cartItem = useSelector(globalState => globalState.shoe)
+  const cart = useSelector(globalState => globalState.cart)
 
+
+  console.log({ cart })
+  console.log("cart price", cart[0].price)
 
   const makePayment = (token) => {
     const body = {
-      token, 
-      cartItem
+      token,
+      cart
     }
 
     const headers = {
@@ -29,36 +31,35 @@ function Cart() {
       const { status } = response;
       console.log("status", status)
     })
-    .catch(err => console.log(err))
+      .catch(err => console.log(err))
   }
 
   return (
     <div>
       <Container>
-        <Divider/>
+        <Divider />
         <Header as='h2'>Items in Cart</Header>
-        <Divider/>
-        {cart ? cart.map( (item , i) => <CartItem data={item} key={item.name + i}/>) : <p>You have no items in your cart.</p>}
-        
-        
+        <Divider />
+        {cart ? cart.map((item, i) => <CartItem data={item} key={item.name + i} />) : <p>You have no items in your cart.</p>}
+
+
       </Container>
-      
-      <Container>
-        <Button>Checkout</Button>
-      </Container>
-      {/* <CartCheckout /> */}
       <StripeCheckout
         name="Kiwi Kickz"
         image="/kicksimg.png"
         billingAddress
         shippingAddress
-        description={`Your total is $${cartItem.price}`}
-        amount={cartItem.price * 100}
+        description={`Your total is $${cart[0].price}`}
+        amount={cart[0].price * 100}
         token={makePayment}
         stripeKey={KEY}
       >
-        <button>CHECKOUT NOW</button>
+        <Button>Checkout</Button>
       </StripeCheckout>
+
+      <Container>
+      </Container>
+
     </div>
   )
 }
