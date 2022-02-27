@@ -1,52 +1,34 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import {addProductThunk} from '../actions/products'
 import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
-import { useNavigate } from 'react-router-dom'
+
+import {addProductThunk} from '../actions/products'
 import ColorSelector from './ColorSelector'
 import ColorLabel from './ColorLabel'
+
 function AddProduct () {
+
   const navigate = useNavigate()
-
-  const emptyForm = {
-    sellerId: '',
-    hotPick:'',
-    status:'',
-    name:'',
-    details:'',
-    authStatus:'',
-    brand:'',
-    size:'',
-    color:'',
-    make:'',
-    model:'',
-    year:'',
-    price:'',
-    condition:'',
-    receipt:'',
-    image1:'',
-    image2:'',
-    image3:'',
-    image4:''
-  }
-
   const dispatch = useDispatch()
+
+  const emptyForm = {sellerId: '',hotPick:'',status:'',name:'',details:'',authStatus:'',brand:'',size:'',color:'',make:'',model:'',year:'',price:'',condition:'',receipt:'',image1:'',image2:'',image3:'',image4:''}
+
   const [formData, setFormData] = useState(emptyForm)
-  
-  const[color, setColor]= useState('')
+  const [color, setColor]= useState('')
   const [colorArr, setColorArr]=useState([])
   
   formData.color = JSON.stringify(colorArr)
 
+  //2. Component Functions
   const handleSubmit = (e) => {
     e.preventDefault()
-    
-    dispatch(addProductThunk(formData))
+    dispatch(addProductThunk(formData)).then((id) => {navigate(`/product/${id}`)})
 }
 
   const handleChange = (e) => {
-    console.log('change1', formData.name)
+    console.log(e.target.name, formData.name)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -54,9 +36,7 @@ function AddProduct () {
   }
   
   const handleFileChange = (e) => {
-
     console.log({[e.target.name]: e.target.files[0]})
-
     e.target.files[0].arrayBuffer().then(bytes => {
       const finalFormData = {...formData, [e.target.name]: Base64.encode(bytes)}
       setFormData(finalFormData)
