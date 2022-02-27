@@ -7,7 +7,6 @@ const stripe = require("stripe")('sk_test_51KWbgYFReKnnv8idi9uY4hXXZxZiqxdUKAGuY
 router.post("/", (req, res) => {
   const { cart, token } = req.body
 
-  console.log(cart)
 
   return stripe.customers
     .create({
@@ -17,12 +16,12 @@ router.post("/", (req, res) => {
     .then(customer => {
       stripe.charges.create(
         {
-        amount: cart[0].price * 100,
-        currency: 'usd',
-        customer: customer.id,
-        receipt_email: token.email,
-        description: cart.name
-      })
+          amount: cart[0].price * 100,
+          currency: 'usd',
+          customer: customer.id,
+          receipt_email: token.email,
+          description: cart.name
+        })
     })
     .then(result => res.status(200).json(result))
     .catch(err => console.log(err))

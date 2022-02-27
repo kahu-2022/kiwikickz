@@ -10,10 +10,6 @@ const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6N
 function Cart() {
   const cart = useSelector(globalState => globalState.cart)
 
-
-  console.log({ cart })
-  console.log("cart price", cart[0].price)
-
   const makePayment = (token) => {
     const body = {
       token,
