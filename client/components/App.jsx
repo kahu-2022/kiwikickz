@@ -1,18 +1,20 @@
 import React from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
+import { Header } from 'semantic-ui-react'
+
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
-import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
+import Nav from './Nav'
+import Footer from './Footer'
+import About from './About'
 
 function App () {
   return (
     <>
       <header className="header">
-      <header className="header">
-        <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
-      </header>
+        <Nav/>
       </header>
       <section className="main">
         <Routes>
@@ -20,7 +22,9 @@ function App () {
           <Route path='/product/:id' element = {<Product/>}/>
           <Route path='/cart' element = {<Cart/>}/>
           <Route path='/addproduct' element = {<AddProduct/>}/>
+          <Route path='/about' element = {<About/>}/>
         </Routes>
+      <Footer/>
       </section>
     </>
   )

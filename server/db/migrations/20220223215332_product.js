@@ -4,6 +4,8 @@ exports.up = function (knex) {
         table.integer('seller_id')
         table.boolean('hot_pick')
         table.string('status')
+        table.string('gender')
+        table.string('box')
         table.string('name')
         table.string('details')
         table.boolean('auth_status')

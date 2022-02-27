@@ -42,7 +42,7 @@ export function getAllProductsThunk() {
 
 export function addProductThunk(product) {
     return (dispatch) => {
-        addProduct(product)
+        return addProduct(product)
         .then ((id) => {
             dispatch(getAllProductsThunk())
             return id
@@ -56,6 +56,5 @@ export function addProductThunk(product) {
             console.log(errMessage)
             return null
           })
-
     }
 }
