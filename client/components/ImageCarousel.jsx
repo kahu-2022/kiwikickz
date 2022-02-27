@@ -17,16 +17,16 @@ return (
     >
       <Slider>
         <Slide tag="a" index={0}>
-        {shoe ? <Image src={shoe.image1} /> : "loading"}
+        {shoe ? <Image src={`data:image/jpg;base64,${shoe.image1}`} /> : "loading"}
         </Slide>
         <Slide tag="a" index={1}>
-        {shoe ? <Image src={shoe.image2} /> : "loading"}
+        {shoe ? <Image src={`data:image/jpg;base64,${shoe.image2}`} /> : "loading"}
         </Slide>
         <Slide tag="a" index={2}>
-        {shoe ? <Image src={shoe.image3} /> : "loading"}
+        {shoe ? <Image src={`data:image/jpg;base64,${shoe.image3}`} /> : "loading"}
         </Slide>
         <Slide tag="a" index={3}>
-        {shoe ? <Image src={shoe.image4} /> : "loading"}
+        {shoe ? <Image src={`data:image/jpg;base64,${shoe.image4}`} /> : "loading"}
         </Slide>
       </Slider>
 

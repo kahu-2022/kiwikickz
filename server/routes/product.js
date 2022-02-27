@@ -7,7 +7,6 @@ const router = express.Router()
 router.get('/', (req, res) => {
     db.getProducts()
       .then(productArr => {
-        console.log(productArr)
         res.json(camelCase(productArr))
       })
       .catch((err) => {

@@ -16,6 +16,13 @@ export function addToCart(product) {
     }
 }
 
+export function removeFromCart(product) {
+    return {
+        type: 'REMOVE_ITEM',
+        product: product
+    }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
@@ -35,20 +42,19 @@ export function getAllProductsThunk() {
 
 export function addProductThunk(product) {
     return (dispatch) => {
-        addProduct(product)
+        return addProduct(product)
         .then ((id) => {
             dispatch(getAllProductsThunk())
             return id
         })
         .then ((id) => {
-            console.log("TESTING to see if the second .then WORKS ", id + 1000)
-            return id + 1000
+            console.log("TESTING to see if the second .then WORKS ", id)
+            return id
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
             console.log(errMessage)
             return null
           })
-
     }
 }
