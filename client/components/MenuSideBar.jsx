@@ -1,13 +1,5 @@
 import React from 'react'
-import {Routes, Route, Link} from 'react-router-dom'
-import Cart from './Cart'
-import Home from './Home'
-import Product from './Product'
-import AddProduct from './AddProduct'
-import Nav from './Nav'
-import Footer from './Footer'
-
-import { 
+import {
   Icon,
   Grid,
   Header,
@@ -15,22 +7,21 @@ import {
   Menu,
   Segment,
   Sidebar,
-  GridColumn, } from 'semantic-ui-react'
+} from 'semantic-ui-react'
 
-function App () {
-
+const MenuSidebar= () => {
   const [visible, setVisible] = React.useState(false)
 
   return (
-    <>
-      <Grid columns={1}>
+    <Grid columns={1}>
       <Grid.Column>
-      <header className="header">
-        <Nav setSideBar = {[visible , setVisible]}/>
-        </header>
+        <Icon name = 'sidebar'
+          onClick={() => setVisible(!visible)}
+        />
       </Grid.Column>
+
       <Grid.Column>
-      <Sidebar.Pushable as={Segment}>
+        <Sidebar.Pushable as={Segment}>
           <Sidebar
             as={Menu}
             animation='overlay'
@@ -53,25 +44,18 @@ function App () {
               <Icon name='camera' />
               Channels
             </Menu.Item>
-          </Sidebar> 
+          </Sidebar>
+
           <Sidebar.Pusher dimmed={visible}>
             <Segment basic>
-      <section className="main">
-        <Routes>
-          <Route path='/' element = {<Home/>}/>
-          <Route path='/product/:id' element = {<Product/>}/>
-          <Route path='/cart' element = {<Cart/>}/>
-          <Route path='/addproduct' element = {<AddProduct/>}/>
-        </Routes>
-      <Footer/>
-      </section>
-      </Segment>
+              <Header as='h3'>Application Content</Header>
+              <Image src='/images/wireframe/paragraph.png' />
+            </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </Grid.Column>
-      </Grid>
-    </>
+    </Grid>
   )
 }
 
-export default App
+export default MenuSidebar

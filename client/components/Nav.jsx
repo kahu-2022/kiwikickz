@@ -3,12 +3,14 @@ import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 function Nav(props) {
+  const setVis = props.setSideBar[1]
+  const vis = props.setSideBar[0]
   
   return (
     <>
     <Menu>
       <Menu.Item>
-        <Icon name='sidebar'/>
+        <Icon name='sidebar'onClick={() => setVis(!vis)}/>
       </Menu.Item>
       <Menu.Item>
       <Link to='/'>
