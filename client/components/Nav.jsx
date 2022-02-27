@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import{ Menu, Icon , Input } from 'semantic-ui-react'
+import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 function Nav(props) {
@@ -11,19 +11,24 @@ function Nav(props) {
         <Icon name='sidebar'/>
       </Menu.Item>
       <Menu.Item>
+      <Link to='/'>
+        <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
+        </Link>
+      </Menu.Item>
+      {/* <Menu.Item>
         <Link to='/'>
           Home
         </Link>
+      </Menu.Item> */}
+      <Menu.Item position='right'>
+        <Input icon='search' placeholder='Search...' />
       </Menu.Item>
+          
       <Menu.Item>
         <Link to='/about'>
           About
         </Link>
       </Menu.Item>
-      <Menu.Item position='right'>
-        <Input icon='search' placeholder='Search...' />
-      </Menu.Item>
-          
       <Menu.Item>
         <Link to='/cart'>
       <Icon name='cart'/>

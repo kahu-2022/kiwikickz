@@ -7,17 +7,14 @@ import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
 import Nav from './Nav'
 import Footer from './Footer'
-import SidebarExampleSidebar from './SideBar'
 
 function App () {
   return (
     <>
       <header className="header">
-        <br/>
-        <Link to='/'>
-        <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
-        </Link>
-        <br/>
+        {/* <br/>
+        
+        <br/> */}
         <Nav/>
       </header>
       <section className="main">
