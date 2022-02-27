@@ -23,6 +23,13 @@ export function removeFromCart(product) {
     }
 }
 
+export function getCartTotal(product){
+    return {
+        type: 'CART_TOTAL',
+        product: product
+    }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {

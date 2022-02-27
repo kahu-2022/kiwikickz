@@ -9,11 +9,25 @@ const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6N
 
 function Cart() {
   const cart = useSelector(globalState => globalState.cart)
+  let total = 0
+
+  const totalOfCart = () => {
+    cart.map(cartItem => {
+      total += cartItem.price
+    })
+    return total
+  }
 
   const makePayment = (token) => {
+    // currently only sending the individual name 'kiwi kickz' through as item desc displayed on site.
+    const cartItems = {
+      price: totalOfCart(),
+      name: "KiwiKickz"
+    }
+
     const body = {
       token,
-      cart
+      cartItems
     }
 
     const headers = {
@@ -30,6 +44,7 @@ function Cart() {
       .catch(err => console.log(err))
   }
 
+
   return (
     <div>
       <Container>
@@ -45,8 +60,8 @@ function Cart() {
         image="/kicksimg.png"
         billingAddress
         shippingAddress
-        description={`Your total is $${cart[0].price}`}
-        amount={cart[0].price * 100}
+        description={`Your total is $${totalOfCart()}`}
+        amount={totalOfCart() * 100}
         token={makePayment}
         stripeKey={KEY}
       >

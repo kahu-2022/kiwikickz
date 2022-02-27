@@ -5,8 +5,7 @@ const router = express.Router()
 const stripe = require("stripe")('sk_test_51KWbgYFReKnnv8idi9uY4hXXZxZiqxdUKAGuYxisylI1riCQLIZGrICjFS8FhHZ7kng6Y8wuaEJXZJh1kcAuREkz00xlFmdUuv');
 
 router.post("/", (req, res) => {
-  const { cart, token } = req.body
-
+  const { cartItems, token } = req.body
 
   return stripe.customers
     .create({
@@ -16,11 +15,11 @@ router.post("/", (req, res) => {
     .then(customer => {
       stripe.charges.create(
         {
-          amount: cart[0].price * 100,
+          amount: cartItems.price * 100,
           currency: 'usd',
           customer: customer.id,
           receipt_email: token.email,
-          description: cart.name
+          description: cartItems.name
         })
     })
     .then(result => res.status(200).json(result))
