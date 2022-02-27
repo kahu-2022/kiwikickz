@@ -63,8 +63,9 @@ return (
     </Grid>
   </Segment>
   <Container id="description">
+        <p><strong>Size: </strong>{product?.size}US - {product?.gender}</p>
         <p><strong>Brand: </strong>{product?.brand}</p>
-        <p><strong>Color: </strong>{product?.color}</p>
+        <p><strong>Color: </strong>{product ? JSON.parse(product?.color).join(", ") : null}</p>
         <p><strong>Condition: </strong>{product?.condition}</p>
         <p><strong>Model: </strong>{product?.model}</p>
         <p><strong>Year: </strong>{product?.year}</p>
