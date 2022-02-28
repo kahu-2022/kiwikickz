@@ -1,5 +1,4 @@
 import { getAllProduct, addProduct } from '../apis'
-import { isFull } from './productStateState'
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
@@ -24,6 +23,15 @@ export function removeFromCart(product) {
     }
 }
 
+export const CHECK_FILTER = "CHECK_FILTER";
+
+export function filters(filter) {
+  return {
+    type: CHECK_FILTER,
+    filter: filter,
+  };
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
@@ -31,7 +39,7 @@ export function getAllProductsThunk() {
         getAllProduct()
         .then (productArr => {
             dispatch(getAllProductsAction(productArr))
-            dispatch(isFull())
+
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
