@@ -58,7 +58,7 @@ function App() {
                 Search
               </Menu.Item> 
               <Link to='/cart'>
-              <Menu.Item as="a">
+              <Menu.Item onClick={() => {setVisible(!visible)}}>
                 <Icon name="cart" />
                 Cart
               </Menu.Item>
