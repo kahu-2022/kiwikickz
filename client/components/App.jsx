@@ -1,18 +1,18 @@
 import React, { useState  } from "react"
 import { Routes, Route, Link , useNavigate } from "react-router-dom"
-import Cart from "./Cart"
-import Home from "./Home"
-import Product from "./Product"
-import AddProduct from "./AddProduct"
-import Nav from "./Nav"
-import Footer from "./Footer"
+import Cart from './Cart'
+import Home from './Home'
+import Product from './Product'
+import AddProduct from './AddProduct'
+import Nav from './Nav'
+import Footer from './Footer'
+import QuestionAdmin from './QuestionAdmin'
 import About from './About'
 import FilterBrand from "./FilterBrand"
 import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
 import Success from './Success'
-
 
 import {
   Icon,
@@ -99,6 +99,7 @@ function App() {
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path='/about' element={<About/>}/>
                     <Route path='/success' element={<Success />}/>
+                    <Route path='/adminquestion' element = {<QuestionAdmin/>}/>
                   </Routes>
                   <Footer />
                 </section>
