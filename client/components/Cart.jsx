@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
-import React, { useState } from 'react'
+import React from 'react'
 import { Container, Header, Divider, Button } from 'semantic-ui-react'
 import cart from '../reducers/cart'
 import CartItem from './CartItem'
