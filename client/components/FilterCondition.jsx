@@ -6,9 +6,9 @@ function FilterCondition() {
   const dispatch = useDispatch()
 
   return (
-    <Grid columns={2}>
+    <Grid columns={3}>
       <GridRow>
-      <GridColumn width={2}>
+      <GridColumn width={3}>
       <h3 className='sideBar-h3'>CONDITION </h3>
       </GridColumn>
       </GridRow>

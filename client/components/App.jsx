@@ -12,6 +12,7 @@ import FilterSizeGroup from "./FilterSizeGroup"
 import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
+import FilterSortBy from "./FilterSortBy"
 
 import {
   Icon,
@@ -66,6 +67,9 @@ function App() {
               <Menu.Item>
                 <Icon name="sliders horizontal" />
                 Filter
+              </Menu.Item>
+              <Menu.Item>
+              🔥 HOTPICKS 🔥 <Checkbox defaultChecked/> 
               </Menu.Item>
               <Menu.Item>
                 <FilterBrand/>
