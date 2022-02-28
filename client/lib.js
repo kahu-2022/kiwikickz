@@ -50,7 +50,19 @@ const productFitsFilter = (product, filter) => {
 export const testingFilterArr = (arrToTest, filter) => {
   const isInArray = arrToTest.some(product => product.key === filter.key)
   if (isInArray === true) {
-    return arrToTest.filter(product => product.key !== filter.key)
+    return arrToTest.filter(product => {
+      if (product.key === 'size') {
+        if (product.min !== filter.min && product.max !== filter.max)
+          return product
+      } 
+      else if (product.key === 'color') {
+        
+      }
+      else if (product.key !== filter.key) {
+        return product
+      }
+    }
+    )
   }
   else return [...arrToTest, filter]
 };
