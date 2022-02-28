@@ -69,7 +69,6 @@ function QuestionAdmin() {
         </>
         )}
         </ul>
-        <button onClick = {(e) => dispatch(updateQuestionThunk(updateQuestion))}>Update Question</button>
         
       <h2>Answered Questions</h2>
       <ul>
