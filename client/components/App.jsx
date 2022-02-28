@@ -1,5 +1,5 @@
 import React, { useState  } from "react"
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link , useNavigate } from "react-router-dom"
 import Cart from "./Cart"
 import Home from "./Home"
 import Product from "./Product"
@@ -8,11 +8,9 @@ import Nav from "./Nav"
 import Footer from "./Footer"
 import About from './About'
 import FilterBrand from "./FilterBrand"
-import FilterSizeGroup from "./FilterSizeGroup"
 import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
-import FilterSortBy from "./FilterSortBy"
 
 import {
   Icon,
@@ -32,7 +30,12 @@ import {
 function App() {
   const [visible, setVisible] = useState(false)
   const [toggleSearch, setToggleSearch] = useState(false)
+  const navigate = useNavigate()
 
+  const cartClick = () => {
+    setVisible(!visible)
+    navigate('/cart')
+  }
 
   return (
     <>
@@ -58,12 +61,12 @@ function App() {
                 <Icon name="search" />
                 Search
               </Menu.Item> 
-              <Link to='/cart'>
-              <Menu.Item onClick={() => {setVisible(!visible)}}>
+              
+              <Menu.Item onClick={() => {cartClick()}}>
                 <Icon name="cart" />
                 Cart
               </Menu.Item>
-              </Link>
+            
               <Menu.Item>
                 <Icon name="sliders horizontal" />
                 Filter
