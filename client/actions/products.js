@@ -26,10 +26,12 @@ export function removeFromCart(product) {
 export const CHECK_FILTER = "CHECK_FILTER";
 
 export function filters(filter) {
-  return {
-    type: CHECK_FILTER,
-    filter: filter,
-  };
+    return {
+        type: CHECK_FILTER,
+        filter: filter,
+    };
+}
+
 export function getCartTotal(value){
     return {
         type: 'ADD_CART_AMOUNT',
