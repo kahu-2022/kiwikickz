@@ -1,5 +1,6 @@
 import {getAllProduct , addProduct} from '../apis'
 
+
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
 export function getAllProductsAction(productArr) {
@@ -23,10 +24,18 @@ export function removeFromCart(product) {
     }
 }
 
+
 export function getCartTotal(value){
     return {
         type: 'ADD_CART_AMOUNT',
         addTotal: value
+    }
+}
+
+export function removeCartTotal(value) {
+    return {
+        type: 'REMOVE_CART_AMOUNT',
+        removeTotal: value
     }
 }
 
@@ -70,5 +79,12 @@ export function addPriceToCart(product){
     return (dispatch) => {
         dispatch(addToCart(product))
         dispatch(getCartTotal(product.price))
+    }
+}
+
+export function RemovePriceFromCart(product) {
+    return (dispatch) => {
+        dispatch(removeFromCart(product))
+        dispatch(removeCartTotal(product.price))
     }
 }
