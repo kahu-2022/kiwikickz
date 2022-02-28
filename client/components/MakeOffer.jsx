@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Container, Button, Input, Label , Divider , Grid, Header, Icon, Segment} from 'semantic-ui-react'
-import { addToCart } from '../actions/products'
+import { addToCart, addPriceToCart } from '../actions/products'
 import { useDispatch } from 'react-redux' 
 import { useNavigate } from 'react-router-dom'
 import  TextPopUp  from "./TextPopUp";
@@ -12,6 +12,7 @@ function MakeOffer(props) {
 
   const handleBuyNow = () => {
     dispatch(addToCart(product))
+    dispatch(addPriceToCart(product))
     navigate('/cart')
   }
 

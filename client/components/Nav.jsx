@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import { useSelector } from 'react-redux'
+
 function Nav(props) {
   const setVis = props.setSideBar[1]
   const vis = props.setSideBar[0]
+
+  const cartTotal = useSelector(state => state.cartTotal)
   
   return (
     <>
@@ -28,7 +32,7 @@ function Nav(props) {
       </Menu.Item>
       <Menu.Item>
         <Link to='/cart' className='link'>
-      <Icon name='cart'/>
+      <Icon name='cart'/> $ {cartTotal}
       </Link>
       </Menu.Item>
       <Menu.Item >
