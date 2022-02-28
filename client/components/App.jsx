@@ -11,6 +11,8 @@ import FilterBrand from "./FilterBrand"
 import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
+import Success from './Success'
+
 
 import {
   Icon,
@@ -96,6 +98,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path='/about' element={<About/>}/>
+                    <Route path='/success' element={<Success />}/>
                   </Routes>
                   <Footer />
                 </section>
