@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Container, Header, Divider, Button } from 'semantic-ui-react'
 import cart from '../reducers/cart'
 import CartItem from './CartItem'
+import { Link } from 'react-router-dom'
 
 const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
 
@@ -41,12 +42,11 @@ function Cart() {
   return (
     <div>
       <Container>
-        <Divider />
         <Header as='h2'>Items in Cart</Header>
-        <Divider />
-        {cart ? cart.map((item, i) => <CartItem data={item} key={item.name + i} />) : <p>You have no items in your cart.</p>}
+        {cart.length > 0 ? cart.map((item, i) => <CartItem data={item} key={item.name + i} />) : <div className='empty-cart'><Header as='h3' textAlign= 'center'>You have no items in your cart.</Header></div>}
 
       </Container>
+      <Container>
       <StripeCheckout
         name="Kiwi Kickz"
         image="/kicksimg.png"
@@ -59,8 +59,8 @@ function Cart() {
       >
         <Button>Checkout</Button>
       </StripeCheckout>
+        <Link to='/'><Button>Continue Shopping</Button></Link>
 
-      <Container>
       </Container>
 
     </div>

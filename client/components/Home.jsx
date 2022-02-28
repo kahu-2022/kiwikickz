@@ -26,11 +26,11 @@ function Home() {
 
   return (
     <>
-      <select name="choice">
+      {/* <select name="choice">
         <option value="first">First Value</option>
         <option value="second" selected>Second Value</option>
         <option value="third">Third Value</option>
-      </select>
+      </select> */}
       <input type='checkbox' onClick={() => { dispatch(filters(testFilter)) }}></input>
       <Container style={{ marginTop: '3em' }}>
         
