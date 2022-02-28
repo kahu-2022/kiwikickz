@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, Link, useNavigate } from "react-router-dom"
 
 import { getAllProductsThunk } from '../actions/products'
+import { filters } from '../actions/products'
 
 import Cart from "./Cart"
 import Home from "./Home"
