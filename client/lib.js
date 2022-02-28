@@ -29,7 +29,13 @@ const manyFiltersOneProduct = (product, filters) => {
   
   
 const productFitsFilter = (product, filter) => {
-  if (filter.key === 'color') {
+  if (filter.key === 'size') {
+    const fitsSizeParameters = testSizeParameters(product[filter.key], filter)
+    if (fitsSizeParameters === true) {
+      return product;
+    }
+  }
+  else if (filter.key === 'color') {
     const colorTest = product[filter.key].includes(filter.value)
     if (colorTest === true) {
       return product
@@ -49,6 +55,12 @@ export const testingFilterArr = (arrToTest, filter) => {
   else return [...arrToTest, filter]
 }
 
+const testSizeParameters = (size, filter) => {
+  if (filter.min <= size && size <= filter.max) {
+    return true
+  }
+  else return false
+}
 
 /* Suggested filters for array :
 
