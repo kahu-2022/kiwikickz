@@ -36,6 +36,8 @@ function Cart() {
     }).then(response => {
       console.log(response.status)
       if (response.status == 200){
+        //dispatch add to db
+        //navigate to new id returned
         navigate('/success')
       } 
     })
