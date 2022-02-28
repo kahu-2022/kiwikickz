@@ -30,6 +30,11 @@ export function filters(filter) {
     type: CHECK_FILTER,
     filter: filter,
   };
+export function getCartTotal(value){
+    return {
+        type: 'ADD_CART_AMOUNT',
+        addTotal: value
+    }
 }
 
 // THUNKS
@@ -52,13 +57,13 @@ export function getAllProductsThunk() {
 
 export function addProductThunk(product) {
     return (dispatch) => {
-        addProduct(product)
+        return addProduct(product)
         .then ((id) => {
             dispatch(getAllProductsThunk())
             return id
         })
         .then ((id) => {
-            console.log("TESTING to see if the second .then WORKS ", id)
+            //console.log("TESTING to see if the second .then WORKS ", id)
             return id
         })
         .catch ( err => {
@@ -66,6 +71,12 @@ export function addProductThunk(product) {
             console.log(errMessage)
             return null
           })
+    }
+}
 
+export function addPriceToCart(product){
+    return (dispatch) => {
+        dispatch(addToCart(product))
+        dispatch(getCartTotal(product.price))
     }
 }

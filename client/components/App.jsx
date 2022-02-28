@@ -3,11 +3,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
 
 import {Routes, Route, Link} from 'react-router-dom'
+import { Header } from 'semantic-ui-react'
+
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
-import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
+import Nav from './Nav'
+import Footer from './Footer'
+import About from './About'
+
 
 function App() {
   
