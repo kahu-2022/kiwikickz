@@ -11,7 +11,7 @@ import AddProduct from './AddProduct'
 
 function App() {
   
-  const isProductArrFull = useSelector(state => state.isProductArrFull)
+  const isProductArrFull = useSelector(state => state.allProducts)
 
   const dispatch = useDispatch()
 
