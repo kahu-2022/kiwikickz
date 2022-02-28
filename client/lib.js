@@ -29,8 +29,8 @@ const manyFiltersOneProduct = (product, filters) => {
   
   
 const productFitsFilter = (product, filter) => {
-  if (product[filter.key] === 'color') {
-    const colorTest = product[filter.key].some(color => color === filter.value)
+  if (filter.key === 'color') {
+    const colorTest = product[filter.key].includes(filter.value)
     if (colorTest === true) {
       return product
     }
