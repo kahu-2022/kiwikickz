@@ -13,8 +13,9 @@ function QuestionAdmin() {
   const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
 
   const defaultState= {
-    answer: ""
-    }
+    answer: "",
+  }
+
   useEffect(() => {
     dispatch(getAllQuestionsThunk())
   }, [])
@@ -32,15 +33,15 @@ function QuestionAdmin() {
       }
   }
 
-  const handleSubmit = (id, question,productId, createdAt, e) => {
+  const handleSubmit = (id, question, productId, createdAt, e) => {
     e.preventDefault()
     const newQuestion = {
       ...answer,
       answer: answer.answer,
       id: id, 
-     question: question,
-     productId: productId, 
-     createdAt: createdAt 
+      question: question,
+      productId: productId, 
+      createdAt: createdAt 
     }
     dispatch(updateQuestionThunk(newQuestion))
     setAnswer(defaultState)
@@ -49,42 +50,38 @@ function QuestionAdmin() {
   return (
     <>
     <Container>
-    <h2>Unanswered Questions</h2>
-    <ul>
-       {unansweredQuestions.map(ele =>
-       <>
-       <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}<br />{ele.question}
-       <form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
-        <input
-          type='text'
-          id='answer'
-          value={ele.answer.answer}
-          placeholder="enter your answer"
-          onChange={(e) => ( handleInput(e))}
-        />
-        <button onClick={e => handleSubmit}>submit</button>
-      </form>
-       </li>
-       </>
-       )}
+      <h2>Unanswered Questions</h2>
+      <ul>
+        {unansweredQuestions.map(ele =>
+        <>
+        <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}<br />{ele.question}
+        <form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
+          <input
+            type='text'
+            id='answer'
+            value={ele.answer.answer}
+            placeholder="enter your answer"
+            onChange={(e) => ( handleInput(e))}
+          />
+          <button onClick={e => handleSubmit}>submit</button>
+        </form>
+        </li>
+        </>
+        )}
+        </ul>
+        <button onClick = {(e) => dispatch(updateQuestionThunk(updateQuestion))}>Update Question</button>
+        
+      <h2>Answered Questions</h2>
+      <ul>
+        {answeredQuestions.map(ele =>
+        <>
+          <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}
+          <br />{ele.question} <br /> {ele.answer}</li>
+        </>
+        )}
       </ul>
-      <button onClick = {(e) => dispatch(updateQuestionThunk(updateQuestion))}>Update Question</button>
-      
-    <h2>Answered Questions</h2>
-    <ul>
-       {answeredQuestions.map(ele =>
-       <>
-       
-       <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}
-       <br />{ele.question} <br /> {ele.answer}</li>
-       </>
-       )}
-      </ul>
-
     </Container>
-    
     </>
   )
-
 }
 export default QuestionAdmin
