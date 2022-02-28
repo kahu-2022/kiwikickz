@@ -1,5 +1,6 @@
 const express = require('express')
 const camelCase = require('camelcase-keys')
+const snakeCase = require('snakecase-keys')
 
 const db = require('../db/question')
 const router = express.Router()
@@ -27,7 +28,7 @@ router.post('/', (req, res) => {
 })
 
 router.patch('/', (req, res) => {
-  const questionToUpdate = req.body
+  const questionToUpdate = snakeCase(req.body)
   console.log('hello route', questionToUpdate)
   db.updateQuestion(questionToUpdate)
   .then(numberOfUpdatedQuestion => {

@@ -37,7 +37,7 @@ function QuestionAdmin() {
     const newQuestion = {
       ...answer,
       answer: answer.answer,
-      id: id,
+      id: id, 
      question: question,
      productId: productId, 
      createdAt: createdAt 
@@ -54,7 +54,7 @@ function QuestionAdmin() {
        {unansweredQuestions.map(ele =>
        <>
        <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}<br />{ele.question}
-       <form type="submit" onSubmit={(e) => handleSubmit(ele.id, e)}>
+       <form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
         <input
           type='text'
           id='answer'
