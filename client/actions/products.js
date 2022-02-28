@@ -1,4 +1,4 @@
-import { getAllProduct, addProduct } from '../apis'
+import {getAllProduct , addProduct} from '../apis'
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
@@ -23,17 +23,10 @@ export function removeFromCart(product) {
     }
 }
 
-export function getCartTotal(value) {
+export function getCartTotal(value){
     return {
         type: 'ADD_CART_AMOUNT',
         addTotal: value
-    }
-}
-
-export function removeCartTotal(value) {
-    return {
-        type: 'REMOVE_CART_AMOUNT',
-        removeTotal: value
     }
 }
 
@@ -42,14 +35,14 @@ export function removeCartTotal(value) {
 export function getAllProductsThunk() {
     return (dispatch) => {
         getAllProduct()
-            .then(productArr => {
-                dispatch(getAllProductsAction(productArr))
-            })
-            .catch(err => {
-                const errMessage = err.response?.text || err.message
-                console.log(errMessage)
-                return null
-            })
+        .then (productArr => {
+            dispatch(getAllProductsAction(productArr))
+        })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+          })
 
     }
 }
@@ -57,32 +50,25 @@ export function getAllProductsThunk() {
 export function addProductThunk(product) {
     return (dispatch) => {
         return addProduct(product)
-            .then((id) => {
-                dispatch(getAllProductsThunk())
-                return id
-            })
-            .then((id) => {
-                return id
-            })
-            .catch(err => {
-                const errMessage = err.response?.text || err.message
-                console.log(errMessage)
-                return null
-            })
+        .then ((id) => {
+            dispatch(getAllProductsThunk())
+            return id
+        })
+        .then ((id) => {
+            //console.log("TESTING to see if the second .then WORKS ", id)
+            return id
+        })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+          })
     }
 }
 
-export function addPriceToCart(product) {
+export function addPriceToCart(product){
     return (dispatch) => {
         dispatch(addToCart(product))
         dispatch(getCartTotal(product.price))
-    }
-}
-
-
-export function RemovePriceFromCart(product) {
-    return (dispatch) => {
-        dispatch(removeFromCart(product))
-        dispatch(removeCartTotal(product.price))
     }
 }
