@@ -1,15 +1,17 @@
 import { useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Header, Divider, Button } from 'semantic-ui-react'
 import cart from '../reducers/cart'
 import CartItem from './CartItem'
+import Success from './Success'
 
 const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
 
 function Cart() {
   const cart = useSelector(globalState => globalState.cart)
   const amount = useSelector(globalState => globalState.cartTotal)
+  const [visible, setVisible] = useState(false)
 
   const makePayment = (token) => {
     // currently only sending the individual name 'kiwi kickz' through as item desc displayed on site.
@@ -31,38 +33,36 @@ function Cart() {
       headers,
       body: JSON.stringify(body)
     }).then(response => {
-      const { status } = response;
-      console.log("status", status)
+      console.log("response - status code received from stripe",response.status)
+      if (response.status == 200){
+        setVisible(true)
+      }
     })
       .catch(err => console.log(err))
   }
 
 
   return (
-    <div>
+    <div>{visible ? <Success /> :
       <Container>
         <Divider />
         <Header as='h2'>Items in Cart</Header>
         <Divider />
         {cart ? cart.map((item, i) => <CartItem data={item} key={item.name + i} />) : <p>You have no items in your cart.</p>}
-
-      </Container>
-      <StripeCheckout
-        name="Kiwi Kickz"
-        image="/kicksimg.png"
-        billingAddress
-        shippingAddress
-        description={`Your total is $${amount}`}
-        amount={amount * 100 / 2}
-        token={makePayment}
-        stripeKey={KEY}
-      >
-        <Button>Checkout</Button>
-      </StripeCheckout>
-
-      <Container>
-      </Container>
-
+        <StripeCheckout
+          name="Kiwi Kickz"
+          image="/kicksimg.png"
+          billingAddress
+          shippingAddress
+          description={`Your total is $${amount}`}
+          amount={amount * 100}
+          token={makePayment}
+          stripeKey={KEY}
+        >
+          <Button>Checkout</Button>
+        </StripeCheckout>
+      </Container> 
+      }
     </div>
   )
 }
