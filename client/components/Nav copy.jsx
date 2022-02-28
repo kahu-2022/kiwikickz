@@ -1,14 +1,15 @@
 // import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
-// import { useDispatch ,useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { useDispatch ,useSelector } from 'react-redux'
 // import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
 
 import _ from 'lodash'
 import faker from 'faker'
+
 import React from 'react'
 import { Search, Grid, Header, Segment } from 'semantic-ui-react'
 
-const source = _.times(5, () => ({
+const source = _.times(2, () => ({
   title: faker.company.companyName(),
   description: faker.company.catchPhrase(),
   image: faker.internet.avatar(),
