@@ -31,7 +31,6 @@ function Home() {
         <option value="second" selected>Second Value</option>
         <option value="third">Third Value</option>
       </select> */}
-      <input type='checkbox' onClick={() => { dispatch(filters(testFilter)) }}></input>
       <Container style={{ marginTop: '3em' }}>
         
         {allProducts ? <ProductContainer data={results} /> : null}
