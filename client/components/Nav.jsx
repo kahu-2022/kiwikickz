@@ -18,7 +18,7 @@ function Nav(props) {
         </Link>
       </Menu.Item>
       <Menu.Item position='right'>
-        <Input icon='search' placeholder='Search...' />
+        <Input icon='search' placeholder='Search...' name = 'search-bar'/>
       </Menu.Item>
           
       <Menu.Item >

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState  } from "react"
 import { Routes, Route, Link } from "react-router-dom"
 import Cart from "./Cart"
 import Home from "./Home"
@@ -7,6 +7,11 @@ import AddProduct from "./AddProduct"
 import Nav from "./Nav"
 import Footer from "./Footer"
 import About from './About'
+import FilterBrand from "./FilterBrand"
+import FilterSizeGroup from "./FilterSizeGroup"
+import FilterSize from "./FilterSize"
+import FilterPrice from "./FilterPrice"
+import FilterCondition from "./FilterCondition"
 
 import {
   Icon,
@@ -17,10 +22,16 @@ import {
   Segment,
   Sidebar,
   GridColumn,
+  Accordion,
+  Input,
+  Checkbox
 } from "semantic-ui-react"
 
+
 function App() {
-  const [visible, setVisible] = React.useState(false)
+  const [visible, setVisible] = useState(false)
+  const [toggleSearch, setToggleSearch] = useState(false)
+
 
   return (
     <>
@@ -42,17 +53,31 @@ function App() {
               visible={visible}
               width="wide"
             >
+              <Menu.Item as="a" onClick={() => {setToggleSearch(!toggleSearch)}}>
+                <Icon name="search" />
+                Search
+              </Menu.Item> 
+              <Link to='/cart'>
               <Menu.Item as="a">
-                <Icon name="home" />
-                Home
+                <Icon name="cart" />
+                Cart
               </Menu.Item>
-              <Menu.Item as="a">
-                <Icon name="gamepad" />
-                Games
+              </Link>
+              <Menu.Item>
+                <Icon name="sliders horizontal" />
+                Filter
               </Menu.Item>
-              <Menu.Item as="a">
-                <Icon name="camera" />
-                Channels
+              <Menu.Item>
+                <FilterBrand/>
+              </Menu.Item>
+              <Menu.Item>
+                <FilterCondition/>
+              </Menu.Item>
+              <Menu.Item>
+                <FilterPrice/>
+              </Menu.Item>
+              <Menu.Item>
+                <FilterSize/>
               </Menu.Item>
             </Sidebar>
             <Sidebar.Pusher>
