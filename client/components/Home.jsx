@@ -15,7 +15,7 @@ function Home() {
   const allProducts = useSelector(state => state.allProducts)
   const currentFilters = useSelector(state => state.currentFilters)
   
-  const testFilter = { key: 'color', value: "Black" }
+  const testFilter = { key: 'size', min: 9, max: 9.5 }
 
   const results = manyProductsManyFilters(allProducts, currentFilters)
 
