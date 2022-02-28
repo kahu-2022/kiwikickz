@@ -1,6 +1,7 @@
-import {getAllProduct , addProduct} from '../apis'
+import {getAllProduct , addProduct, getSearchResults} from '../apis'
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
+export const GET_SEARCH_RESULTS = "GET_SEARCH_RESULTS"
 
 export function getAllProductsAction(productArr) {
     return {
@@ -30,7 +31,30 @@ export function getCartTotal(value){
     }
 }
 
+export function getSearchResultsAction (searchResults) {
+    return {
+        type: GET_SEARCH_RESULTS,
+        searchResultsArr: searchResults
+    }
+}
+
 // THUNKS
+
+export function getSearchResultsThunk (searchText) {
+    return (dispatch) => {
+        return getSearchResults({searchText: searchText})
+        .then (resultsArr => {
+            dispatch(getSearchResultsAction(resultsArr))
+            return resultsArr
+        })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+          })
+
+    }
+}
 
 export function getAllProductsThunk() {
     return (dispatch) => {
@@ -55,7 +79,6 @@ export function addProductThunk(product) {
             return id
         })
         .then ((id) => {
-            //console.log("TESTING to see if the second .then WORKS ", id)
             return id
         })
         .catch ( err => {

@@ -28,6 +28,17 @@ router.post('/', (req,res) => {
           }) 
 })
 
+router.get('/search', (req, res) => {
+  console.log(req.body.searchText)
+  db.searchProducts(req.body.searchText)
+    .then(resultsArr => {
+      res.json(camelCase(resultsArr))
+    })
+    .catch((err) => {
+      console.error("Database: " + err.message)
+    })
+  })
+
 
 
 module.exports = router

@@ -4,7 +4,7 @@ import { getAllProductsThunk } from '../actions/products'
 import {Container , Divider, Header} from 'semantic-ui-react'
 
  
-function Home () {
+function About () {
   
   const dispatch = useDispatch()
 
@@ -41,4 +41,4 @@ function Home () {
   )
 }
 
-export default Home
+export default About

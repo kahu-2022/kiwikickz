@@ -1,9 +1,18 @@
 import React, { useState } from 'react'
-import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { useDispatch ,useSelector } from 'react-redux'
+import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
+
 
 function Nav(props) {
+
+  const dispatch = useDispatch()
+  const allProducts = useSelector(state => state.allProducts)
   
+  const handleClick = (e) => {
+    console.log(e)
+  }
+
   return (
     <>
     <Menu>
@@ -15,8 +24,11 @@ function Nav(props) {
         <Header as = 'h1' textAlign='center'>KIWIKICKZ</Header>
         </Link>
       </Menu.Item>
+
+      {/* Add the Search Functionality here */}
       <Menu.Item position='right'>
-        <Input icon='search' placeholder='Search...' />
+        <Input icon={{ name: 'search', circular: true, link: true, onClick: handleClick}}
+        placeholder='Search...' />
       </Menu.Item>
           
       <Menu.Item>
