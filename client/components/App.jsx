@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <Grid columns={1} >
+      <Grid columns={1}>
         <Grid.Column>
           <header className="header">
             <Nav setSideBar={[visible, setVisible]} />
