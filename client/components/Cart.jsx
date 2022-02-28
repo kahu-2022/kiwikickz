@@ -47,6 +47,7 @@ function Cart() {
         {cart ? cart.map((item, i) => <CartItem data={item} key={item.name + i} />) : <p>You have no items in your cart.</p>}
 
       </Container>
+      <Container>
       <StripeCheckout
         name="Kiwi Kickz"
         image="/kicksimg.png"
@@ -60,7 +61,6 @@ function Cart() {
         <Button>Checkout</Button>
       </StripeCheckout>
 
-      <Container>
       </Container>
 
     </div>
