@@ -2,8 +2,8 @@
 
 // export const mappingWithFilters = (ArrayToFilter, Filters) =>
 //   ArrayToFilter.map(product => {
-//     const matches = productMatchesAllFilters(product, filters);
-//     return { product, mtches }
+//     const matches = productMatchesAllFilters(product, Filters);
+//     return { product, matches }
 //   });
 
 // const productMatchesAllFilters = (product, filters) =>
@@ -20,7 +20,7 @@ export const manyProductsManyFilters = (products, filters) => {
   const results = products.map(product => manyFiltersOneProduct(product, filters))
   const finalResults = results.filter(product => product !== null)
   return finalResults
-}
+};
 
 const manyFiltersOneProduct = (product, filters) => {
   const potentialPass = filters.every(filter => productFitsFilter(product, filter))
@@ -29,24 +29,22 @@ const manyFiltersOneProduct = (product, filters) => {
     return product
   }
   else return null
-}
+};
   
   
 const productFitsFilter = (product, filter) => {
   if (filter.key === "size" || filter.key === "price") {
-    const fitsSizeOrPriceParameters = testSizeOrPriceParameters(product[filter.key], filter);
-    if (fitsSizeOrPriceParameters === true) {
+    if (testSizeOrPriceParameters(product[filter.key], filter) === true) {
       return product;
     }
   } else if (filter.key === "color") {
-    const colorTest = product[filter.key].includes(filter.value);
-    if (colorTest === true) {
+    if (product[filter.key].includes(filter.value) === true) {
       return product;
     }
   } else if (product[filter.key] === filter.value) {
     return product;
   }
-}
+};
 
 
 export const testingFilterArr = (arrToTest, filter) => {
@@ -55,13 +53,29 @@ export const testingFilterArr = (arrToTest, filter) => {
     return arrToTest.filter(product => product.key !== filter.key)
   }
   else return [...arrToTest, filter]
-}
+};
 
 const testSizeOrPriceParameters = (sizeOrPrice, filter) => {
   if (filter.min <= sizeOrPrice && sizeOrPrice <= filter.max) {
     return true
   }
   else return false
-}
+};
 
-//
+// Sorting Array Methods 
+
+// export const filterArrByPriceHiLow = () => {
+
+// };
+
+// export const filterArrByPriceHiLow = () => { 
+
+// };
+
+// export const filterArrByPriceHiLow = () => { 
+
+// };
+
+// export const filterArrByPriceHiLow = () => {
+
+// };
