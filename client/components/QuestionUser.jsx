@@ -25,7 +25,8 @@ function UserQuestion () {
         setQuestion({
           product_id: id,
           question: e.target.value,
-          status: 'unanswered'
+          status: 'unanswered',
+          answer: ""
       })
     }
   }
