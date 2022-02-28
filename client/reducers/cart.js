@@ -8,9 +8,6 @@ function cart (state = initialState, action) {
     case 'REMOVE_ITEM': 
     const minusCart = state.filter( item => item.id !== action.product.id)
     return minusCart
-    case 'CART_TOTAL':
-    const cartTotal = state.map(cartItem => total += cartItem.price)
-    return cartTotal
     default: 
       return state
   }

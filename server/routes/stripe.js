@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-// const KEY = process.env.STRIPE_KEY
+const KEY = process.env.STRIPE_KEY
 
 const stripe = require("stripe")('sk_test_51KWbgYFReKnnv8idi9uY4hXXZxZiqxdUKAGuYxisylI1riCQLIZGrICjFS8FhHZ7kng6Y8wuaEJXZJh1kcAuREkz00xlFmdUuv');
 
@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
       stripe.charges.create(
         {
           amount: cartItems.price * 100,
-          currency: 'usd',
+          currency: 'nzd',
           customer: customer.id,
           receipt_email: token.email,
           description: cartItems.name
