@@ -26,6 +26,19 @@ router.post('/', (req, res) => {
       })
 })
 
+router.patch('/', (req, res) => {
+  const questionToUpdate = req.body
+  console.log('hello route', questionToUpdate)
+  db.updateQuestion(questionToUpdate)
+  .then(numberOfUpdatedQuestion => {
+    res.json(numberOfUpdatedQuestion)
+    return null
+  })
+  .catch((err) => {
+    console.error("Database: " + err.message)
+    })
+})
+
   module.exports = router
 
  

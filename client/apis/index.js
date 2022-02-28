@@ -22,3 +22,11 @@ export function addQuestion(question) {
   .send(question)
   .then(res => res.body)
 }
+
+export function updateQuestion(questionToUpdate) {
+  console.log('hello API', questionToUpdate)
+  return request
+  .patch('/api/v1/question')
+  .send(questionToUpdate)
+  .then(res => res.body)
+}

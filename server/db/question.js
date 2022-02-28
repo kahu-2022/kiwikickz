@@ -10,7 +10,16 @@ function addQuestion(obj, db = connection) {
     .insert(obj)
 }
 
+function updateQuestion(obj, db = connection) {
+    console.log(obj)
+    const questionId = Number(obj.id)
+    return db('question')
+    .update(obj)
+    .where('id', questionId)
+}
+
 module.exports = {
     getQuestions,
     addQuestion,
+    updateQuestion
 }

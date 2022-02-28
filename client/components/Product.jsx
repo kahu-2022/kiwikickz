@@ -8,7 +8,7 @@ import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { getAllProductsThunk } from '../actions/products'
 import MakeOffer from './MakeOffer';
-import UserQuestion from "./UserQuestion";
+import QuestionUser from "./QuestionUser";
 
 function Product () {
 
@@ -39,7 +39,7 @@ function Product () {
       </Container>
 
       <Container>
-        <UserQuestion />
+        <QuestionUser />
       </Container>
     </>
   )

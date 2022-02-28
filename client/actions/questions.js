@@ -1,8 +1,8 @@
-import {getAllQuestion, addQuestion} from '../apis'
+import {getAllQuestion, addQuestion, updateQuestion} from '../apis'
 
 export const GET_ALL_QUESTIONS = "GET_ALL_QUESTIONS"
 export const ADD_QUESTION = "ADD_QUESTION"
-
+export const UPDATE_QUESTION = "UPDATE_QUESTION"
 //ACTIONS
 export function getAllQuestionsAction(questionArr) {
     return {
@@ -16,6 +16,13 @@ export function addQuestionAction(questionInclID) {
     return {
         type: ADD_QUESTION,
         questionInclID
+    }
+}
+
+export function updateQuestionAction(updatedQuestion){
+    return {
+        type: UPDATE_QUESTION,
+        updatedQuestion
     }
 }
 
@@ -45,6 +52,20 @@ export function addQuestionThunk(question) {
                 // console.log("Hello THUNK here", questionInclID)
                 dispatch(addQuestionAction(questionInclID))
             })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+            })
+    }
+}
+
+export function updateQuestionThunk(questionToUpdate) {
+    return (dispatch) => {
+        updateQuestion(questionToUpdate)
+        .then((numberOfUpdateQuestion) => {
+            dispatch(updateQuestionAction(questionToUpdate))
+        })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
             console.log(errMessage)

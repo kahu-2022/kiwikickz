@@ -7,6 +7,7 @@ import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
 import Nav from './Nav'
 import Footer from './Footer'
+import QuestionAdmin from './QuestionAdmin'
 
 function App () {
   return (
@@ -20,6 +21,7 @@ function App () {
           <Route path='/product/:id' element = {<Product/>}/>
           <Route path='/cart' element = {<Cart/>}/>
           <Route path='/addproduct' element = {<AddProduct/>}/>
+          <Route path='/adminquestion' element = {<QuestionAdmin/>}/>
         </Routes>
       <Footer/>
       </section>
