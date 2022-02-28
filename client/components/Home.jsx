@@ -21,8 +21,8 @@ function Home() {
 
   const results = manyProductsManyFilters(allProducts, currentFilters)
 
-  console.log(results)
-  console.log(currentFilters)
+  // console.log(results)
+  console.log('currentFilters', currentFilters)
 
 
   return (

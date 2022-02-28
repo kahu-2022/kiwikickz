@@ -47,25 +47,31 @@ const productFitsFilter = (product, filter) => {
 };
 
 
+//  const testingFilterArr = (arrToTest, filter) => {
+//   const isInArray = arrToTest.some(product => product.key === filter.key)
+//   if (isInArray === true) {
+//     return arrToTest.filter(product => {
+//       console.log('Product: ', product)
+//       console.log(" Filter: ", filter);
+//       if (product.key === "size" || product.key === "price") {
+//         if (product.min !== filter.min && product.max !== filter.max)
+//           return product;
+//       } else if (product.key !== filter.key) {
+//         return product;
+//       }
+//     }
+//     )
+//   }
+//   else return [...arrToTest, filter]
+// };
+
 export const testingFilterArr = (arrToTest, filter) => {
-  const isInArray = arrToTest.some(product => product.key === filter.key)
+  const isInArray = arrToTest.some(product => product.key === filter.key);
   if (isInArray === true) {
-    return arrToTest.filter(product => {
-      if (product.key === 'size') {
-        if (product.min !== filter.min && product.max !== filter.max)
-          return product
-      } 
-      else if (product.key === 'color') {
-        
-      }
-      else if (product.key !== filter.key) {
-        return product
-      }
-    }
-    )
-  }
-  else return [...arrToTest, filter]
+    return arrToTest.filter(product => product.key !== filter.key);
+  } else return [...arrToTest, filter];
 };
+
 
 const testSizeOrPriceParameters = (sizeOrPrice, filter) => {
   if (filter.min <= sizeOrPrice && sizeOrPrice <= filter.max) {
