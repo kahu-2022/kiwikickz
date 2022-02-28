@@ -23,6 +23,13 @@ export function removeFromCart(product) {
     }
 }
 
+export function getCartTotal(value){
+    return {
+        type: 'ADD_CART_AMOUNT',
+        addTotal: value
+    }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
@@ -56,5 +63,12 @@ export function addProductThunk(product) {
             console.log(errMessage)
             return null
           })
+    }
+}
+
+export function addPriceToCart(product){
+    return (dispatch) => {
+        dispatch(addToCart(product))
+        dispatch(getCartTotal(product.price))
     }
 }
