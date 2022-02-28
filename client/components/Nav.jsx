@@ -21,13 +21,13 @@ function Nav(props) {
         <Input icon='search' placeholder='Search...' />
       </Menu.Item>
           
-      <Menu.Item>
-        <Link to='/about'>
+      <Menu.Item >
+        <Link to='/about' className='link'>
           About
         </Link>
       </Menu.Item>
       <Menu.Item>
-        <Link to='/cart'>
+        <Link to='/cart' className='link'>
       <Icon name='cart'/>
       </Link>
       </Menu.Item>
