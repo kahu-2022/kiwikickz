@@ -1,3 +1,5 @@
+// Facilitators Functions
+
 // export const mappingWithFilters = (ArrayToFilter, Filters) =>
 //   ArrayToFilter.map(product => {
 //     const matches = productMatchesAllFilters(product, filters);
@@ -10,7 +12,9 @@
 
 // const productMatchesFilter = (product, filter) =>
 //   product[filter.key] === filter.value;
+//-------------------------------------------------------------
 
+// Filtering Functions
 
 export const manyProductsManyFilters = (products, filters) => {
   const results = products.map(product => manyFiltersOneProduct(product, filters))
@@ -29,20 +33,18 @@ const manyFiltersOneProduct = (product, filters) => {
   
   
 const productFitsFilter = (product, filter) => {
-  if (filter.key === 'size') {
-    const fitsSizeParameters = testSizeParameters(product[filter.key], filter)
-    if (fitsSizeParameters === true) {
+  if (filter.key === "size" || filter.key === "price") {
+    const fitsSizeOrPriceParameters = testSizeOrPriceParameters(product[filter.key], filter);
+    if (fitsSizeOrPriceParameters === true) {
       return product;
     }
-  }
-  else if (filter.key === 'color') {
-    const colorTest = product[filter.key].includes(filter.value)
+  } else if (filter.key === "color") {
+    const colorTest = product[filter.key].includes(filter.value);
     if (colorTest === true) {
-      return product
+      return product;
     }
-  }
-  else if (product[filter.key] === filter.value) {
-    return product
+  } else if (product[filter.key] === filter.value) {
+    return product;
   }
 }
 
@@ -55,20 +57,11 @@ export const testingFilterArr = (arrToTest, filter) => {
   else return [...arrToTest, filter]
 }
 
-const testSizeParameters = (size, filter) => {
-  if (filter.min <= size && size <= filter.max) {
+const testSizeOrPriceParameters = (sizeOrPrice, filter) => {
+  if (filter.min <= sizeOrPrice && sizeOrPrice <= filter.max) {
     return true
   }
   else return false
 }
 
-/* Suggested filters for array :
-
-An example of what the Filters arguement would look like
-e.g. just hotPicks would look like
- [
-   {key: hotPick
-    value: 1
-  },
- ]
- */
+//
