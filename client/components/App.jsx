@@ -1,21 +1,18 @@
-import React from 'react'
+import React, { useState  } from "react"
 import { Routes, Route, Link , useNavigate } from "react-router-dom"
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
-import { Header } from 'semantic-ui-react'
 import AddProduct from './AddProduct'
 import Nav from './Nav'
 import Footer from './Footer'
 import QuestionAdmin from './QuestionAdmin'
-import React, { useState  } from "react"
 import About from './About'
 import FilterBrand from "./FilterBrand"
 import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
 import Success from './Success'
-
 
 import {
   Icon,

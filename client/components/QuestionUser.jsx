@@ -55,7 +55,7 @@ function UserQuestion () {
       </ul>
       <form type="submit" onSubmit={handleSubmit}>
         <input
-          type='text'
+          type='textarea'
           id='question'
           value={question.question}
           placeholder="enter your question"

@@ -57,7 +57,7 @@ function QuestionAdmin() {
         <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}<br />{ele.question}
         <form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
           <input
-            type='text'
+            type='textarea'
             id='answer'
             value={ele.answer.answer}
             placeholder="enter your answer"
