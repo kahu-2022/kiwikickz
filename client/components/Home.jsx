@@ -1,8 +1,6 @@
 import React from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { Container } from 'semantic-ui-react'
-import { getAllProductsThunk } from '../actions/products'
-import {Grid , Container , Divider} from 'semantic-ui-react'
 
 import ProductContainer from './ProductContainer'
 
@@ -17,9 +15,7 @@ function Home() {
   const allProducts = useSelector(state => state.allProducts)
   const currentFilters = useSelector(state => state.currentFilters)
   
-  console.log(allProducts)
-
-  const testFilter = { key: 'size', value: 9 }
+  const testFilter = { key: 'color', value: "Black" }
 
   const results = manyProductsManyFilters(allProducts, currentFilters)
 
@@ -29,21 +25,13 @@ function Home() {
   return (
     <>
       <input type='checkbox' onClick={() => { dispatch(filters(testFilter)) }}></input>
-          <Container style={{ marginTop: '3em' }}>
-            {/* <ProductContainer data={allProducts}/> */}
-            {/* Search functionality immplemented here */}
-            {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}
+      <Container style={{ marginTop: '3em' }}>
+        
+        {allProducts ? <ProductContainer data={results} /> : null}
 
-    
-            {allProducts ? <ProductContainer data={results} /> : null}
+      </Container>
 
-          </Container>
-
-          {/* Ternary here sets initial display as hot picks */}
-          {/* {hotPicks ? renders hotpics : renders search functionality} */}
-          {/* Cards Section where we map over the filtered array*/}
-
-        </>
+    </>
   )
 }
 
