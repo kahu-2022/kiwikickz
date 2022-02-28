@@ -53,7 +53,7 @@ function Cart() {
         billingAddress
         shippingAddress
         description={`Your total is $${amount}`}
-        amount={amount * 100 / 2}
+        amount={amount * 100}
         token={makePayment}
         stripeKey={KEY}
       >
