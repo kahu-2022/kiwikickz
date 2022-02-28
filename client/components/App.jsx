@@ -6,6 +6,7 @@ import Product from "./Product"
 import AddProduct from "./AddProduct"
 import Nav from "./Nav"
 import Footer from "./Footer"
+import About from './About'
 
 import {
   Icon,
@@ -39,7 +40,7 @@ function App() {
               onHide={() => setVisible(false)}
               vertical
               visible={visible}
-              width="extra wide"
+              width="wide"
             >
               <Menu.Item as="a">
                 <Icon name="home" />
@@ -62,6 +63,7 @@ function App() {
                     <Route path="/product/:id" element={<Product />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/addproduct" element={<AddProduct />} />
+                    <Route path='/about' element={<About/>}/>
                   </Routes>
                   <Footer />
                 </section>

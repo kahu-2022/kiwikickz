@@ -48,7 +48,7 @@ export function addProductThunk(product) {
             return id
         })
         .then ((id) => {
-            console.log("TESTING to see if the second .then WORKS ", id)
+            //console.log("TESTING to see if the second .then WORKS ", id)
             return id
         })
         .catch ( err => {
