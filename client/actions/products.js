@@ -1,4 +1,4 @@
-import {getAllProduct , addProduct} from '../apis'
+import { getAllProduct, addProduct } from '../apis'
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
@@ -16,6 +16,29 @@ export function addToCart(product) {
     }
 }
 
+export function removeFromCart(product) {
+    return {
+        type: 'REMOVE_ITEM',
+        product: product
+    }
+}
+
+export const CHECK_FILTER = "CHECK_FILTER";
+
+export function filters(filter) {
+    return {
+        type: CHECK_FILTER,
+        filter: filter,
+    };
+}
+
+export function getCartTotal(value){
+    return {
+        type: 'ADD_CART_AMOUNT',
+        addTotal: value
+    }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
@@ -23,6 +46,7 @@ export function getAllProductsThunk() {
         getAllProduct()
         .then (productArr => {
             dispatch(getAllProductsAction(productArr))
+
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
@@ -35,20 +59,26 @@ export function getAllProductsThunk() {
 
 export function addProductThunk(product) {
     return (dispatch) => {
-        addProduct(product)
+        return addProduct(product)
         .then ((id) => {
-            dispatch(getAllShoesThunk())
+            dispatch(getAllProductsThunk())
             return id
         })
         .then ((id) => {
-            console.log("TESTING to see if the second .then WORKS ", id + 1000)
-            return id + 1000
+            //console.log("TESTING to see if the second .then WORKS ", id)
+            return id
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
             console.log(errMessage)
             return null
           })
+    }
+}
 
+export function addPriceToCart(product){
+    return (dispatch) => {
+        dispatch(addToCart(product))
+        dispatch(getCartTotal(product.price))
     }
 }

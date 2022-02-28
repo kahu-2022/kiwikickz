@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { getAllProductsThunk } from '../actions/products'
-import {Grid , Container} from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 import ProductContainer from './ProductContainer'
-import ProductCard from './ProductCard'
 
-function Home () {
+import { manyProductsManyFilters } from '../lib'
 
-  const allProducts = useSelector(state => state.allProducts)
+import { filters } from '../actions/products'
+
+function Home() {
   
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(getAllProductsThunk())
-  }, [])
+  const allProducts = useSelector(state => state.allProducts)
+  const currentFilters = useSelector(state => state.currentFilters)
 
-  const [hotPicks, setHotPicks ] = useState(true)
-  const [filters, setFilters ] = useState()
+  const [sortedProducts, setSortedProducts] = useState('')
+  
+  const testFilter = { key: 'price', min: 230, max: 270 }
+
+  const results = manyProductsManyFilters(allProducts, currentFilters)
+
+  console.log(results)
+
 
   return (
     <>
-    <Container style={{ marginTop: '3em'}}>
-    {/* <ProductContainer data={allProducts}/> */}
-    {/* Search functionality immplemented here */}
-    {/* Filter entire Array for all different key value pairs, then remove any repeats and then format for displaying search boxes */}
+      {/* <select name="choice">
+        <option value="first">First Value</option>
+        <option value="second" selected>Second Value</option>
+        <option value="third">Third Value</option>
+      </select> */}
+      <input type='checkbox' onClick={() => { dispatch(filters(testFilter)) }}></input>
+      <Container style={{ marginTop: '3em' }}>
+        
+        {allProducts ? <ProductContainer data={results} /> : null}
 
-    
-      {allProducts ? <ProductContainer data={allProducts}/> : null}
-
-    </Container>
-
-    {/* Ternary here sets initial display as hot picks */}
-    {/* {hotPicks ? renders hotpics : renders search functionality} */}
-    {/* Cards Section where we map over the filtered array*/}
+      </Container>
 
     </>
   )
