@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
-import { getAllProductsThunk } from '../actions/products'
-import {Grid , Container} from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 import ProductContainer from './ProductContainer'
-import ProductCard from './ProductCard'
 
-import { manyProductsFitsFilter } from '../lib'
+import { manyProductsManyFilters } from '../lib'
 
-function Home () {
+import { filters } from '../actions/products'
+
+function Home() {
+  
+  const dispatch = useDispatch()
 
   const allProducts = useSelector(state => state.allProducts)
+  const currentFilters = useSelector(state => state.currentFilters)
   
   console.log(allProducts)
 
-  // const [hotPicks, setHotPicks ] = useState(true)
-  // const [filters, setFilters] = useState()
+  const testFilter = { key: 'size', value: 9 }
 
-  const fuckMyArseFilter = {key: 'hotPick', value: 1}
-
-  
-  const results = manyProductsFitsFilter(allProducts, fuckMyArseFilter)
+  const results = manyProductsManyFilters(allProducts, currentFilters)
 
   console.log(results)
 
+
   return (
-        <>
+    <>
+      <input type='checkbox' onClick={() => { dispatch(filters(testFilter)) }}></input>
           <Container style={{ marginTop: '3em' }}>
             {/* <ProductContainer data={allProducts}/> */}
             {/* Search functionality immplemented here */}
