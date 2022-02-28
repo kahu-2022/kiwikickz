@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 
@@ -14,6 +14,8 @@ function Home() {
 
   const allProducts = useSelector(state => state.allProducts)
   const currentFilters = useSelector(state => state.currentFilters)
+
+  const [sortedProducts, setSortedProducts] = useState('')
   
   const testFilter = { key: 'price', min: 230, max: 270 }
 
@@ -24,6 +26,11 @@ function Home() {
 
   return (
     <>
+      <select name="choice">
+        <option value="first">First Value</option>
+        <option value="second" selected>Second Value</option>
+        <option value="third">Third Value</option>
+      </select>
       <input type='checkbox' onClick={() => { dispatch(filters(testFilter)) }}></input>
       <Container style={{ marginTop: '3em' }}>
         
