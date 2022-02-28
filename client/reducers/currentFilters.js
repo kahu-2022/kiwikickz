@@ -7,8 +7,7 @@ const initialState = [{ key: "hotPick", value: 1 }];
 function currentFilters(state = initialState, action) {
   switch (action.type) {
     case CHECK_FILTER:
-      const results = testingFilterArr(state, action.filter)
-      return results
+      return testingFilterArr(state, action.filter)
     default:
       return state;
   }
