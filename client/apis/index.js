@@ -15,3 +15,10 @@ export function getAllQuestion() {
   return request.get('/api/v1/question')
   .then( res => res.body)
 }
+
+export function addQuestion(question) {
+  return request
+  .post('/api/v1/question')
+  .send(question)
+  .then(res => res.body)
+}

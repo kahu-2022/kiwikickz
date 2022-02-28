@@ -1,7 +1,9 @@
-import {getAllQuestion} from '../apis'
+import {getAllQuestion, addQuestion} from '../apis'
 
 export const GET_ALL_QUESTIONS = "GET_ALL_QUESTIONS"
+export const ADD_QUESTION = "ADD_QUESTION"
 
+//ACTIONS
 export function getAllQuestionsAction(questionArr) {
     return {
         type: GET_ALL_QUESTIONS,
@@ -9,12 +11,13 @@ export function getAllQuestionsAction(questionArr) {
     }
 }
 
-// export function addToCart(product) {
-//     return {
-//         type: 'ADD_ITEM',
-//         product: product
-//     }
-// }
+
+export function addQuestionAction(questionInclID) {
+    return {
+        type: ADD_QUESTION,
+        questionInclID
+    }
+}
 
 // THUNKS
 
@@ -33,22 +36,19 @@ export function getAllQuestionsThunk() {
     }
 }
 
-// export function addProductThunk(product) {
-//     return (dispatch) => {
-//         addProduct(product)
-//         .then ((id) => {
-//             dispatch(getAllShoesThunk())
-//             return id
-//         })
-//         .then ((id) => {
-//             console.log("TESTING to see if the second .then WORKS ", id + 1000)
-//             return id + 1000
-//         })
-//         .catch ( err => {
-//             const errMessage = err.response?.text || err.message
-//             console.log(errMessage)
-//             return null
-//           })
-
-//     }
-// }
+export function addQuestionThunk(question) {
+    // console.log("thunk here", question)
+    return (dispatch) => {
+        addQuestion(question)
+            .then((idOfAddedQuestion) => {
+                const questionInclID = {...question, id: idOfAddedQuestion[0]}
+                // console.log("Hello THUNK here", questionInclID)
+                dispatch(addQuestionAction(questionInclID))
+            })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+            })
+    }
+}

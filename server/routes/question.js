@@ -14,6 +14,18 @@ router.get('/', (req, res) => {
     })
   })
 
+router.post('/', (req, res) => {
+  const questionToAdd = req.body
+  db.addQuestion(questionToAdd)
+    .then(idOfaddedQuestion => {
+      res.json(idOfaddedQuestion)
+      return null
+    })
+      .catch((err) => {
+      console.error("Database: " + err.message)
+      })
+})
+
   module.exports = router
 
  
