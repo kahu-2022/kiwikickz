@@ -41,7 +41,6 @@ function Cart() {
       headers,
       body: JSON.stringify(body)
     }).then(response => {
-      console.log(response.status)
       if (response.status == 200) {
         const transactionData = {
           products_purchased: stringWithStartQuotes,
@@ -49,7 +48,7 @@ function Cart() {
           buyer_email: token.email
         }
         dispatch(addTransactionThunk(transactionData))
-        .then((id) => { navigate(`/success/${id}`) })
+        .then((id) => { navigate(`/success`) })
       }
     })
       .catch(err => console.log(err))

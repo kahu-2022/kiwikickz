@@ -18,10 +18,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   //console.log('req', req)
   const transaction = req.body
-  console.log("req body", transaction)
   db.addTransaction(transaction)
     .then((id) => {
-      console.log(`Transaction is ${id[0]}`)
+      // console.log(`Transaction is ${id[0]}`)
       res.json(id[0])
       return id
     })

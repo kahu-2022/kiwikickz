@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Container, Header, Divider, Button } from 'semantic-ui-react'
 import { useParams } from 'react-router-dom'
-import { getAllTransactionThunk } from '../actions/transaction'
 
 
 export default function Success() {
@@ -13,18 +12,10 @@ export default function Success() {
     const { id } = useParams()
 
     // const findTransaction = allTransactions.find(shoe => shoe.id == Number(id))
-    console.log("final transcation", allTransactions)
-    console.log(" transcation ternary", allTransactions.id)
+    // console.log("final transcation", allTransactions)
+    // console.log(" transcation ternary", allTransactions.id)
+    // console.log("[0]", allTransactions[0])
 
-    console.log("[0]", allTransactions[0])
-
-
-    // allTransactions.map(trans => console.log(trans))
-
-    // console.log("final transcation", findTransaction?.productsPurchased)
-    // const purchased = findTransaction?.productsPurchased
-    // const antistringy = JSON.parse(purchased)
-    // console.log("parse back", antistringy)
 
     return (
         <Container>

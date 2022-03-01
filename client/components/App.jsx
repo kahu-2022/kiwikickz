@@ -110,7 +110,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path='/about' element={<About/>}/>
-                    <Route path='/success/:id' element={<Success />}/>
+                    <Route path='/success/' element={<Success />}/>
                   </Routes>
                   <Footer />
                 </section>
