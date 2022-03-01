@@ -29,7 +29,7 @@ function Cart() {
     const headers = {
       "Content-type": "application/json"
     }
-    return fetch(`http://localhost:3000/api/v1/payment`, {
+    return fetch(`/api/v1/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body)
