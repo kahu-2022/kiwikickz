@@ -60,16 +60,16 @@ export function addQuestionThunk(question) {
     }
 }
 
-export function updateQuestionThunk(questionToUpdate) {
+export function updateQuestionThunk(question) {
     return (dispatch) => {
-        updateQuestion(questionToUpdate)
-        .then((numberOfUpdateQuestion) => {
-            dispatch(updateQuestionAction(questionToUpdate))
+        updateQuestion(question)
+        .then((numUpdated) => {
+            dispatch(updateQuestionAction(question))
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
             console.log(errMessage)
             return null
-            })
+        })
     }
 }
