@@ -1,4 +1,4 @@
-import { getAllProduct, addProduct } from '../apis'
+import { getAllProduct, addProduct, updateProductStatus } from '../apis'
 
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
@@ -95,6 +95,22 @@ export function addProductThunk(product) {
           })
     }
 }
+
+export function updateStatus(productIds) {
+    return (dispatch) => {
+        return updateProductStatus(productIds)
+        .then ((updateCount) => {
+            dispatch(getAllProductsThunk())
+            return updateCount
+        })
+        .catch ( err => {
+            const errMessage = err.response?.text || err.message
+            console.log(errMessage)
+            return null
+          })
+    }
+}
+
 
 export function addPriceToCart(product){
     return (dispatch) => {
