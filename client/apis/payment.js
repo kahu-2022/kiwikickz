@@ -8,6 +8,7 @@ const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 const currentUser = user && JSON.parse(user).currentUser;
 const TOKEN = currentUser?.accessToken;
 
+// TODO: creates an axios instance, but never used? - no result in global search
 export const userRequest = axios.create({
     baseURL: BASE_URL,
     header: { token: `Bearer ${TOKEN}` },
