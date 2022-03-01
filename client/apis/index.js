@@ -24,7 +24,7 @@ export function addQuestion(question) {
 }
 
 export function updateQuestion(questionToUpdate) {
-  console.log('hello API', questionToUpdate)
+  // console.log('hello API', questionToUpdate)
   return request
   .patch('/api/v1/question')
   .send(questionToUpdate)

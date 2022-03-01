@@ -1,7 +1,7 @@
 import { GET_ALL_QUESTIONS, ADD_QUESTION, UPDATE_QUESTION } from '../actions/questions'
 
 function allQuestions (state = [], action) {
-   console.log("Hello Reducer here", state)
+  //  console.log("Hello Reducer here", state)
 
     switch (action.type) {
         case GET_ALL_QUESTIONS:
