@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getAllQuestionsThunk, addQuestionThunk} from '../actions/questions'
+import { Form , Input, Button , Container, TextArea, Header , Divider} from 'semantic-ui-react'
 
 
 function UserQuestion () {
@@ -17,6 +18,7 @@ function UserQuestion () {
       }
 
   const [question, setQuestion] = useState(defaultState)
+  const [asked , setAsked] = useState(false)
   
   const handleInput = (e) => {
     if (e.key === 'Enter') {
@@ -33,6 +35,7 @@ function UserQuestion () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setAsked(true)
     dispatch(addQuestionThunk(question))
     setQuestion(defaultState)
   }
@@ -45,27 +48,32 @@ function UserQuestion () {
   return (
     <>
       <h2>Questions and Answers</h2>
-      <ul>
+      
        {questions.map(ele =>
        <>
-       <li key = {ele.id}>{ele.question}</li>
-       <p>{ele.answer}</p>
+       <Header as='h5' key = {ele.id}> Q :{ele.question}</Header>
+       <p>A : {ele.answer}</p>
        </>
        )}
-      </ul>
-      <form type="submit" onSubmit={handleSubmit}>
-        <input
+
+       
+      
+      <Container className='question-box'>
+      <Form type="submit" onSubmit={handleSubmit}>
+        <Form.Field>
+        <TextArea
           type='textarea'
           id='question'
           value={question.question}
           placeholder="enter your question"
           onChange={e => handleInput(e)}
         />
-        <button onClick={e => handleSubmit}>submit</button>
-      </form>
+        </Form.Field>
+        <Button onClick={e => handleSubmit}>submit</Button>
+      </Form>
+      { asked ? <p className='qsubmit'>Thanks for your question. Admins will respond at their neareast cconvenience</p> : null }
+      </Container>
 
-      <br/>
-      <br/>
     </>
   )
 }

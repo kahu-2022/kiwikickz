@@ -1,4 +1,4 @@
-import React, { useState  } from "react"
+import React, { useState , useRef } from "react"
 import { Routes, Route, Link , useNavigate } from "react-router-dom"
 import Cart from './Cart'
 import Home from './Home'
@@ -40,12 +40,14 @@ function App() {
     navigate('/cart')
   }
 
+  const searchBar = useRef(null)
+
   return (
     <>
       <Grid columns={1}>
         <Grid.Column>
           <header className="header">
-            <Nav setSideBar={[visible, setVisible]} />
+            <Nav setSideBar={[visible, setVisible]} searchBarRef = {searchBar} />
           </header>
         </Grid.Column>
         <Grid.Column>
@@ -60,7 +62,7 @@ function App() {
               visible={visible}
               width="wide"
             >
-              <Menu.Item as="a" onClick={() => {setToggleSearch(!toggleSearch)}}>
+              <Menu.Item as="a" onClick={() => {searchBar.current.focus(), setVisible(!visible)}}>
                 <Icon name="search" />
                 Search
               </Menu.Item> 

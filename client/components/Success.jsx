@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { Container, Header, Divider, Button } from 'semantic-ui-react'
+import { useSelector, useDispatch } from 'react-redux'
+import { Container, Header, Divider, Button,  Item  } from 'semantic-ui-react'
 import { Link, useNavigate } from 'react-router-dom'
+import SuccessItem from './SuccessItem'
+import { emptyCart, emptyCartTotal } from '../actions/products'
 
 
 
@@ -10,19 +12,20 @@ export default function Success() {
     const location = useLocation
     const cart = useSelector(globalState => globalState.cart)
     const amount = useSelector(globalState => globalState.cartTotal)
-
-    console.log(cart)
+    const dispatch = useDispatch()
 
     return (
             <Container>
-                <h2>Congratulations</h2>
-                <h3>You successfully purchased the following items</h3>
-                <ul>
-                    {cart.map(eachItem => (<li>{eachItem.name}</li>))}
-                </ul>
-                <h2>Total Amount Paid </h2>
-                <h3>${amount}</h3>
-                <Button> Return to Home</Button>
+                <Header as='h2'>Congratulations</Header>
+                <Header as='h3'>You successfully purchased the following items : </Header>
+                <Item.Group>
+                  {cart.map( item => <SuccessItem item={item}/>)}
+                </Item.Group>
+                <Header as='h2'>Total Amount Paid </Header>
+                <Header as='h3'>${amount}</Header>
+                <Link to='/'>
+                  <Button> Return to Home</Button>
+                </Link>
             </Container>
     )
 }
