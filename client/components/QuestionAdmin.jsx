@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { getAllQuestionsThunk, addQuestionThunk, updateQuestionThunk} from '../actions/questions'
 import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 function QuestionAdmin() {
   
@@ -50,6 +51,9 @@ function QuestionAdmin() {
   return (
     <>
     <Container>
+      <Link to="/admin">go back to admin</Link>
+    </Container>
+    <Container>
       <h2>Unanswered Questions</h2>
       <ul>
         {unansweredQuestions.map(ele =>
@@ -69,7 +73,6 @@ function QuestionAdmin() {
         </>
         )}
         </ul>
-        <button onClick = {(e) => dispatch(updateQuestionThunk(updateQuestion))}>Update Question</button>
         
       <h2>Answered Questions</h2>
       <ul>
