@@ -10,7 +10,6 @@ function addTransaction (newTransaction, db = connection) {
     .insert(snakecase(newTransaction))
 }
 
-
 module.exports = {
     getTransaction,
     addTransaction 

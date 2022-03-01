@@ -21,10 +21,8 @@ export function getAllTransactionThunk() {
                 console.log(errMessage)
                 return null
             })
-
     }
 }
-
 
 export function addTransactionThunk(transaction) {
     return (dispatch) => {
