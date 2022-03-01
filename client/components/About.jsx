@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
-import {Container , Divider, Header, Image} from 'semantic-ui-react'
+import {Container , Divider, Header, Image, Grid} from 'semantic-ui-react'
 
  
 function Home () {
@@ -37,32 +37,32 @@ function Home () {
         </p>
         <Header as='h2'>Who are we?</Header>
 
-        <div className="imagecontainer">
-            <div className="profilePic">
+        <Grid columns={6} className="imagecontainer">
+            <Grid.Column className="profilePic">
               <Image size ='tiny' src='/teampics/Andreas.png' />
-              <p className="profileName">Andreas</p>
-            </div>
-            <div className="profilePic">
+              <Header as='h4' className="profileName">Andreas</Header>
+            </Grid.Column>
+            <Grid.Column className="profilePic">
               <Image size ='tiny' src='/teampics/Lewis.png' />
-              <p className="profileName">Lewis</p>
-            </div>
-            <div className="profilePic">
+              <Header as='h4' className="profileName">Lewis</Header>
+            </Grid.Column>
+            <Grid.Column className="profilePic">
               <Image size ='tiny' src='/teampics/Mei.png' />
-              <p className="profileName">Mei</p>
-            </div>
-            <div className="profilePic">
+              <Header as='h4' className="profileName">Mei</Header>
+            </Grid.Column>
+            <Grid.Column className="profilePic">
               <Image size ='tiny' src='/teampics/Nikolai.png' />
-              <p className="profileName">Nikolai</p>
-            </div>
-            <div className="profilePic">
+              <Header as='h4' className="profileName">Nikolai</Header>
+            </Grid.Column>
+            <Grid.Column className="profilePic">
               <Image size ='tiny' src='/teampics/Sam.png' />
-              <p className="profileName">Sam</p>
-            </div>
-            <div className="profilePic">
+              <Header as='h4' className="profileName">Sam</Header>
+            </Grid.Column>
+            <Grid.Column className="profilePic">
               <Image size ='tiny' src='/teampics/Sonny.png' />
-              <p className="profileName">Sonny</p>
-            </div>
-          </div>
+              <Header as='h4' className="profileName">Sonny</Header>
+            </Grid.Column>
+          </Grid>
 
     </Container>
     </div>
