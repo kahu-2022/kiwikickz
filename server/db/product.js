@@ -15,8 +15,15 @@ function getQuestions(db = connection) {
     return db('question')
 }
 
+function updateProductStatus (ids, db = connection) {   
+    return db ('product')
+    .whereIn('id', ids) 
+    .update({ 'status' : 'sold'}) 
+}
+
 module.exports = {
     getProducts, 
     addProduct,
-    getQuestions
+    getQuestions,
+    updateProductStatus
 }
