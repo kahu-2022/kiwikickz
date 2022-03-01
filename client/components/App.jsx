@@ -6,7 +6,7 @@ import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
 import AddProduct from './AddProduct'
-import Nav from './Nav copy'
+import Nav from './Nav'
 import Footer from './Footer'
 import About from './About'
 
@@ -15,8 +15,7 @@ function App () {
 
   return (
     <>
-    <Nav/>
-      {/* <header className="header">
+      <header className="header">
         <Nav/>
       </header>
       <section className="main">
@@ -28,7 +27,7 @@ function App () {
           <Route path='/about' element = {<About/>}/>
         </Routes>
       <Footer/>
-      </section> */}
+      </section>
     </>
   )
 }
