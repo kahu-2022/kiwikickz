@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Grid , Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { Grid, Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { filters } from '../actions/products'
+
 
 function FilterCondition() {
   const dispatch = useDispatch()
@@ -14,10 +16,10 @@ function FilterCondition() {
       </GridRow>
       <GridRow>
       <GridColumn>
-        <Checkbox/> NEW
+          <Checkbox onClick={() => { dispatch(filters({ key: 'condition', value: 'New' })) }}/> NEW
       </GridColumn>
       <GridColumn>
-        <Checkbox/> USED
+          <Checkbox onClick={() => { dispatch(filters({ key: 'condition', value: 'Used' })) }}/> USED
       </GridColumn>
       </GridRow>
     </Grid>
