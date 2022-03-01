@@ -7,7 +7,7 @@ exports.up = function (knex) {
         table.string('gender')
         table.string('box')
         table.string('name')
-        table.string('details')
+        table.text('details')
         table.boolean('auth_status')
         table.string('brand')
         table.integer('size')
@@ -19,10 +19,10 @@ exports.up = function (knex) {
         table.integer('price')
         table.string('condition')
         table.string('receipt')
-        table.binary('image1')
-        table.string('image2')
-        table.string('image3')
-        table.string('image4')
+        table.text('image1')
+        table.text('image2')
+        table.text('image3')
+        table.text('image4')
     })
 };
 
