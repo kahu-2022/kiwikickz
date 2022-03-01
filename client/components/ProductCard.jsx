@@ -39,7 +39,8 @@ function ProductCard(props) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <AddToCartPopUp data={obj}/>
+          {obj.status === 'sold' ? <Card.Header as='h2' color='red'> SOLD {`$ ${obj.price}`}</Card.Header> :
+          <AddToCartPopUp data={obj}/>}
           
         </Card.Content>
       </Card>
