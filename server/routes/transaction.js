@@ -16,17 +16,18 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  //console.log('req', req)
+  //console.log("Transaction Route")
   const transaction = req.body
   db.addTransaction(transaction)
     .then((id) => {
       // console.log(`Transaction is ${id[0]}`)
       res.json(id[0])
-      return id
     })
     .catch((err) => {
       console.error("Database: " + err.message)
     })
 })
+
+
 
 module.exports = router

@@ -11,6 +11,12 @@ export function addProduct(product) {
     .then(res => res.body)
 }
 
+export function updateProductStatus(productIds) {
+  return request.patch('/api/v1/product')
+    .send(productIds)
+    .then(res => res.body)
+}
+
 export function getAllQuestion() {
   return request.get('/api/v1/question')
     .then(res => res.body)
