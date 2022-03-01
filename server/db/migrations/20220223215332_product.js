@@ -20,7 +20,8 @@ exports.up = function (knex) {
         table.string('condition')
         table.string('receipt')
         table.binary('image1')
-        table.string('image2')
+        // TODO: should these images be different??
+        table.binary('image2')
         table.string('image3')
         table.string('image4')
     })

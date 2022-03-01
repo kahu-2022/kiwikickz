@@ -3,7 +3,7 @@ exports.up = function (knex) {
       table.increments('id').primary()
       table.integer('product_id')
       table.string('question')
-      table.string('answer')
+      table.text('answer')
       table.string('status')
       table.timestamps(true, true)
   })
