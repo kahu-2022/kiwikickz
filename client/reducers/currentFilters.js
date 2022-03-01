@@ -2,7 +2,7 @@ import { testingFilterArr } from '../lib'
 import { CHECK_FILTER } from '../actions/products'
 
 
-const initialState = [{ key: "hotPick", value: 1 }];
+const initialState = [];
 
 function currentFilters(state = initialState, action) {
   switch (action.type) {

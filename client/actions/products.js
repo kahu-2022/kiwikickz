@@ -24,7 +24,6 @@ export function removeFromCart(product) {
     }
 }
 
-<<<<<<< HEAD
 export const CHECK_FILTER = "CHECK_FILTER";
 
 export function filters(filter) {
@@ -33,8 +32,6 @@ export function filters(filter) {
         filter: filter,
     };
 }
-=======
->>>>>>> 4d1feeecb52702f57ad04b44d59f53f91c160226
 
 export function getCartTotal(value){
     return {

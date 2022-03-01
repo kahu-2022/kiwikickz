@@ -1,4 +1,4 @@
-import React, { useState , useRef } from "react"
+import React, { useState , useRef, useEffect } from "react"
 import { Routes, Route, Link , useNavigate } from "react-router-dom"
 import Cart from './Cart'
 import Home from './Home'
@@ -10,7 +10,6 @@ import QuestionAdmin from './QuestionAdmin'
 import About from './About'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { Routes, Route, Link, useNavigate } from "react-router-dom"
 
 import { getAllProductsThunk } from '../actions/products'
 import { filters } from '../actions/products'
@@ -92,7 +91,7 @@ function App() {
                 Filter
               </Menu.Item>
                   <Menu.Item>
-                    🔥 HOTPICKS 🔥 <Checkbox onClick={() => { dispatch(filters({ key: 'hotPick', value: 1 })) }} defaultChecked />
+                    🔥 HOTPICKS 🔥 <Checkbox onClick={() => { dispatch(filters({ key: 'hotPick', value: 1 })) }}/>
                   </Menu.Item>
                   <Menu.Item>
                     <FilterBrand />
@@ -116,6 +115,9 @@ function App() {
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/addproduct" element={<AddProduct />} />
                         <Route path='/about' element={<About />} />
+                        <Route path='/success' element={<Success/>}/>
+                        <Route path='/adminquestion' element = {<QuestionAdmin/>}/>
+                        <Route path='/admin' element = {<Admin />}/>
                       </Routes>
                       <Footer />
                     </section>
