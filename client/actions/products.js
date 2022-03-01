@@ -1,5 +1,6 @@
 import {getAllProduct , addProduct} from '../apis'
 
+
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
 export function getAllProductsAction(productArr) {
@@ -14,6 +15,40 @@ export function addToCart(product) {
         type: 'ADD_ITEM',
         product: product
     }
+}
+
+export function removeFromCart(product) {
+    return {
+        type: 'REMOVE_ITEM',
+        product: product
+    }
+}
+
+
+export function getCartTotal(value){
+    return {
+        type: 'ADD_CART_AMOUNT',
+        addTotal: value
+    }
+}
+
+export function removeCartTotal(value) {
+    return {
+        type: 'REMOVE_CART_AMOUNT',
+        removeTotal: value
+    }
+}
+
+export function emptyCart() {
+  return {
+    type :'EMPTY_CART'
+  }
+}
+
+export function emptyCartTotal() {
+  return {
+    type :'EMPTY_CART_TOTAL'
+  }
 }
 
 // THUNKS
@@ -35,20 +70,33 @@ export function getAllProductsThunk() {
 
 export function addProductThunk(product) {
     return (dispatch) => {
-        addProduct(product)
+        return addProduct(product)
         .then ((id) => {
-            dispatch(getAllShoesThunk())
+            dispatch(getAllProductsThunk())
             return id
         })
         .then ((id) => {
-            console.log("TESTING to see if the second .then WORKS ", id + 1000)
-            return id + 1000
+            //console.log("TESTING to see if the second .then WORKS ", id)
+            return id
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
             console.log(errMessage)
             return null
           })
+    }
+}
 
+export function addPriceToCart(product){
+    return (dispatch) => {
+        dispatch(addToCart(product))
+        dispatch(getCartTotal(product.price))
+    }
+}
+
+export function RemovePriceFromCart(product) {
+    return (dispatch) => {
+        dispatch(removeFromCart(product))
+        dispatch(removeCartTotal(product.price))
     }
 }

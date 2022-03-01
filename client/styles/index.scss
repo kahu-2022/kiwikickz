@@ -1,10 +1,14 @@
 h1 {
-  letter-spacing: 15px
+  letter-spacing: 15px;
+}
+
+h2 {
+  text-align: center;
 }
 
 .carouselpic {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   border-style: solid;
   
 }
@@ -12,4 +16,23 @@ h1 {
 .whatever {
   letter-spacing: 20px;
   font-weight: bold;
+}
+
+.link { color : black}
+
+.sidebar-title {
+  color: white;
+}
+
+.empty-cart {
+  padding-bottom: 40vw;
+}
+
+.question-box {
+  margin-top: 3vw;
+}
+
+.qsubmit {
+  margin-top: 1vw;
+  color: gray;
 }

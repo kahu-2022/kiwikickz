@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
-import {Grid , Container} from 'semantic-ui-react'
+import {Grid , Container , Divider} from 'semantic-ui-react'
 
 import ProductContainer from './ProductContainer'
 import ProductCard from './ProductCard'
-
+ 
 function Home () {
 
   const allProducts = useSelector(state => state.allProducts)
