@@ -30,6 +30,7 @@ function MakeOffer(props) {
     <Label basic>$</Label>
     {product?.status === 'sold' ? <input disabled placeholder="unavailable"/> : <input/> }
     </Input>
+    {product?.status === 'sold' ? 'This product is unavailable' : null }
     <TextPopUp text={'Offer Sent.'} button = {<Button>Submit</Button>}/>
     </>
    ) 
