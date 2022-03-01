@@ -5,8 +5,8 @@
   "repository": "https://https://github.com/dev-academy-challenges/todo-full-stack",
   "main": "server/index.js",
   "scripts": {
-    "build": "knex migrate:latest",
-    "build-2": "run-p build:client build:server",
+    
+    "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
     "build:server": "npm run knex -- migrate:latest",
     "start": "node server",
@@ -95,6 +95,6 @@
     "webpack-cli": "^4.5.0"
   },
   "engines": {
-    "node": "16.x"
+    "node": "14.x"
   }
 }
