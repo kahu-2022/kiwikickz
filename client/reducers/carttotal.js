@@ -1,3 +1,5 @@
+// TODO: use case vars from action file instead of strings
+
 const initialState = 0
 
 function cartTotal (state = initialState, action) { 

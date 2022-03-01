@@ -1,6 +1,6 @@
 import {getAllProduct , addProduct} from '../apis'
 
-
+// TODO: add other vars and export
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
 export function getAllProductsAction(productArr) {
