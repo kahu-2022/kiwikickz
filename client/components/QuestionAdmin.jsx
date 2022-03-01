@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getAllQuestionsThunk } from '../actions/questions'
+import { getAllQuestionsThunk, updateQuestionThunk } from '../actions/questions'
 import { getAllProductsThunk } from '../actions/products'
 import {
 	Button,
@@ -58,7 +58,7 @@ function QuestionAdmin() {
 			createdAt: createdAt,
 		};
 		dispatch(updateQuestionThunk(newQuestion));
-		setAnswer(defaultState);
+    setAnswer(defaultState);
 	};
 
 	return (
