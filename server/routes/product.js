@@ -19,7 +19,7 @@ router.post('/', (req,res) => {
   const product = req.body
    db.addProduct(product)
       .then((id) => {
-      console.log(`Product ${id[0]} has been added.`)
+      // console.log(`Product ${id[0]} has been added.`)
       res.json(id[0])
       return null
           })
