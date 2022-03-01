@@ -5,12 +5,14 @@ import cart from './cart'
 import allQuestions from './allQuestions'
 import currentFilters from "./currentFilters";
 import cartTotal from './carttotal'
+import allTransactions from './allTransactions'
 
 export default combineReducers({
   allProducts,
   product,
   cart,
   allQuestions,
+  allTransactions,
   currentFilters,
   cartTotal
 })

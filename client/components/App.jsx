@@ -1,5 +1,5 @@
-import React, { useState , useRef, useEffect } from "react"
-import { Routes, Route, Link , useNavigate } from "react-router-dom"
+import React, { useState, useRef, useEffect } from "react"
+import { Routes, Route, Link, useNavigate } from "react-router-dom"
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
@@ -8,7 +8,6 @@ import Nav from './Nav'
 import Footer from './Footer'
 import QuestionAdmin from './QuestionAdmin'
 import About from './About'
-
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllProductsThunk } from '../actions/products'
@@ -19,6 +18,7 @@ import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
 import Success from './Success'
+import { addTransactionThunk } from '../actions/transaction'
 import Admin from './Admin'
 
 import {
@@ -39,16 +39,18 @@ import {
 function App() {
   const [visible, setVisible] = useState(false)
   const [toggleSearch, setToggleSearch] = useState(false)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const isProductArrFull = useSelector(state => state.allProducts)
 
-  const dispatch = useDispatch()
 
   useEffect(() => {
-          dispatch(getAllProductsThunk())
+    dispatch(getAllProductsThunk())
+    dispatch(addTransactionThunk())
+
   }, [])
-  
+
   const cartClick = () => {
     setVisible(!visible)
     navigate('/cart')
@@ -61,7 +63,7 @@ function App() {
       <Grid columns={1}>
         <Grid.Column>
           <header className="header">
-            <Nav setSideBar={[visible, setVisible]} searchBarRef = {searchBar} />
+            <Nav setSideBar={[visible, setVisible]} searchBarRef={searchBar} />
           </header>
         </Grid.Column>
         <Grid.Column>
@@ -76,18 +78,18 @@ function App() {
               visible={visible}
               width="wide"
             >
-              <Menu.Item as="a" onClick={() => {searchBar.current.focus(), setVisible(!visible)}}>
+              <Menu.Item as="a" onClick={() => { searchBar.current.focus(), setVisible(!visible) }}>
                 <Icon name="search" />
                 Search
               </Menu.Item>
 
-                  <Menu.Item onClick={() => { cartClick() }}>
-                    <Icon name="cart" />
+              <Menu.Item onClick={() => { cartClick() }}>
+                <Icon name="cart" />
                 Cart
               </Menu.Item>
 
-                  <Menu.Item>
-                    <Icon name="sliders horizontal" />
+              <Menu.Item>
+                <Icon name="sliders horizontal" />
                 Filter
               </Menu.Item>
                   <Menu.Item>
