@@ -29,7 +29,6 @@ router.post('/', (req, res) => {
 
 router.patch('/', (req, res) => {
   const questionToUpdate = snakeCase(req.body)
-  console.log('hello route', questionToUpdate)
   db.updateQuestion(questionToUpdate)
   .then(numberOfUpdatedQuestion => {
     res.json(numberOfUpdatedQuestion)

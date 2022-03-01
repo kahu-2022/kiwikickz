@@ -13,6 +13,9 @@ import {
 	Header,
 	Grid,
 	Divider,
+  Modal,
+  Image,
+  Embed,
 } from "semantic-ui-react";
 
 
@@ -24,6 +27,9 @@ function QuestionAdmin() {
   
   const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
   const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
+
+  const [open, setOpen] = React.useState(false)
+
 
   useEffect(() => {
     dispatch(getAllQuestionsThunk())
@@ -64,20 +70,21 @@ function QuestionAdmin() {
 	return (
 		<>
 			<Container>
-				<Link to='/admin'>go back to admin</Link>
+				<Link to='/admin'>back to admin </Link>
 			</Container>
+
 			<Container className='question-box'>
 				<h2>Unanswered Questions</h2>
 				<br />
-				<ul>
+
+				<ul id="no_bullets">
 					{unansweredQuestions.map((ele) => (
 						<>
-							{/* <li key = {ele.id}> */}
-
-							<Header as='h5'>
-								Question: {ele.question} ({ele.createdAt})
-							</Header>
-
+							<li key = {ele.id} as='h5'>
+              <Header key = {ele.id}>
+								Q: {ele.question} <span className='notbold'>({ele.createdAt} </span>)
+                </Header>
+      
 							<Form
 								type='submit'
 								onSubmit={(e) =>
@@ -100,8 +107,10 @@ function QuestionAdmin() {
 									/>
 								</Form.Field>
 								<Button onClick={(e) => handleSubmit}>submit</Button>
+                <br/>
+                <br/>
 							</Form>
-							{/* </li> */}
+							</li>
 						</>
 					))}
 				</ul>
