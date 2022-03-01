@@ -1,4 +1,4 @@
-import {getAllProduct , addProduct} from '../apis'
+import { getAllProduct, addProduct } from '../apis'
 
 
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
@@ -24,6 +24,14 @@ export function removeFromCart(product) {
     }
 }
 
+export const CHECK_FILTER = "CHECK_FILTER";
+
+export function filters(filter) {
+    return {
+        type: CHECK_FILTER,
+        filter: filter,
+    };
+}
 
 export function getCartTotal(value){
     return {
@@ -39,6 +47,18 @@ export function removeCartTotal(value) {
     }
 }
 
+export function emptyCart() {
+  return {
+    type :'EMPTY_CART'
+  }
+}
+
+export function emptyCartTotal() {
+  return {
+    type :'EMPTY_CART_TOTAL'
+  }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
@@ -46,6 +66,7 @@ export function getAllProductsThunk() {
         getAllProduct()
         .then (productArr => {
             dispatch(getAllProductsAction(productArr))
+
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message

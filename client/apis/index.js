@@ -26,3 +26,20 @@ export function addTransaction(transaction) {
     .send(transaction)
     .then(res => res.body)
 }
+  .then( res => res.body)
+}
+
+export function addQuestion(question) {
+  return request
+  .post('/api/v1/question')
+  .send(question)
+  .then(res => res.body)
+}
+
+export function updateQuestion(questionToUpdate) {
+  console.log('hello API', questionToUpdate)
+  return request
+  .patch('/api/v1/question')
+  .send(questionToUpdate)
+  .then(res => res.body)
+}
