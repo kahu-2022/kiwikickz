@@ -1,5 +1,5 @@
 const connection = require('./connection')
-const snakecase = require('snakecase-keys')
+// const snakecase = require('snakecase-keys')
 
 function getQuestions(db = connection) {
     return db('question')
@@ -11,7 +11,7 @@ function addQuestion(obj, db = connection) {
 }
 
 function updateQuestion(obj, db = connection) {
-    console.log(obj)
+    // console.log(obj)
     const questionId = Number(obj.id)
     return db('question')
     .update(obj)
