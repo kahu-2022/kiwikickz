@@ -1,3 +1,6 @@
+// TODO: will this be used (as no cases currently) or should it be removed?
+// TODO: remove initial state
+
 function product (state = {
     id: 1,
     seller_id: 1,
