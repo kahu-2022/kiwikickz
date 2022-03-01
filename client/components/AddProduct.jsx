@@ -9,6 +9,7 @@ import {addProductThunk} from '../actions/products'
 import ColorSelector from './ColorSelector'
 import ColorLabel from './ColorLabel'
 
+
 function AddProduct () {
 
   const navigate = useNavigate()
@@ -86,6 +87,7 @@ function AddProduct () {
 
   return (
     <>
+    
     <Container>
       <Form onSubmit={handleSubmit}>
 
