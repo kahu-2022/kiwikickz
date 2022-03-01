@@ -2,10 +2,11 @@
 
 ## Final Group Project
 
-@Lewis: Please add a short blurb about:
-1) What this app is in 1 sentence
-2) Why the world (or your son) needs it
-3) What it does / what the main user-roles can do
+Welcome to KiwiKickz, New Zealands one stop shop for buying and selling Authenticated Footwear. Buyers can purchase and view new & used products on our nationwide market place with the confidence that the products are Authentic, not fake.
+
+It is our goal to link buyers and sellers in NZ and create a safe market place for trade. We also want to create a competitive market that allows sellers to sell items close to their current market value without the added costs incurred when on selling at a retail store. Buyers can negotiate with sellers and get the best value for money.
+
+We offer sellers the ability to Authenticate their shoes using a Third-Party service which we will process once we have received the shoes, this service is quick and affordable (only $3us per check). Once Authenticated, the product will be flagged as "Authenticated". We highly recommend the use of this service as it will increase the chances of selling the item (close to market Value) and buyers will bid with Confidence.
 
 ## Organising ourselves
 - [Social contracting](https://docs.google.com/document/d/1pwtqSxUZA12r6_vuwfvo1w0ZCwHQp8M2m3-ed3RIxl0/edit)
