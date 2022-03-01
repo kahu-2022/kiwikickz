@@ -17,12 +17,13 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   //console.log('req', req)
-  const product = req.body
-  db.addTransaction(product)
+  const transaction = req.body
+  console.log("req body", transaction)
+  db.addTransaction(transaction)
     .then((id) => {
       console.log(`Transaction is ${id[0]}`)
       res.json(id[0])
-      return null
+      return id
     })
     .catch((err) => {
       console.error("Database: " + err.message)

@@ -55,7 +55,7 @@ function AddProduct () {
 }
 
   const handleChange = (e) => {
-    console.log(e.target.name, formData.name)
+    // console.log(e.target.name, formData.name)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -63,7 +63,7 @@ function AddProduct () {
   }
   
   const handleFileChange = (e) => {
-    console.log({[e.target.name]: e.target.files[0]})
+    // console.log({[e.target.name]: e.target.files[0]})
     e.target.files[0].arrayBuffer().then(bytes => {
       const finalFormData = {...formData, [e.target.name]: Base64.encode(bytes)}
       setFormData(finalFormData)

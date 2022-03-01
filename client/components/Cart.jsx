@@ -30,15 +30,8 @@ function Cart() {
 
     const stringifyCart = JSON.stringify(cart)
 
-
-
-  // [
-  //   {
-  //     
-  //   }
-  // ]
-    // transactionData - shit to be sent to DB. Check fields and stringify when sending to DB.
-
+    var strWithOutQuotes = stringifyCart.replace(/['"]+/g, '')
+    const stringWithStartQuotes = `"${strWithOutQuotes}"`
 
     const headers = {
       "Content-type": "application/json"
@@ -48,19 +41,15 @@ function Cart() {
       headers,
       body: JSON.stringify(body)
     }).then(response => {
-      console.log("find me", response)
       console.log(response.status)
       if (response.status == 200) {
         const transactionData = {
-          products_purchased: stringifyCart,
+          products_purchased: stringWithStartQuotes,
           transaction_amount: cartItems.price,
           buyer_email: token.email
         }
-        //dispatch add to db
-        //navigate to new id returned
-        dispatch(addTransactionThunk(transactionData).then((id) => { navigate(`/success/${id}`) })
-
-        )
+        dispatch(addTransactionThunk(transactionData))
+        .then((id) => { navigate(`/success/${id}`) })
       }
     })
       .catch(err => console.log(err))

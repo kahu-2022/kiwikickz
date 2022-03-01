@@ -17,7 +17,3 @@ export const userRequest = axios.create({
 });
 
 
-export function sendTransaction(){
-    return request.post('/api/v1/payment')
-    .then(res => console.log('res.body from api', res))
-}

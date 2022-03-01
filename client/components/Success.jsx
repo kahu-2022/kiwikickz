@@ -5,28 +5,18 @@ import { useParams } from 'react-router-dom'
 import { getAllTransactionThunk } from '../actions/products'
 
 
-
-// const shoe = shoes.find(shoe => shoe.id == Number(id))
-
-//  useEffect(() => {
-//    dispatch(getAllProductsThunk())
-//  }, [])
-
-
 export default function Success() {
+    const allTransactions = useSelector(globalState => globalState.allTransactions)
+
     const cart = useSelector(globalState => globalState.cart)
     const amount = useSelector(globalState => globalState.cartTotal)
     const { id } = useParams()
     const dispatch = useDispatch()
 
-    const findTransaction = cart.find(shoe => shoe.id == Number(id))
-    console.log(findProduct)
+    console.log("all transactions", allTransactions)
 
-
-    //stringify to send to db
-    const stringy = JSON.stringify(cart)
-    console.log(stringy)
-    console.log(id)
+    // const findTransaction = cart.find(shoe => shoe.id == Number(id))
+    // console.log(findProduct)
 
     //json.parse to convert back on load. just transaction data field
     useEffect(() => {

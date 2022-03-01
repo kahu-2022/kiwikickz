@@ -1,5 +1,5 @@
 
-function allProducts (state = [], action) {
+function allTransactions (state = [], action) {
     switch (action.type) {
         case "GET_ALL_TRANSACTIONS":
           return action.transactionArr
@@ -8,4 +8,4 @@ function allProducts (state = [], action) {
     }
 }
 
-export default allProducts
+export default allTransactions
