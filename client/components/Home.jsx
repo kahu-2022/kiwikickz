@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
 import {Grid , Container , Divider} from 'semantic-ui-react'
+import Graph from './Chart'
 
 import ProductContainer from './ProductContainer'
 import ProductCard from './ProductCard'
@@ -21,6 +22,7 @@ function Home () {
 
   return (
     <>
+    {/* <Graph /> */}
     <Container style={{ marginTop: '3em'}}>
     {/* <ProductContainer data={allProducts}/> */}
     {/* Search functionality immplemented here */}

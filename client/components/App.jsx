@@ -1,5 +1,6 @@
-import React, { useState  } from "react"
+import React, { useState, useEffect  } from "react"
 import { Routes, Route, Link , useNavigate } from "react-router-dom"
+import { useDispatch } from 'react-redux'
 import Cart from "./Cart"
 import Home from "./Home"
 import Product from "./Product"
@@ -12,6 +13,8 @@ import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
 import Success from './Success'
+import { addTransactionThunk } from '../actions/transaction' 
+
 
 
 import {
@@ -32,7 +35,16 @@ import {
 function App() {
   const [visible, setVisible] = useState(false)
   const [toggleSearch, setToggleSearch] = useState(false)
+  const dispatch = useDispatch()
+
   const navigate = useNavigate()
+
+
+
+  useEffect(() => {
+    dispatch(addTransactionThunk())
+  }, [])
+
 
   const cartClick = () => {
     setVisible(!visible)

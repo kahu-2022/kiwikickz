@@ -6,27 +6,25 @@ import { getAllTransactionThunk } from '../actions/transaction'
 
 
 export default function Success() {
-    const dispatch = useDispatch()
     const allTransactions = useSelector(globalState => globalState.allTransactions)
 
     const cart = useSelector(globalState => globalState.cart)
     const amount = useSelector(globalState => globalState.cartTotal)
     const { id } = useParams()
 
-    // console.log("first", allTransactions)
-    // console.log("second", allTransactions?.id)
+    // const findTransaction = allTransactions.find(shoe => shoe.id == Number(id))
+    console.log("final transcation", allTransactions)
+    console.log(" transcation ternary", allTransactions.id)
+
+    console.log("[0]", allTransactions[0])
 
 
-    useEffect(() => {
-        dispatch(getAllTransactionThunk())
-    }, [])
+    // allTransactions.map(trans => console.log(trans))
 
-    const findTransaction = allTransactions.find(shoe => shoe.id == Number(id))
-    console.log("final transcation", findTransaction?.id)
-    console.log("final transcation", findTransaction?.productsPurchased)
-    const purchased = findTransaction?.productsPurchased
-    const antistringy = JSON.parse(purchased)
-    console.log("parse back", antistringy)
+    // console.log("final transcation", findTransaction?.productsPurchased)
+    // const purchased = findTransaction?.productsPurchased
+    // const antistringy = JSON.parse(purchased)
+    // console.log("parse back", antistringy)
 
     return (
         <Container>

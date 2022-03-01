@@ -3,7 +3,6 @@ import { getAllTransaction, addTransaction } from '../apis'
 
 
 export function getAllTransactionsAction(transactionArr) {
-    console.log("action")
     return {
         type: "GET_ALL_TRANSACTIONS",
         transactionArr
