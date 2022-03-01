@@ -9,16 +9,8 @@ import { useSelector } from 'react-redux'
 
 function AddToCartPopUp ({ product }) {
 
-  const cart = useSelector( state => state.cart)
+  const inCart = useSelector(state => state.cart.find(item => item.id === product.id))
   const dispatch = useDispatch()
-  let inCart
-
-  if (cart.filter(function(e) { return e.id === product.id; }).length > 0) {
-    inCart = false
-  }
-  else {
-    inCart = true
-  }
 
   return(
   <Popup
