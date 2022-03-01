@@ -26,8 +26,6 @@ export function addTransaction(transaction) {
     .send(transaction)
     .then(res => res.body)
 }
-  .then( res => res.body)
-}
 
 export function addQuestion(question) {
   return request

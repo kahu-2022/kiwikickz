@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
 import { Grid, Container, Divider } from 'semantic-ui-react'
 import Graph from './Chart'
-import { Container } from 'semantic-ui-react'
 
 import ProductContainer from './ProductContainer'
 

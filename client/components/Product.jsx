@@ -7,7 +7,6 @@ import { Image, Container, Segment , Header, Divider , Grid} from 'semantic-ui-r
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import MakeOffer from './MakeOffer';
-import UserQuestion from "./UserQuestion";
 import { getAllTransactionThunk } from '../actions/transaction';
 import QuestionUser from "./QuestionUser";
 
