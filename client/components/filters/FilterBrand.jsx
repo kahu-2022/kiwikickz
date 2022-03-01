@@ -4,7 +4,7 @@ import { Grid , Container, Checkbox, GridRow, GridColumn, Header, Radio } from '
 
 function FilterBrand() {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   return (
     <>
