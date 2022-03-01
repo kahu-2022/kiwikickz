@@ -18,6 +18,7 @@ function UserQuestion () {
       }
 
   const [question, setQuestion] = useState(defaultState)
+  const [asked , setAsked] = useState(false)
   
   const handleInput = (e) => {
     if (e.key === 'Enter') {
@@ -34,6 +35,7 @@ function UserQuestion () {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setAsked(true)
     dispatch(addQuestionThunk(question))
     setQuestion(defaultState)
   }
@@ -69,7 +71,9 @@ function UserQuestion () {
         </Form.Field>
         <Button onClick={e => handleSubmit}>submit</Button>
       </Form>
+      { asked ? <p className='qsubmit'>Thanks for your question. Admins will respond at their neareast cconvenience</p> : null }
       </Container>
+
     </>
   )
 }
