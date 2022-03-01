@@ -39,6 +39,18 @@ export function removeCartTotal(value) {
     }
 }
 
+export function emptyCart() {
+  return {
+    type :'EMPTY_CART'
+  }
+}
+
+export function emptyCartTotal() {
+  return {
+    type :'EMPTY_CART_TOTAL'
+  }
+}
+
 // THUNKS
 
 export function getAllProductsThunk() {
