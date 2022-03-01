@@ -22,6 +22,8 @@ function MakeOffer(props) {
   const toggleOffer=() =>{
     return offer ? setOffer(false) : setOffer(true)
   }
+
+  
   
   const dropOffer=() => {
    return (
@@ -31,7 +33,7 @@ function MakeOffer(props) {
     {product?.status === 'sold' ? <input disabled placeholder="unavailable"/> : <input/> }
     </Input>
     {product?.status === 'sold' ? 'This product is unavailable' : null }
-    <TextPopUp text={'Offer Sent.'} button = {<Button>Submit</Button>}/>
+    <TextPopUp text={product?.status === 'sold' ? 'unavailable' : 'Offer Sent'} button = {<Button>Submit</Button>}/>
     </>
    ) 
   }
