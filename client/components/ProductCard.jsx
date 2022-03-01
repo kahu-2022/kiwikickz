@@ -16,6 +16,9 @@ function ProductCard(props) {
         {obj.hotPick ? <Label color='black' ribbon>
         🔥 HOTPICK 🔥
         </Label> : null}
+        {obj?.status === 'sold' ? <Label color='red' ribbon>
+        SOLD
+        </Label> : null}
         
         <Reveal animated='move right'>
         <Reveal.Content visible>
