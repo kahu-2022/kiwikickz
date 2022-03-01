@@ -4,13 +4,15 @@ import React, { useState } from 'react'
 import { Container, Header, Divider, Button } from 'semantic-ui-react'
 import cart from '../reducers/cart'
 import CartItem from './CartItem'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
 
 function Cart() {
   const cart = useSelector(globalState => globalState.cart)
   const amount = useSelector(globalState => globalState.cartTotal)
+  const navigate = useNavigate()
 
   const makePayment = (token) => {
     // currently only sending the individual name 'kiwi kickz' through as item desc displayed on site.
@@ -32,8 +34,10 @@ function Cart() {
       headers,
       body: JSON.stringify(body)
     }).then(response => {
-      const { status } = response;
-      console.log("status", status)
+      console.log(response.status)
+      if (response.status == 200){
+        navigate('/success')
+      } 
     })
       .catch(err => console.log(err))
   }
@@ -53,7 +57,7 @@ function Cart() {
         billingAddress
         shippingAddress
         description={`Your total is $${amount}`}
-        amount={amount * 100 / 2}
+        amount={amount * 100}
         token={makePayment}
         stripeKey={KEY}
       >

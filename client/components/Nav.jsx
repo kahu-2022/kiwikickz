@@ -2,9 +2,15 @@ import React, { useState } from 'react'
 import{ Menu, Icon , Input, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
+import { useSelector } from 'react-redux'
+
 function Nav(props) {
   const setVis = props.setSideBar[1]
   const vis = props.setSideBar[0]
+
+  const searchBar = props.searchBarRef
+
+  const cartTotal = useSelector(state => state.cartTotal)
   
   return (
     <>
@@ -18,7 +24,7 @@ function Nav(props) {
         </Link>
       </Menu.Item>
       <Menu.Item position='right'>
-        <Input icon='search' placeholder='Search...' name = 'search-bar'/>
+        <Input icon='search' placeholder='Search...' name = 'search-bar' ref={searchBar}/>
       </Menu.Item>
           
       <Menu.Item >
@@ -28,7 +34,7 @@ function Nav(props) {
       </Menu.Item>
       <Menu.Item>
         <Link to='/cart' className='link'>
-      <Icon name='cart'/>
+      <Icon name='cart'/> $ {cartTotal}
       </Link>
       </Menu.Item>
       <Menu.Item >

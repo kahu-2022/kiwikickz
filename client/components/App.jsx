@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from "react"
+import React, { useState , useRef } from "react"
+import { Routes, Route, Link , useNavigate } from "react-router-dom"
+import Cart from './Cart'
+import Home from './Home'
+import Product from './Product'
+import AddProduct from './AddProduct'
+import Nav from './Nav'
+import Footer from './Footer'
+import QuestionAdmin from './QuestionAdmin'
+import About from './About'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, Link, useNavigate } from "react-router-dom"
 
 import { getAllProductsThunk } from '../actions/products'
 import { filters } from '../actions/products'
 
-import Cart from "./Cart"
-import Home from "./Home"
-import Product from "./Product"
-import AddProduct from "./AddProduct"
-import Nav from "./Nav"
-import Footer from "./Footer"
-import About from './About'
-
 import FilterBrand from "./FilterBrand"
 import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
+import Success from './Success'
+import Admin from './Admin'
 
 import {
   Icon,
@@ -51,30 +55,30 @@ function App() {
     navigate('/cart')
   }
 
+  const searchBar = useRef(null)
+
   return (
-        <>
-          {isProductArrFull
-        ? <>
-          <Grid columns={1}>
-            <Grid.Column>
-              <header className="header">
-                <Nav setSideBar={[visible, setVisible]} />
-              </header>
-            </Grid.Column>
-            <Grid.Column>
-              <Sidebar.Pushable as={Segment}>
-                <Sidebar
-                  as={Menu}
-                  animation="overlay"
-                  icon="labeled"
-                  inverted
-                  onHide={() => setVisible(false)}
-                  vertical
-                  visible={visible}
-                  width="wide"
-                >
-                  <Menu.Item as="a" onClick={() => { setToggleSearch(!toggleSearch) }}>
-                    <Icon name="search" />
+    <>
+      <Grid columns={1}>
+        <Grid.Column>
+          <header className="header">
+            <Nav setSideBar={[visible, setVisible]} searchBarRef = {searchBar} />
+          </header>
+        </Grid.Column>
+        <Grid.Column>
+          <Sidebar.Pushable as={Segment}>
+            <Sidebar
+              as={Menu}
+              animation="overlay"
+              icon="labeled"
+              inverted
+              onHide={() => setVisible(false)}
+              vertical
+              visible={visible}
+              width="wide"
+            >
+              <Menu.Item as="a" onClick={() => {searchBar.current.focus(), setVisible(!visible)}}>
+                <Icon name="search" />
                 Search
               </Menu.Item>
 
@@ -121,9 +125,6 @@ function App() {
             </Grid.Column>
           </Grid>
         </>
-             : null
-          }
-      </>
   )
 }
 
