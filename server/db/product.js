@@ -3,7 +3,7 @@ const snakecase = require('snakecase-keys')
 
 function getProducts(db = connection) {
     return db('product')
-    //where status = available
+    //where status = 'available'
 }
 
 function addProduct (newProduct, db = connection) {

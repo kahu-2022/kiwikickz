@@ -15,3 +15,14 @@ export function getAllQuestion() {
   return request.get('/api/v1/question')
   .then( res => res.body)
 }
+
+export function getAllTransaction() {
+  return request.get('/api/v1/transaction')
+  .then( res => res.body)
+}
+
+export function addTransaction(transaction){
+  return request.post('/api/v1/transaction')
+  .send( transaction)
+  .then(res => res.body)
+}

@@ -1,13 +1,10 @@
 exports.up = function (knex) {
   return knex.schema.createTable('transaction', table => {
     table.increments('id')
-    // array of objects and stringify
-    table.int('product_id')
-    // amount of transaction
-    amount
-    //change to user email / token.email
-    table.int('buyer_id')
+    table.int('products_purchased')
+    table.int('transaction_amount')
     //check to see if i can get buyer name
+    table.string('buyer_email')
     table.timestamp('created_date').defaultTo(knex.fn.now())
   })
 }
