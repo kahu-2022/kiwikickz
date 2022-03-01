@@ -5,7 +5,6 @@
   "repository": "https://https://github.com/dev-academy-challenges/todo-full-stack",
   "main": "server/index.js",
   "scripts": {
-    
     "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
     "build:server": "npm run knex -- migrate:latest",
@@ -83,7 +82,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sass": "^1.32.7",
-    "sass-loader": "^12.5.0",
+    "sass-loader": "^12.6.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.1",
     "snakecase-keys": "^5.1.2",
