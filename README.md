@@ -2,7 +2,7 @@
 
 ## Final Group Project
 
-Welcome to KiwiKickz, New Zealands one stop shop for buying and selling Authenticated Footwear. Buyers can purchase and view new & used products on our nationwide market place with the confidence that the products are Authentic, not fake.
+Welcome to KiwiKickz, New Zealands one stop shop for buying and selling Authenticated Footwear. Buyers can purchase new & used products on our nationwide market place with the confidence that the products are Authentic, not fake.
 
 It is our goal to link buyers and sellers in NZ and create a safe market place for trade. We also want to create a competitive market that allows sellers to sell items close to their current market value without the added costs incurred when on selling at a retail store. Buyers can negotiate with sellers and get the best value for money.
 
