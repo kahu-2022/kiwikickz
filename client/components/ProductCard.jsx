@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Grid , Icon, Image , Reveal} from 'semantic-ui-react'
+import { Card, Grid , Icon, Image , Reveal , Label} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import AddToCartPopUp from './AddToCartPopUp'
 
@@ -13,6 +13,10 @@ function ProductCard(props) {
     <Grid.Column>
       <Card>
       <Link to={`/product/${obj.id}`}>
+        {obj.hotPick ? <Label color='black' ribbon>
+        🔥 HOTPICK 🔥
+        </Label> : null}
+        
         <Reveal animated='move right'>
         <Reveal.Content visible>
           <Image size= 'medium' src={`data:image/jpg;base64,${obj.image1}`}/>
