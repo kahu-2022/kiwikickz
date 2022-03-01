@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	getAllQuestionsThunk,
-	addQuestionThunk,
-	updateQuestionThunk,
-} from "../actions/questions";
+import React, {useState, useEffect } from 'react';
+import { useSelector, useDispatch} from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getAllQuestionsThunk } from '../actions/questions'
+import { getAllProductsThunk } from '../actions/products'
 import {
 	Button,
 	Container,
@@ -16,27 +14,25 @@ import {
 	Grid,
 	Divider,
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+
 
 function QuestionAdmin() {
-	const dispatch = useDispatch();
-	const allQuestions = useSelector((globalState) => globalState.allQuestions);
+  
+  const dispatch = useDispatch()
+  const allQuestions = useSelector(globalState => globalState.allQuestions)
+  const allProducts = useSelector(globalState => globalState.allProducts)
+  
+  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
+  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
 
-	const unansweredQuestions = allQuestions.filter(
-		(question) => question.status == "unanswered"
-	);
+  useEffect(() => {
+    dispatch(getAllQuestionsThunk())
+    dispatch(getAllProductsThunk())
+  }, [])
 
-	const answeredQuestions = allQuestions.filter(
-		(question) => question.status == "answered"
-	);
-
-	const defaultState = {
+  const defaultState = {
 		answer: "",
 	};
-
-	useEffect(() => {
-		dispatch(getAllQuestionsThunk());
-	}, []);
 
 	const [answer, setAnswer] = useState(defaultState);
 
@@ -127,4 +123,4 @@ function QuestionAdmin() {
 		</>
 	);
 }
-export default QuestionAdmin;
+export default QuestionAdmin
