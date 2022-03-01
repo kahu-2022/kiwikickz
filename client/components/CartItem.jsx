@@ -6,8 +6,7 @@ import { RemovePriceFromCart } from '../actions/products'
 
 import Product from './Product'
 
-function CartItem(props) {
-  const cartItem = props.data
+function CartItem({ cartItem }) {
   const dispatch = useDispatch()
 
   return (

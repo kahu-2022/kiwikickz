@@ -32,7 +32,7 @@ function ProductCard(props) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <AddToCartPopUp data={obj}/>
+          <AddToCartPopUp product={obj}/>
           
         </Card.Content>
       </Card>

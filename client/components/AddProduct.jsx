@@ -207,7 +207,7 @@ function AddProduct () {
         <Button onClick = {addColor}>Add</Button>
         <Container>
         <Grid container columns={12} divided stackable>
-        {colorArr.map((color, i) => { return <ColorLabel color={color} del={removeCol} key={`${color}${i}`}/>})}
+        {colorArr.map((color, i) => { return <ColorLabel color={color} remove={removeCol} key={`${color}${i}`}/>})}
         </Grid>
         </Container>
         </Form.Field>

@@ -47,7 +47,7 @@ function Cart() {
     <div>
       <Container>
         <Header as='h2'>Items in Cart</Header>
-        {cart.length > 0 ? cart.map((item, i) => <CartItem data={item} key={item.name + i} />) : <div className='empty-cart'><Header as='h3' textAlign= 'center'>You have no items in your cart.</Header></div>}
+        {cart.length > 0 ? cart.map((item, i) => <CartItem cartItem={item} key={item.name + i} />) : <div className='empty-cart'><Header as='h3' textAlign= 'center'>You have no items in your cart.</Header></div>}
 
       </Container>
       <Container>

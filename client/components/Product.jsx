@@ -30,7 +30,7 @@ function Product () {
       <Header as='h2'>{shoe?.name}</Header>
       <Grid container columns={2} divided stackable>
         <ImageCarousel product = {shoe} />
-        <MakeOffer data = {shoe} />
+        <MakeOffer product = {shoe} />
       </Grid>
       </Container>
 

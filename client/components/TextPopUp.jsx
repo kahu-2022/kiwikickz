@@ -1,16 +1,8 @@
 import React from 'react'
 import { Card, Popup , Icon} from 'semantic-ui-react'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 
-
-
-
-function TextPopUp (props) {
-
-  const product = props.data
-  const text = props.text
-  const button = props.button
-  const dispatch = useDispatch()
+function TextPopUp ({ text, button }) {
 
   return(
   <Popup

@@ -7,10 +7,9 @@ import { useSelector } from 'react-redux'
 
 
 
-function AddToCartPopUp (props) {
+function AddToCartPopUp ({ product }) {
 
   const cart = useSelector( state => state.cart)
-  const product = props.data
   const dispatch = useDispatch()
   let inCart
 

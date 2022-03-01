@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 
-function Nav(props) {
-  const setVis = props.setSideBar[1]
-  const vis = props.setSideBar[0]
-
-  const searchBar = props.searchBarRef
+function Nav({ setVis, vis, searchBar }) {
 
   const cartTotal = useSelector(state => state.cartTotal)
   

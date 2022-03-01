@@ -1,8 +1,7 @@
 import React from 'react'
-import { Image, Item } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 
-function SuccessItem(props){
-  const item = props.item
+function SuccessItem({ item }){
   return (
     <Item>
       <Item.Image size='tiny' src={`data:image/jpg;base64,${item.image1}`} />

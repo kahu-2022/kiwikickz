@@ -4,8 +4,7 @@ import { addToCart, addPriceToCart } from '../actions/products'
 import { useDispatch } from 'react-redux' 
 import { useNavigate } from 'react-router-dom'
 import  TextPopUp  from "./TextPopUp";
-function MakeOffer(props) {
-  const product = props.data
+function MakeOffer({ product }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [offer, setOffer] = useState(false)

@@ -2,9 +2,7 @@ import { handleRef } from '@fluentui/react-component-ref'
 import React from 'react'
 import { Icon, Label , Grid} from 'semantic-ui-react'
 
-function ColorLabel(props) {
-  const color = props.color
-  const remove = props.del
+function ColorLabel({ color, remove }) {
 
   const handleClick = () => {
     remove(color)
