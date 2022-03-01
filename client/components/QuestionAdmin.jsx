@@ -1,7 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { getAllQuestionsThunk, addQuestionThunk, updateQuestionThunk} from '../actions/questions'
-import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
+import { Button, Container, Form, Input, Dropdown, TextArea, Header , Grid, Divider} from 'semantic-ui-react'
+
 
 function QuestionAdmin() {
   
@@ -49,34 +50,43 @@ function QuestionAdmin() {
 
   return (
     <>
-    <Container>
+    <Container className='question-box'>
       <h2>Unanswered Questions</h2>
+      <br />
       <ul>
         {unansweredQuestions.map(ele =>
         <>
-        <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}<br />{ele.question}
-        <form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
-          <input
+        {/* <li key = {ele.id}> */}
+          
+        <Header as= 'h5'>
+        Question: {ele.question} ({ele.createdAt})
+        </Header>
+
+        <Form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
+        <Form.Field>
+          <TextArea
             type='textarea'
             id='answer'
             value={ele.answer.answer}
             placeholder="enter your answer"
             onChange={(e) => ( handleInput(e))}
           />
-          <button onClick={e => handleSubmit}>submit</button>
-        </form>
-        </li>
+          </Form.Field>
+          <Button onClick={e => handleSubmit}>submit</Button>
+        </Form>
+        {/* </li> */}
         </>
         )}
         </ul>
-        <button onClick = {(e) => dispatch(updateQuestionThunk(updateQuestion))}>Update Question</button>
+        
         
       <h2>Answered Questions</h2>
+      <br />
       <ul>
         {answeredQuestions.map(ele =>
         <>
-          <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}
-          <br />{ele.question} <br /> {ele.answer}</li>
+        <Header as='h5' key = {ele.id}> Q :{ele.question} ({ele.createdAt})</Header>
+       <p>A : {ele.answer}</p>
         </>
         )}
       </ul>
