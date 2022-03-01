@@ -28,11 +28,11 @@ router.post('/', (req, res) => {
 })
 
 router.patch('/', (req, res) => {
-  const questionToUpdate = snakeCase(req.body)
-  console.log('hello route', questionToUpdate)
-  db.updateQuestion(questionToUpdate)
-  .then(numberOfUpdatedQuestion => {
-    res.json(numberOfUpdatedQuestion)
+  const question = snakeCase(req.body)
+  console.log('hello route', question)
+  db.updateQuestion(question)
+  .then(numberUpdated => {
+    res.json(numberUpdated)
     return null
   })
   .catch((err) => {
