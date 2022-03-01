@@ -13,6 +13,7 @@ import FilterSize from "./FilterSize"
 import FilterPrice from "./FilterPrice"
 import FilterCondition from "./FilterCondition"
 import Success from './Success'
+import Admin from './Admin'
 
 import {
   Icon,
@@ -100,6 +101,8 @@ function App() {
                     <Route path='/about' element={<About/>}/>
                     <Route path='/success' element={<Success />}/>
                     <Route path='/adminquestion' element = {<QuestionAdmin/>}/>
+                    <Route path='/admin' element = {<Admin />}/>
+
                   </Routes>
                   <Footer />
                 </section>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
 import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
@@ -87,7 +87,11 @@ function AddProduct () {
 
   return (
     <>
-    
+    <Container>
+      <Link to="/admin">go back to admin</Link>
+    </Container>
+    <br/>
+
     <Container>
       <Form onSubmit={handleSubmit}>
 
