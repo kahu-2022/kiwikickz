@@ -44,16 +44,20 @@ function AddProduct () {
   const [sizeShoe, setSize] = useState('')
   const [genderShoe, setGender] = useState('')
   
-  formData.color = JSON.stringify(colorArr)
-  formData.condition = condition
-  formData.size = sizeShoe
-  formData.gender = genderShoe
 
   //2. Component Functions
   const handleSubmit = (e) => {
+    const finalProduct = {
+      ...formData,
+      color: JSON.stringify(colorArr),
+      condition,
+      size: sizeShoe,
+      gender: genderShoe
+    }
+
     e.preventDefault()
-    dispatch(addProductThunk(formData)).then((id) => {navigate(`/product/${id}`)})
-}
+    dispatch(addProductThunk(finalProduct)).then((id) => {navigate(`/product/${id}`)})
+  }
 
   const handleChange = (e) => {
     console.log(e.target.name, formData.name)
