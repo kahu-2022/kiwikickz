@@ -4,11 +4,13 @@ import product from './product'
 import cart from './cart'
 import allQuestions from './allQuestions'
 import cartTotal from './carttotal'
+import allTransactions from './allTransactions'
 
 export default combineReducers({
   allProducts,
   product,
   cart,
   allQuestions,
-  cartTotal
+  cartTotal,
+  allTransactions
 })
