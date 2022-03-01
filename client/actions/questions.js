@@ -3,6 +3,7 @@ import {getAllQuestion, addQuestion, updateQuestion} from '../apis'
 export const GET_ALL_QUESTIONS = "GET_ALL_QUESTIONS"
 export const ADD_QUESTION = "ADD_QUESTION"
 export const UPDATE_QUESTION = "UPDATE_QUESTION"
+
 //ACTIONS
 export function getAllQuestionsAction(questionArr) {
     return {

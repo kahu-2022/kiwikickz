@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
-import { getAllQuestionsThunk, addQuestionThunk, updateQuestionThunk} from '../actions/questions'
+import { getAllQuestionsThunk } from '../actions/questions'
+import { getAllProductsThunk} from '../actions/products'
 import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
@@ -8,9 +9,9 @@ function QuestionAdmin() {
   
   const dispatch = useDispatch()
   const allQuestions = useSelector(globalState => globalState.allQuestions)
+  const allProducts = useSelector(globalState => globalState.allProducts)
   
   const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
-
   const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
 
   const defaultState= {
@@ -19,7 +20,10 @@ function QuestionAdmin() {
 
   useEffect(() => {
     dispatch(getAllQuestionsThunk())
+    dispatch(getAllProductsThunk())
   }, [])
+
+
 
   const [answer, setAnswer] = useState(defaultState)
 
@@ -58,7 +62,7 @@ function QuestionAdmin() {
       <ul>
         {unansweredQuestions.map(ele =>
         <>
-        <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}<br />{ele.question}
+        <li key = {ele.id}>Title: {ele.name}<br />Date: {ele.createdAt}<br />{ele.question}
         <form type="submit" onSubmit={(e) => handleSubmit(ele.id, ele.question, ele.productId, ele.createdAt, e)}>
           <input
             type='textarea'
@@ -78,7 +82,7 @@ function QuestionAdmin() {
       <ul>
         {answeredQuestions.map(ele =>
         <>
-          <li key = {ele.id}>ProductId: {ele.productId}<br />Date: {ele.createdAt}
+          <li key = {ele.id + 1000}>ProductId: {ele.productId}<br />Date: {ele.createdAt}
           <br />{ele.question} <br /> {ele.answer}</li>
         </>
         )}
