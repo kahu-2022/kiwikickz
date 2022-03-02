@@ -49,15 +49,22 @@ function UserQuestion () {
     <>
       <h2>Questions and Answers</h2>
       
-       {questions.map(ele =>
-       <>
-       <Header as='h5' key = {ele.id}> Q :{ele.question}</Header>
-       <p>A : {ele.answer}</p>
-       </>
-       )}
+      <ul className="no_bullets">
+        {questions.map(ele => (
+          <div key = {ele.id}>
+            <br/>
+            <li  as='h5'>
+              <Header as='h5'> 
+                Q :{ele.question}
+              </Header>
+              <p>
+                A : {ele.answer}
+                </p>
+            </li>
+          </div>
+        ))}
+      </ul>
 
-       
-      
       <Container className='question-box'>
       <Form type="submit" onSubmit={handleSubmit}>
         <Form.Field>
@@ -73,7 +80,6 @@ function UserQuestion () {
       </Form>
       { asked ? <p className='qsubmit'>Thanks for your question. Admins will respond at their neareast convenience</p> : null }
       </Container>
-
     </>
   )
 }

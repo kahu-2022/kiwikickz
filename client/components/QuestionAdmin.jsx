@@ -25,8 +25,8 @@ function QuestionAdmin() {
   const allQuestions = useSelector(globalState => globalState.allQuestions)
   const allProducts = useSelector(globalState => globalState.allProducts)
   
-  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered')
-  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' ) 
+  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
+  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
 
   const [open, setOpen] = React.useState(false)
 
@@ -66,13 +66,13 @@ function QuestionAdmin() {
 		dispatch(updateQuestionThunk(newQuestion));
     setAnswer(defaultState);
 	};
-	const handleDelete = (e, id) => {
+
+  const handleDelete = (e, id) => {
 		e.preventDefault();
 			let text = "Are you sure you want to delete this question?";
 			if (confirm(text) == true) {
 			dispatch(deleteQuestionThunk({"id": id}))
 			.then((confirmationString)=> {
-			console.log(confirmationString)
 		})
 			} else {
 				console.log("Question still there.");
@@ -88,7 +88,6 @@ function QuestionAdmin() {
     const productName = (allProducts ? allProducts.find(product => product.id == id) : "loading")
     return productName ? productName.name : "loading"
   }
-// console.log(productName ? productName.id : "loading")
 
 	return (
 		<>
@@ -100,12 +99,11 @@ function QuestionAdmin() {
 				<h2>Unanswered Questions</h2>
 				<br />
 				<ul className="no_bullets">
-					{unansweredQuestions.map((ele) => (
-						<div key = {ele.name + ele.id}>
-              <br/>
-							<li key = {ele.id} as='h5'>
-              <Header key = {ele.id}>
-								Q: {ele.question} <span className='notbold'>({ele.createdAt}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
+					{unansweredQuestions.map((ele) => (  
+            <div key = {ele.id}>
+							<li as='h5'>
+              <Header>
+								Q: {ele.question} <span className='notbold'>({ele.createdAt.slice(8, 10)}.{ele.createdAt.slice(5, 7)}.{ele.createdAt.slice(2, 4)} 🕒 {ele.createdAt.slice(11, 16)}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
               </Header>
 							<Form
 								type='submit'
@@ -129,26 +127,28 @@ function QuestionAdmin() {
 									/>
 								</Form.Field>
 								<Button onClick={(e) => handleSubmit}>submit</Button>
-								<Button onClick={(e) => {handleDelete(e, ele.id)}}>delete</Button>
+                <Button onClick={(e) => {handleDelete(e, ele.id)}}>delete</Button>
                 <br/>
                 <br/>
 							</Form>
 							</li>
-						</div>
+              </div>
 					))}
 				</ul>
 
 				<h2>Answered Questions</h2>
-				<br />
-				<ul>
+        <br/>
+
+				<ul className="no_bullets">
 					{answeredQuestions.map((ele) => (
-						<>
-							<Header as='h5' key={ele.id}>
+						<li key={ele.name}>
+							<Header as='h5' >
 								{" "}
-								Q :{ele.question} ({ele.createdAt})
+								Q: {ele.question} <span className='notbold'>({ele.createdAt.slice(8, 10)}.{ele.createdAt.slice(5, 7)}.{ele.createdAt.slice(2, 4)} 🕒 {ele.createdAt.slice(11, 16)}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
 							</Header>
-							<p>A : {ele.answer}</p>
-						</>
+							<p>A : {ele.answer} <span className='notbold'>({ele.createdAt.slice(8, 10)}.{ele.createdAt.slice(5, 7)}.{ele.createdAt.slice(2, 4)} 🕒 {ele.createdAt.slice(11, 16)}</span> ) </p>
+              <br />						
+            </li>
 					))}
 				</ul>
 			</Container>
