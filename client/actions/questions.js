@@ -65,7 +65,7 @@ export function updateQuestionThunk(questionToUpdate) {
     return (dispatch) => {
         updateQuestion(questionToUpdate)
         .then((numberOfUpdateQuestion) => {
-            dispatch(getAllQuestionsAction(questionToUpdate))
+            dispatch(updateQuestionAction(questionToUpdate))
         })
         .catch ( err => {
             const errMessage = err.response?.text || err.message
