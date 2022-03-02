@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
 import { Grid, Container, Divider } from 'semantic-ui-react'
-import Graph from './Chart'
 
 import ProductContainer from './ProductContainer'
 
