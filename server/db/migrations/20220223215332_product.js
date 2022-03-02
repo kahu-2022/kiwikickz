@@ -10,7 +10,7 @@ exports.up = function (knex) {
         table.text('details')
         table.boolean('auth_status')
         table.string('brand')
-        table.integer('size')
+        table.decimal('size')
         table.string('color')
         table.string('make')
         table.string('model')
