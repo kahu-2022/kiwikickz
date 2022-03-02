@@ -67,6 +67,9 @@ function QuestionAdmin() {
     setAnswer(defaultState);
 	};
 
+const productName = allProducts.find(product => product.id == 1)
+console.log(productName ? productName.name : "nothing")
+
 	return (
 		<>
 			<Container>
@@ -82,7 +85,8 @@ function QuestionAdmin() {
 						<>
 							<li key = {ele.id} as='h5'>
               <Header key = {ele.id}>
-								Q: {ele.question} <span className='notbold'>({ele.createdAt} </span>)
+								Q: {ele.question} <span className='notbold'>({ele.createdAt}</span> ) 
+                <a href={`/product/${ele.productId}`} target="_blank">{ele.productId}</a>
                 </Header>
       
 							<Form
