@@ -52,7 +52,7 @@ function Cart() {
           transaction_amount: cartItems.price,
           buyer_email: token.email
         }
-        dispatch(addTransactionThunk(transactionData))
+        dispatch(addTransactionThunk(transactionData, token))
           .then((id) => { 
             navigate(`/success`)
           })
