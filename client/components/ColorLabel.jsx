@@ -15,7 +15,6 @@ function ColorLabel(props) {
         {color}
         <Icon name='delete' onClick={handleClick}/>
       </Label>
-    
       
     </div>
     </Grid.Column>
