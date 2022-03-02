@@ -2,7 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getAllQuestionsThunk, addQuestionThunk} from '../actions/questions'
-import { Form , Input, Button , Container, TextArea, Header , Divider} from 'semantic-ui-react'
+import { Form , Button , Container, TextArea, Header } from 'semantic-ui-react'
 
 
 function UserQuestion () {
@@ -55,9 +55,7 @@ function UserQuestion () {
        <p>A : {ele.answer}</p>
        </>
        )}
-
        
-      
       <Container className='question-box'>
       <Form type="submit" onSubmit={handleSubmit}>
         <Form.Field>
