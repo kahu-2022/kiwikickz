@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { Container, Header, Divider, Button,  Item  } from 'semantic-ui-react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Container, Header, Button,  Item  } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import SuccessItem from './SuccessItem'
-import { emptyCart, emptyCartTotal } from '../actions/products'
-
-
 
 export default function Success() {
-    const allTransactions = useSelector(globalState => globalState.allTransactions)
 
     const cart = useSelector(globalState => globalState.cart)
     const amount = useSelector(globalState => globalState.cartTotal)
-    const dispatch = useDispatch()
+    const customerState = useSelector(globalState => globalState.customerState)
+
+    console.log(customerState)
 
     return (
             <Container>
@@ -24,9 +21,12 @@ export default function Success() {
                 </Item.Group>
                 <Header as='h2'>Total Amount Paid </Header>
                 <Header as='h3'>${amount}</Header>
+                <Header as='h4'>The receipt has been sent to the following email address - {customerState.email}</Header>
+                <Header as='h4'>The items will be delivered to {customerState.card.address_line1}, {customerState.card.address_city} </Header>
                 <Link to='/'>
                   <Button> Return to Home</Button>
                 </Link>
+                <Header as='h6'> customer IP - {customerState.client_ip}</Header>
             </Container>
     )
 }

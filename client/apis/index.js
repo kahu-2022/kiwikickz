@@ -41,9 +41,19 @@ export function addQuestion(question) {
 }
 
 export function updateQuestion(questionToUpdate) {
-  console.log('hello API', questionToUpdate)
   return request
   .patch('/api/v1/question')
   .send(questionToUpdate)
   .then(res => res.body)
 }
+
+
+export function deleteQuestion(id) {
+  return request
+  .delete('/api/v1/question')
+  .send(id)
+  .then(res => res.body)
+}
+
+
+

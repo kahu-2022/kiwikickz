@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getAllQuestionsThunk, updateQuestionThunk } from '../actions/questions'
+import { getAllQuestionsThunk, updateQuestionThunk, deleteQuestionThunk } from '../actions/questions'
 import { getAllProductsThunk } from '../actions/products'
 import {
 	Button,
@@ -66,6 +66,18 @@ function QuestionAdmin() {
 		dispatch(updateQuestionThunk(newQuestion));
     setAnswer(defaultState);
 	};
+	const handleDelete = (e, id) => {
+		e.preventDefault();
+			let text = "Are you sure you want to delete this question?";
+			if (confirm(text) == true) {
+			dispatch(deleteQuestionThunk({"id": id}))
+			.then((confirmationString)=> {
+			console.log(confirmationString)
+		})
+			} else {
+				console.log("Question still there.");
+			}
+	}
 
   const returnURLId = (id) => {
     const productId = (allProducts ? allProducts.find(product => product.id == id) : "loading")
@@ -117,6 +129,7 @@ function QuestionAdmin() {
 									/>
 								</Form.Field>
 								<Button onClick={(e) => handleSubmit}>submit</Button>
+								<Button onClick={(e) => {handleDelete(e, ele.id)}}>delete</Button>
                 <br/>
                 <br/>
 							</Form>
