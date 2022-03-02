@@ -1,8 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable('transaction', table => {
     table.increments('id')
-    table.int('product_id')
-    table.int('buyer_id')
+    table.string('products_purchased')
+    table.int('transaction_amount')
+    table.string('buyer_email')
     table.timestamp('created_date').defaultTo(knex.fn.now())
   })
 }

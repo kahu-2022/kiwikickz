@@ -28,6 +28,21 @@ router.post('/', (req,res) => {
           }) 
 })
 
+router.patch('/', (req,res) => {
+  //console.log('req', req)
+  const productIds = JSON.parse(req.body.update)
+  console.log(productIds)
+   db.updateProductStatus(productIds)
+      .then((id) => {
+      console.log(`Product(s) ${id} have been updated.`)
+      res.json(id)
+      return null
+      })
+      .catch((err) => {
+      console.error("Database: " + err.message)
+      }) 
+})
+
 
 
 module.exports = router

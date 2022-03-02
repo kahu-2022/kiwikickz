@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
 import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
@@ -8,6 +8,7 @@ import { options } from 'superagent'
 import {addProductThunk} from '../actions/products'
 import ColorSelector from './ColorSelector'
 import ColorLabel from './ColorLabel'
+
 
 function AddProduct () {
 
@@ -55,7 +56,7 @@ function AddProduct () {
 }
 
   const handleChange = (e) => {
-    console.log(e.target.name, formData.name)
+    // console.log(e.target.name, formData.name)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -63,7 +64,7 @@ function AddProduct () {
   }
   
   const handleFileChange = (e) => {
-    console.log({[e.target.name]: e.target.files[0]})
+    // console.log({[e.target.name]: e.target.files[0]})
     e.target.files[0].arrayBuffer().then(bytes => {
       const finalFormData = {...formData, [e.target.name]: Base64.encode(bytes)}
       setFormData(finalFormData)
@@ -86,6 +87,11 @@ function AddProduct () {
 
   return (
     <>
+    <Container>
+      <Link to="/admin">go back to admin</Link>
+    </Container>
+    <br/>
+
     <Container>
       <Form onSubmit={handleSubmit}>
 

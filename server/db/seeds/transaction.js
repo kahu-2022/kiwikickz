@@ -4,9 +4,9 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('transaction').insert([
-        {id: 1, product_id: 1, buyer_id: 1},
-        {id: 2, product_id: 2, buyer_id: 2},
-        {id: 3, product_id: 3, buyer_id: 3}
+        {id: 1, products_purchased: "[{},{},{}]", transaction_amount: 456, buyer_email: "sonny.nguyen26@gmail.com"},
+        {id: 2, products_purchased: "[{},{},{}]", transaction_amount: 346, buyer_email: "fake@email.com"},
+        {id: 3, products_purchased: "[{},{},{}]", transaction_amount: 984, buyer_email: "what@fakeemail.com"}
       ]);
     });
 };

@@ -1,37 +1,45 @@
 import React, {useState} from "react";
 import { Container, Button, Input, Label , Divider , Grid, Header, Icon, Segment} from 'semantic-ui-react'
-import { addToCart } from '../actions/products'
+import { addToCart, addPriceToCart } from '../actions/products'
 import { useDispatch } from 'react-redux' 
 import { useNavigate } from 'react-router-dom'
 import  TextPopUp  from "./TextPopUp";
+
 function MakeOffer(props) {
   const product = props.data
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [offer, setOffer] = useState(false)
 
+  
+
   const handleBuyNow = () => {
     dispatch(addToCart(product))
+    dispatch(addPriceToCart(product))
     navigate('/cart')
   }
 
   const toggleOffer=() =>{
     return offer ? setOffer(false) : setOffer(true)
   }
+
+  
   
   const dropOffer=() => {
    return (
      <>
     <Input labelPosition='right' type='text' placeholder='Amount'>
     <Label basic>$</Label>
-    <input />
+    {product?.status === 'sold' ? <input disabled placeholder="unavailable"/> : <input/> }
     </Input>
-    <TextPopUp text={'Offer Sent.'} button = {<Button>Submit</Button>}/>
+    {product?.status === 'sold' ? 'This product is unavailable' : null }
+    <TextPopUp text={product?.status === 'sold' ? 'unavailable' : 'Offer Sent'} button = {<Button>Submit</Button>}/>
     </>
    ) 
   }
 
 return (
+
   <Grid.Column>
   <Segment placeholder>
     <Grid columns={2} stackable textAlign='center'>
@@ -44,8 +52,8 @@ return (
             Buy Now <br/>
             ${product ? product.price : null}
           </Header>
-
-          <Button onClick={handleBuyNow}>Add to Cart</Button>
+          {product?.status === 'sold' ? <Button disabled>Unavailable</Button>:<Button onClick={handleBuyNow}>Add to Cart</Button> }
+          
         </Grid.Column>
 
         <Grid.Column>
