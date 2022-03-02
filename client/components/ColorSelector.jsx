@@ -15,7 +15,6 @@ const colourOptions = [
   { text: 'Pink' , value: 'Pink'},
   { text: 'Multi-colour', value: 'Multi-colour'}
 ]
- 
 
 function ColorSelector (props) { 
   const setColor = props.data
