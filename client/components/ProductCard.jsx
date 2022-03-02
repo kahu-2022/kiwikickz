@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Grid , Icon, Image , Reveal , Label} from 'semantic-ui-react'
+import { Card, Grid , Image , Reveal , Label} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import AddToCartPopUp from './AddToCartPopUp'
 
