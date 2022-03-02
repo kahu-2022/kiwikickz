@@ -7,15 +7,8 @@ import {
 	Button,
 	Container,
 	Form,
-	Input,
-	Dropdown,
 	TextArea,
 	Header,
-	Grid,
-	Divider,
-  Modal,
-  Image,
-  Embed,
 } from "semantic-ui-react";
 
 
@@ -27,9 +20,6 @@ function QuestionAdmin() {
   
   const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
   const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
-
-  const [open, setOpen] = React.useState(false)
-
 
   useEffect(() => {
     dispatch(getAllQuestionsThunk())
@@ -88,7 +78,6 @@ function QuestionAdmin() {
     const productName = (allProducts ? allProducts.find(product => product.id == id) : "loading")
     return productName ? productName.name : "loading"
   }
-// console.log(productName ? productName.id : "loading")
 
 	return (
 		<>
