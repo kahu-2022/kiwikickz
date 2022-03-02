@@ -1,10 +1,7 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { Grid , Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { Grid, Checkbox, GridRow, GridColumn } from 'semantic-ui-react'
 
 function FilterSortBy() {
-
-  const dispatch = useDispatch()
 
   return (
     <>
