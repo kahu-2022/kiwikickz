@@ -21,7 +21,7 @@ function FilterSize() {
             <Checkbox onClick={() => { dispatch(filters({ key: 'gender', value: 'Male' })) }}/> - MEN  
         </GridColumn>
         <GridColumn>
-            <Checkbox onClick={() => { dispatch(filters({ key: 'gender', value: 'Feale' })) }}/> - WOMEN 
+            <Checkbox onClick={() => { dispatch(filters({ key: 'gender', value: 'Female' })) }}/> - WOMEN 
         </GridColumn>
         <GridColumn>
             <Checkbox onClick={() => { dispatch(filters({ key: 'gender', value: 'Youth' })) }}/> - YOUTH  
