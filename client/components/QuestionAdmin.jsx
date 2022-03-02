@@ -93,7 +93,7 @@ function QuestionAdmin() {
               <br/>
 							<li key = {ele.id} as='h5'>
               <Header key = {ele.id}>
-								Q: {ele.question} <span className='notbold'>({ele.createdAt}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
+								Q: {ele.question} <span className='notbold'>({ele.createdAt.slice(8, 10)}.{ele.createdAt.slice(5, 7)}.{ele.createdAt.slice(2, 4)} 🕒 {ele.createdAt.slice(11, 16)}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
               </Header>
 							<Form
 								type='submit'
@@ -132,7 +132,7 @@ function QuestionAdmin() {
 						<>
 							<Header as='h5' key={ele.id}>
 								{" "}
-								Q :{ele.question} ({ele.createdAt})
+								Q :{ele.question} ({ele.updatedAt.slice(8, 10)}.{ele.updatedAt.slice(5, 7)}.{ele.updatedAt.slice(2, 4)} 🕒 {ele.updatedAt.slice(11, 16)})
 							</Header>
 							<p>A : {ele.answer}</p>
 						</>
