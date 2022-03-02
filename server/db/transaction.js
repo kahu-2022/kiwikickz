@@ -7,7 +7,7 @@ function getTransaction(db = connection) {
 
 function addTransaction (newTransaction, db = connection) {
     return db('transaction')
-    .insert(snakecase(newTransaction))
+    .insert(snakecase(newTransaction), 'id')
 }
 
 module.exports = {
