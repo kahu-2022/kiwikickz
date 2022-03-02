@@ -76,7 +76,7 @@ function Nav(props) {
           title: element.name,
           description: 'UNAVAILABLE',
           image: `data:image/jpg;base64,${element.image1}`,
-          price: 'ITEM SOLD!!!',//amount(element.price, 0, 100, 2, '$'),
+          price: <Header as='h5' color='red'>ITEM SOLD</Header>,//amount(element.price, 0, 100, 2, '$'),
           id: element.id
           }
       }
