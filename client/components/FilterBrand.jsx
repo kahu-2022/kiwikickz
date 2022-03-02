@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { Grid , Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { Grid, Container, Checkbox, GridRow, GridColumn, Header, Radio } from 'semantic-ui-react'
+import { filters } from '../actions/products'
+
 
 function FilterBrand() {
 
@@ -16,24 +18,24 @@ function FilterBrand() {
       </GridRow>
       <GridRow>
         <GridColumn>
-          <Checkbox/>  - NIKE   
+            <Checkbox onClick={() => { dispatch(filters({key: 'brand', value: 'Nike'})) }}/>  - NIKE   
         </GridColumn>
         <GridColumn>
-          <Checkbox/> - ADIDAS  
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Adidas' })) }}/> - ADIDAS  
         </GridColumn>
         <GridColumn>
-          <Checkbox/>  - YEEZY  
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Yeezy' })) }}/>  - YEEZY  
         </GridColumn>
       </GridRow>
       <GridRow>
         <GridColumn>
-          <Checkbox/> - NB   
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Nb' })) }}/> - NB   
         </GridColumn>
         <GridColumn>
-          <Checkbox/> - REEBOK  
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Reebok' })) }}/> - REEBOK  
         </GridColumn>
         <GridColumn>
-          <Checkbox/> - VANS  
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Vans' })) }}/> - VANS  
         </GridColumn>
       </GridRow>
 

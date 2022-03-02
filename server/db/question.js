@@ -7,11 +7,10 @@ function getQuestions(db = connection) {
 
 function addQuestion(obj, db = connection) {
     return db('question')
-    .insert(obj)
+    .insert(obj , 'id')
 }
 
 function updateQuestion(obj, db = connection) {
-    console.log(obj)
     const questionId = Number(obj.id)
     return db('question')
     .update(obj)

@@ -2,14 +2,15 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Container, Header, Divider, Button,  Item  } from 'semantic-ui-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import SuccessItem from './SuccessItem'
 import { emptyCart, emptyCartTotal } from '../actions/products'
 
 
 
 export default function Success() {
-    const location = useLocation
+    const allTransactions = useSelector(globalState => globalState.allTransactions)
+
     const cart = useSelector(globalState => globalState.cart)
     const amount = useSelector(globalState => globalState.cartTotal)
     const dispatch = useDispatch()

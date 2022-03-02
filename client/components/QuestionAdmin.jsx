@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	getAllQuestionsThunk,
-	addQuestionThunk,
-	updateQuestionThunk,
-} from "../actions/questions";
+import React, {useState, useEffect } from 'react';
+import { useSelector, useDispatch} from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getAllQuestionsThunk, updateQuestionThunk } from '../actions/questions'
+import { getAllProductsThunk } from '../actions/products'
 import {
 	Button,
 	Container,
@@ -15,28 +13,32 @@ import {
 	Header,
 	Grid,
 	Divider,
+  Modal,
+  Image,
+  Embed,
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+
 
 function QuestionAdmin() {
-	const dispatch = useDispatch();
-	const allQuestions = useSelector((globalState) => globalState.allQuestions);
+  
+  const dispatch = useDispatch()
+  const allQuestions = useSelector(globalState => globalState.allQuestions)
+  const allProducts = useSelector(globalState => globalState.allProducts)
+  
+  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
+  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
 
-	const unansweredQuestions = allQuestions.filter(
-		(question) => question.status == "unanswered"
-	);
+  const [open, setOpen] = React.useState(false)
 
-	const answeredQuestions = allQuestions.filter(
-		(question) => question.status == "answered"
-	);
 
-	const defaultState = {
+  useEffect(() => {
+    dispatch(getAllQuestionsThunk())
+    dispatch(getAllProductsThunk())
+  }, [])
+
+  const defaultState = {
 		answer: "",
 	};
-
-	useEffect(() => {
-		dispatch(getAllQuestionsThunk());
-	}, []);
 
 	const [answer, setAnswer] = useState(defaultState);
 
@@ -62,26 +64,27 @@ function QuestionAdmin() {
 			createdAt: createdAt,
 		};
 		dispatch(updateQuestionThunk(newQuestion));
-		setAnswer(defaultState);
+    setAnswer(defaultState);
 	};
 
 	return (
 		<>
 			<Container>
-				<Link to='/admin'>go back to admin</Link>
+				<Link to='/admin'>back to admin </Link>
 			</Container>
+
 			<Container className='question-box'>
 				<h2>Unanswered Questions</h2>
 				<br />
-				<ul>
+
+				<ul id="no_bullets">
 					{unansweredQuestions.map((ele) => (
 						<>
-							{/* <li key = {ele.id}> */}
-
-							<Header as='h5'>
-								Question: {ele.question} ({ele.createdAt})
-							</Header>
-
+							<li key = {ele.id} as='h5'>
+              <Header key = {ele.id}>
+								Q: {ele.question} <span className='notbold'>({ele.createdAt} </span>)
+                </Header>
+      
 							<Form
 								type='submit'
 								onSubmit={(e) =>
@@ -104,8 +107,10 @@ function QuestionAdmin() {
 									/>
 								</Form.Field>
 								<Button onClick={(e) => handleSubmit}>submit</Button>
+                <br/>
+                <br/>
 							</Form>
-							{/* </li> */}
+							</li>
 						</>
 					))}
 				</ul>
@@ -127,4 +132,4 @@ function QuestionAdmin() {
 		</>
 	);
 }
-export default QuestionAdmin;
+export default QuestionAdmin
