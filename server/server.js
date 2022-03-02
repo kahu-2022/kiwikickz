@@ -5,7 +5,9 @@ const bodyParser = require('body-parser')
 
 const productRoutes = require('./routes/product')
 const questionRoutes = require('./routes/question')
-const stripe = require('./routes/stripe')
+const stripeRoute = require('./routes/stripe')
+const transactionRoute = require('./routes/transaction')
+
 
 const server = express()
 
@@ -17,7 +19,9 @@ server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/api/v1/product', productRoutes)
 server.use('/api/v1/question', questionRoutes)
-server.use('/api/v1/payment', stripe)
+server.use('/api/v1/payment', stripeRoute)
+server.use('/api/v1/transaction', transactionRoute)
+
 
 
 server.get('*', (req, res) => {

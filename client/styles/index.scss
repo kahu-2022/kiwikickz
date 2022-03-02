@@ -36,3 +36,26 @@ h2 {
   margin-top: 1vw;
   color: gray;
 }
+
+.imagecontainer {
+  margin: auto;
+width: 75%;
+padding: 10px;
+}
+
+.profilePic {
+  display: inline-block;
+  margin: 20px;
+}
+
+.profileName {
+  text-align: center;
+}
+
+.notbold {
+  font-weight:normal
+}
+
+.no_bullets {
+list-style-type: none;
+}

@@ -71,7 +71,7 @@ function UserQuestion () {
         </Form.Field>
         <Button onClick={e => handleSubmit}>submit</Button>
       </Form>
-      { asked ? <p className='qsubmit'>Thanks for your question. Admins will respond at their neareast cconvenience</p> : null }
+      { asked ? <p className='qsubmit'>Thanks for your question. Admins will respond at their neareast convenience</p> : null }
       </Container>
 
     </>

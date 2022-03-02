@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux'
 import { Image, Container, Segment , Header, Divider , Grid} from 'semantic-ui-react'
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { getAllProductsThunk } from '../actions/products'
 import MakeOffer from './MakeOffer';
+import { getAllTransactionThunk } from '../actions/transaction';
 import QuestionUser from "./QuestionUser";
 
 function Product () {
@@ -19,12 +19,13 @@ function Product () {
 
 //add loader / skeleton
   useEffect(() => {
-    dispatch(getAllProductsThunk())
+    dispatch(getAllTransactionThunk())
   }, [])
 
   return (
     <>
      <Container>
+       {shoe?.status === 'sold' ? <Header as='h4' color='red' textAlign='center'>This product is no longer available sorry.</Header> : null}
       <Container id="Carousel">
       <Divider/>
       <Header as='h2'>{shoe?.name}</Header>
@@ -37,10 +38,10 @@ function Product () {
       
       <Divider/>
       </Container>
-
+      {shoe?.status === 'sold' ? null :
       <Container>
         <QuestionUser />
-      </Container>
+      </Container> }
     </>
   )
 }
