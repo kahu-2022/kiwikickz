@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { Routes, Route, Link, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import Cart from './Cart'
 import Home from './Home'
 import Product from './Product'
@@ -8,7 +8,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 import QuestionAdmin from './QuestionAdmin'
 import About from './About'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { getAllProductsThunk } from '../actions/products'
 import { filters } from '../actions/products'
@@ -24,25 +24,18 @@ import Admin from './Admin'
 import {
   Icon,
   Grid,
-  Header,
-  Image,
   Menu,
   Segment,
   Sidebar,
-  GridColumn,
-  Accordion,
-  Input,
   Checkbox
 } from "semantic-ui-react"
 
 
 function App() {
   const [visible, setVisible] = useState(false)
-  const [toggleSearch, setToggleSearch] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const isProductArrFull = useSelector(state => state.allProducts)
 
 
   useEffect(() => {
