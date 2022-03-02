@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
-import React, { useState } from 'react'
-import { Container, Header, Divider, Button } from 'semantic-ui-react'
-import cart from '../reducers/cart'
+import React from 'react'
+import { Container, Header, Button } from 'semantic-ui-react'
 import CartItem from './CartItem'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { addTransactionThunk } from '../actions/transaction'
-import { getAllProductsThunk, updateStatus} from '../actions/products'
+import { updateStatus} from '../actions/products'
 
 
 const KEY = 'pk_test_51KWbgYFReKnnv8idD5AniOTrgkHf4So0DdrlwUX8DmgsYcZ1MdH9ldHY6NX609yIEnBgqskqcmqnFvGLyl0C3KoF00dLM80Ga9'
@@ -67,9 +66,6 @@ function Cart() {
     })
       .catch(err => console.log(err))
   }
-
-
-
 
   return (
     <div>
