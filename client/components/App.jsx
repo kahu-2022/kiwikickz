@@ -93,7 +93,7 @@ function App() {
                 Filter
               </Menu.Item>
                   <Menu.Item>
-                    🔥 HOTPICKS 🔥 <Checkbox onClick={() => { dispatch(filters({ key: 'hot_pick', value: 1 })) }}/>
+                    🔥 HOTPICKS 🔥 <Checkbox onClick={() => { dispatch(filters({ key: 'hotPick', value: 1 })) }}/>
                   </Menu.Item>
                   <Menu.Item>
                     <FilterBrand />
