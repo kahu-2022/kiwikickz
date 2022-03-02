@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { RemovePriceFromCart } from '../actions/products'
 
-import Product from './Product'
-
 function CartItem(props) {
   const cartItem = props.data
   const dispatch = useDispatch()
