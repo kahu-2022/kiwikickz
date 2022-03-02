@@ -1,9 +1,8 @@
-import React, {useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import * as Base64 from 'base64-arraybuffer'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { Image, Container, Segment , Header, Divider , Grid} from 'semantic-ui-react'
+import { Container, Header, Divider , Grid} from 'semantic-ui-react'
 import ImageCarousel from "./ImageCarousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import MakeOffer from './MakeOffer';
