@@ -1,10 +1,8 @@
 import React from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { Container, Card, Icon, Image, Grid} from 'semantic-ui-react'
+import { Container, Card } from 'semantic-ui-react'
 
 function Admin () {
-//   <Grid container columns={1} divided stackable>
-// </Grid>
+
   return (
     <>
     <h2>Admin Page</h2>
