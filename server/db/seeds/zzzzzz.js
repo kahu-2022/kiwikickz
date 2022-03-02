@@ -12,7 +12,7 @@ exports.seed = (knex) => {
         console.log(sequence, table)
         console.log(`select setval('${sequence}', (select max(id) from ${table}) + 1);`)
         return knex.raw(`select setval('${sequence}', (select max(id) from ${table}) + 1)`)
-        
+        .then( () => {})
       }))
       .then(results => {
         console.log(results)
