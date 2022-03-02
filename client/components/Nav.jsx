@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { Menu, Icon, Input, Header, Search, Grid, Segment } from 'semantic-ui-react'
+import { useSelector } from 'react-redux'
+import { Menu, Icon, Header, Search } from 'semantic-ui-react'
 import _ from 'lodash'
 
 //helper function to format the Prices in the pop-up cards
