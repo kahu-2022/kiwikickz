@@ -39,6 +39,19 @@ router.patch('/', (req, res) => {
     })
 })
 
+router.delete('/', (req, res) => {
+  const id = req.body.id
+  console.log(req.body.id)
+  db.deleteQuestion(id)
+  .then((numberOfDeleteItem) => {
+   res.send('Question deleted successfully.') 
+   return null
+  })
+  .catch((err) => {
+    console.error("Database: " + err.message)
+    })
+})
+
   module.exports = router
 
  
