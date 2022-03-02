@@ -25,6 +25,7 @@ function Product () {
   return (
     <>
      <Container>
+       {shoe?.status === 'sold' ? <Header as='h4' color='red' textAlign='center'>This product is no longer available sorry.</Header> : null}
       <Container id="Carousel">
       <Divider/>
       <Header as='h2'>{shoe?.name}</Header>

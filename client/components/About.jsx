@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector } from 'react-redux'
 import { getAllProductsThunk } from '../actions/products'
-import {Container , Divider, Header, Image} from 'semantic-ui-react'
+import {Container , Divider, Header, Image, Grid} from 'semantic-ui-react'
 
  
 function Home () {
