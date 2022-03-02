@@ -1,4 +1,3 @@
-
 function allTransactions (state = [], action) {
     switch (action.type) {
         case "GET_ALL_TRANSACTIONS":
