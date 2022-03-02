@@ -1,6 +1,5 @@
 import { getAllProduct, addProduct, updateProductStatus } from '../apis'
 
-
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
 
 export function getAllProductsAction(productArr) {
