@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { useSelector, useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getAllQuestionsThunk, updateQuestionThunk, deleteQuestionThunk } from '../actions/questions'
+import { getAllQuestionsThunk, updateQuestionThunk } from '../actions/questions'
 import { getAllProductsThunk } from '../actions/products'
 import {
 	Button,
@@ -25,8 +25,8 @@ function QuestionAdmin() {
   const allQuestions = useSelector(globalState => globalState.allQuestions)
   const allProducts = useSelector(globalState => globalState.allProducts)
   
-  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered')
-  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' ) 
+  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
+  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
 
   const [open, setOpen] = React.useState(false)
 
@@ -66,18 +66,6 @@ function QuestionAdmin() {
 		dispatch(updateQuestionThunk(newQuestion));
     setAnswer(defaultState);
 	};
-	const handleDelete = (e, id) => {
-		e.preventDefault();
-			let text = "Are you sure you want to delete this question?";
-			if (confirm(text) == true) {
-			dispatch(deleteQuestionThunk({"id": id}))
-			.then((confirmationString)=> {
-			console.log(confirmationString)
-		})
-			} else {
-				console.log("Question still there.");
-			}
-	}
 
   const returnURLId = (id) => {
     const productId = (allProducts ? allProducts.find(product => product.id == id) : "loading")
@@ -101,7 +89,7 @@ function QuestionAdmin() {
 				<br />
 				<ul className="no_bullets">
 					{unansweredQuestions.map((ele) => (
-						<div key = {ele.name + ele.id}>
+						<>
               <br/>
 							<li key = {ele.id} as='h5'>
               <Header key = {ele.id}>
@@ -129,26 +117,27 @@ function QuestionAdmin() {
 									/>
 								</Form.Field>
 								<Button onClick={(e) => handleSubmit}>submit</Button>
-								<Button onClick={(e) => {handleDelete(e, ele.id)}}>delete</Button>
                 <br/>
                 <br/>
 							</Form>
 							</li>
-						</div>
+						</>
 					))}
 				</ul>
 
 				<h2>Answered Questions</h2>
-				<br />
-				<ul>
+        <br/>
+
+				<ul className="no_bullets">
 					{answeredQuestions.map((ele) => (
-						<>
+						<li >
 							<Header as='h5' key={ele.id}>
 								{" "}
-								Q :{ele.question} ({ele.updatedAt.slice(8, 10)}.{ele.updatedAt.slice(5, 7)}.{ele.updatedAt.slice(2, 4)} 🕒 {ele.updatedAt.slice(11, 16)})
+								Q: {ele.question} <span className='notbold'>({ele.createdAt.slice(8, 10)}.{ele.createdAt.slice(5, 7)}.{ele.createdAt.slice(2, 4)} 🕒 {ele.createdAt.slice(11, 16)}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
 							</Header>
-							<p>A : {ele.answer}</p>
-						</>
+							<p>A : {ele.answer} <span className='notbold'>({ele.createdAt.slice(8, 10)}.{ele.createdAt.slice(5, 7)}.{ele.createdAt.slice(2, 4)} 🕒 {ele.createdAt.slice(11, 16)}</span> ) </p>
+              <br />						
+            </li>
 					))}
 				</ul>
 			</Container>

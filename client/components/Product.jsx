@@ -35,7 +35,6 @@ function Product () {
       </Grid>
       </Container>
 
-      
       <Divider/>
       </Container>
       {shoe?.status === 'sold' ? null :
