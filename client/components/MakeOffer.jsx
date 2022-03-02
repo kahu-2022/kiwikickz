@@ -11,8 +11,6 @@ function MakeOffer(props) {
   const dispatch = useDispatch()
   const [offer, setOffer] = useState(false)
 
-  
-
   const handleBuyNow = () => {
     dispatch(addToCart(product))
     dispatch(addPriceToCart(product))
@@ -22,8 +20,6 @@ function MakeOffer(props) {
   const toggleOffer=() =>{
     return offer ? setOffer(false) : setOffer(true)
   }
-
-  
   
   const dropOffer=() => {
    return (
