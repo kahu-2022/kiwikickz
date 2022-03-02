@@ -1,5 +1,6 @@
 import request from "superagent"
 
+// Product API's
 export function getAllProduct() {
   return request.get('/api/v1/product')
     .then(res => res.body)
@@ -17,11 +18,7 @@ export function updateProductStatus(productIds) {
     .then(res => res.body)
 }
 
-export function getAllQuestion() {
-  return request.get('/api/v1/question')
-    .then(res => res.body)
-}
-
+// Transaciton API's
 export function getAllTransaction() {
   return request.get('/api/v1/transaction')
     .then(res => res.body)
@@ -33,27 +30,26 @@ export function addTransaction(transaction) {
     .then(res => res.body)
 }
 
+// Question API's
+export function getAllQuestion() {
+  return request.get('/api/v1/question')
+    .then(res => res.body)
+}
+
 export function addQuestion(question) {
-  return request
-  .post('/api/v1/question')
+  return request.post('/api/v1/question')
   .send(question)
   .then(res => res.body)
 }
 
 export function updateQuestion(questionToUpdate) {
-  return request
-  .patch('/api/v1/question')
+  return request.patch('/api/v1/question')
   .send(questionToUpdate)
   .then(res => res.body)
 }
 
-
 export function deleteQuestion(id) {
-  return request
-  .delete('/api/v1/question')
+  return request.delete('/api/v1/question')
   .send(id)
   .then(res => res.body)
 }
-
-
-
