@@ -17,8 +17,17 @@ function updateQuestion(obj, db = connection) {
     .where('id', questionId)
 }
 
+function deleteQuestion(id, db = connection) {
+    const questionId = Number(id)
+    return db('question')
+    .where({ id: questionId })
+    .del()
+}
+
 module.exports = {
     getQuestions,
     addQuestion,
-    updateQuestion
+    updateQuestion,
+    deleteQuestion
+
 }
