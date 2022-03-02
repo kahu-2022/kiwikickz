@@ -37,32 +37,32 @@ function Home () {
         </p>
         <Header as='h2'>Who are we?</Header>
 
-        <Grid columns={6} className="imagecontainer">
-            <Grid.Column className="profilePic">
+        <div className="imagecontainer">
+            <div className="profilePic">
               <Image size ='tiny' src='/teampics/Andreas.png' />
-              <Header as='h4' className="profileName">Andreas</Header>
-            </Grid.Column>
-            <Grid.Column className="profilePic">
+              <p className="profileName">Andreas</p>
+            </div>
+            <div className="profilePic">
               <Image size ='tiny' src='/teampics/Lewis.png' />
-              <Header as='h4' className="profileName">Lewis</Header>
-            </Grid.Column>
-            <Grid.Column className="profilePic">
+              <p className="profileName">Lewis</p>
+            </div>
+            <div className="profilePic">
               <Image size ='tiny' src='/teampics/Mei.png' />
-              <Header as='h4' className="profileName">Mei</Header>
-            </Grid.Column>
-            <Grid.Column className="profilePic">
+              <p className="profileName">Mei</p>
+            </div>
+            <div className="profilePic">
               <Image size ='tiny' src='/teampics/Nikolai.png' />
-              <Header as='h4' className="profileName">Nikolai</Header>
-            </Grid.Column>
-            <Grid.Column className="profilePic">
+              <p className="profileName">Nikolai</p>
+            </div>
+            <div className="profilePic">
               <Image size ='tiny' src='/teampics/Sam.png' />
-              <Header as='h4' className="profileName">Sam</Header>
-            </Grid.Column>
-            <Grid.Column className="profilePic">
+              <p className="profileName">Sam</p>
+            </div>
+            <div className="profilePic">
               <Image size ='tiny' src='/teampics/Sonny.png' />
-              <Header as='h4' className="profileName">Sonny</Header>
-            </Grid.Column>
-          </Grid>
+              <p className="profileName">Sonny</p>
+            </div>
+          </div>
 
     </Container>
     </div>
