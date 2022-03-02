@@ -38,10 +38,10 @@ function Product () {
       
       <Divider/>
       </Container>
-
+      {shoe?.status === 'sold' ? null :
       <Container>
         <QuestionUser />
-      </Container>
+      </Container> }
     </>
   )
 }

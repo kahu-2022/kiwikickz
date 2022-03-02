@@ -79,6 +79,17 @@ function QuestionAdmin() {
 			}
 	}
 
+  const returnURLId = (id) => {
+    const productId = (allProducts ? allProducts.find(product => product.id == id) : "loading")
+    return productId ? productId.id : "loading"
+  }
+
+  const returnProdName = (id) => {
+    const productName = (allProducts ? allProducts.find(product => product.id == id) : "loading")
+    return productName ? productName.name : "loading"
+  }
+// console.log(productName ? productName.id : "loading")
+
 	return (
 		<>
 			<Container>
@@ -88,15 +99,14 @@ function QuestionAdmin() {
 			<Container className='question-box'>
 				<h2>Unanswered Questions</h2>
 				<br />
-
-				<ul id="no_bullets">
+				<ul className="no_bullets">
 					{unansweredQuestions.map((ele) => (
 						<>
+              <br/>
 							<li key = {ele.id} as='h5'>
               <Header key = {ele.id}>
-								Q: {ele.question} <span className='notbold'>({ele.createdAt} </span>)
-                </Header>
-      
+								Q: {ele.question} <span className='notbold'>({ele.createdAt}</span> ) <a href={`/product/${returnURLId(ele.productId)}`} target="_blank">{returnProdName(ele.productId)}</a>
+              </Header>
 							<Form
 								type='submit'
 								onSubmit={(e) =>
