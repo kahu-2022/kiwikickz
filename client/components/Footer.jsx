@@ -2,6 +2,7 @@ import React from 'react'
 import {Icon , Header , Divider } from 'semantic-ui-react'
 
 function Footer () {
+  
   return (
     <>
     <Header as = 'h2' textAlign='center' >
