@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  //console.log("Transaction Route")
   const transaction = req.body
   db.addTransaction(transaction)
     .then((id) => {
