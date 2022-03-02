@@ -25,8 +25,8 @@ function QuestionAdmin() {
   const allQuestions = useSelector(globalState => globalState.allQuestions)
   const allProducts = useSelector(globalState => globalState.allProducts)
   
-  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered' )
-  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' )
+  const unansweredQuestions = allQuestions.filter((question) => question.status == 'unanswered')
+  const answeredQuestions = allQuestions.filter((question) => question.status == 'answered' ) 
 
   const [open, setOpen] = React.useState(false)
 
@@ -101,7 +101,7 @@ function QuestionAdmin() {
 				<br />
 				<ul className="no_bullets">
 					{unansweredQuestions.map((ele) => (
-						<>
+						<div key = {ele.name + ele.id}>
               <br/>
 							<li key = {ele.id} as='h5'>
               <Header key = {ele.id}>
@@ -134,7 +134,7 @@ function QuestionAdmin() {
                 <br/>
 							</Form>
 							</li>
-						</>
+						</div>
 					))}
 				</ul>
 
