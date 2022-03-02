@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch} from 'react-redux'
 import * as Base64 from 'base64-arraybuffer'
-import { Button, Container, Form, Dropdown , Grid, Divider} from 'semantic-ui-react'
+import { Button, Container, Form, Dropdown , Grid} from 'semantic-ui-react'
 import { options } from 'superagent'
 
 import {addProductThunk} from '../actions/products'
@@ -197,6 +197,7 @@ function AddProduct () {
           onChange= {(e, data) => {setSize(data.value)}}
           value = {options.value}
         />
+
         {/* <input id='size' name='size' type='number' onChange={handleChange} /> */}
         </Form.Field>
 
@@ -227,6 +228,7 @@ function AddProduct () {
           onChange= {(e, data) => {setCondition(data.value)}}
           value = {options.value}
         />
+        
         {/* <input id='condition' name='condition' type='text' onChange={handleChange} /> */}
         </Form.Field>
 
@@ -234,8 +236,6 @@ function AddProduct () {
         <label htmlFor='price'>Price: </label>
         <input id='price' name='price' type='number' onChange={handleChange} />
         </Form.Field>
-
-
 
        {/* Extra Checkbox Details of Fields */} 
         <Form.Field>
@@ -256,7 +256,6 @@ function AddProduct () {
         </Form.Field>
         
         {/* Image uploading Fields */} 
-        
         <Form.Field>
         <label htmlFor='addImg1'>Image 1: </label>
         <input type='file' id='addImg1' name='image1' onChange={handleFileChange} />
