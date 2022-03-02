@@ -1,4 +1,3 @@
-import { handleRef } from '@fluentui/react-component-ref'
 import React from 'react'
 import { Icon, Label , Grid} from 'semantic-ui-react'
 
