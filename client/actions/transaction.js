@@ -1,14 +1,11 @@
 import { getAllTransaction, addTransaction } from '../apis'
 
-
-
 export function getAllTransactionsAction(transactionArr) {
     return {
         type: "GET_ALL_TRANSACTIONS",
         transactionArr
     }
 }
-
 
 export function getAllTransactionThunk() {
     return (dispatch) => {
