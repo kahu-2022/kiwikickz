@@ -1,5 +1,9 @@
 # KiwiKickz
 
+## Deployed At
+
+https://kiwikickz.herokuapp.com/
+
 ## Final Group Project
 
 Welcome to KiwiKickz, New Zealands one stop shop for buying and selling Authenticated Footwear. Buyers can purchase new & used products on our nationwide market place with the confidence that the products are Authentic, not fake.
