@@ -59,16 +59,33 @@ function Nav(props) {
   useEffect(() => {
 
     const productsFormated = products ? products.map(element => {
-      return {
-        title: element.name,
-        description: `${element.details}`.substring(0, 30),
-        image: `data:image/jpg;base64,${element.image1}`,
-        price: amount(element.price, 0, 100, 2, '$'),
-        id: element.id
+      
+      let returnedItem = {}
+  
+      if(element.status == "available") {
+          returnedItem = {
+          title: element.name,
+          description: `${element.details}`.substring(0, 30),
+          image: `data:image/jpg;base64,${element.image1}`,
+          price: amount(element.price, 0, 100, 2, '$'),
+          id: element.id
+          }
       }
+      else if(element.status == "sold") {
+          returnedItem = {
+          title: element.name,
+          description: 'UNAVAILABLE',
+          image: `data:image/jpg;base64,${element.image1}`,
+          price: <Header as='h5' color='red'>ITEM SOLD</Header>,//amount(element.price, 0, 100, 2, '$'),
+          id: element.id
+          }
+      }
+      return returnedItem
     }) : null
     source = productsFormated
   }, [products])
+
+
 
   const [state, dispatch] = React.useReducer(exampleReducer, initialState)
   const { loading, results, value } = state

@@ -24,12 +24,12 @@ function FilterBrand() {
             <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Adidas' })) }}/> - ADIDAS  
         </GridColumn>
         <GridColumn>
-            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Yeezy' })) }}/>  - YEEZY  
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Adidas' })) }}/>  - YEEZY  
         </GridColumn>
       </GridRow>
       <GridRow>
         <GridColumn>
-            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Nb' })) }}/> - NB   
+            <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'New Balance' })) }}/> - NB   
         </GridColumn>
         <GridColumn>
             <Checkbox onClick={() => { dispatch(filters({ key: 'brand', value: 'Reebok' })) }}/> - REEBOK  

@@ -23,7 +23,6 @@ server.use('/api/v1/payment', stripeRoute)
 server.use('/api/v1/transaction', transactionRoute)
 
 
-
 server.get('*', (req, res) => {
   res.sendFile(path.resolve('server/public/index.html'))
 })
